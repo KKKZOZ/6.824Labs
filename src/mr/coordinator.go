@@ -39,10 +39,19 @@ type Coordinator struct {
 	listMutex sync.Mutex
 
 	// to determine whether the job is done
-	completed bool
+	completed WithMutex[bool]
 
 	// file list
 	files []string
+
+	// for better debug experience
+
+	registedWorkerCnt WithMutex[int]
+}
+
+type WithMutex[T any] struct {
+	mu   sync.Mutex
+	data T
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -50,6 +59,10 @@ type Coordinator struct {
 func (c *Coordinator) GetBasicInfo(args *ExampleArgs, reply *BasicInfo) error {
 	reply.M = c.M
 	reply.N = c.N
+	c.registedWorkerCnt.mu.Lock()
+	defer c.registedWorkerCnt.mu.Unlock()
+	c.registedWorkerCnt.data++
+	reply.Id = c.registedWorkerCnt.data
 	return nil
 }
 
@@ -159,7 +172,9 @@ func (c *Coordinator) TaskDone(args *TaskInfo, reply *ExampleReply) error {
 				log.Println("Master: All tasks are done")
 				go func() {
 					time.Sleep(5 * time.Second)
-					c.completed = true
+					c.completed.mu.Lock()
+					c.completed.data = true
+					c.completed.mu.Unlock()
 				}()
 
 			}
@@ -214,7 +229,9 @@ func (c *Coordinator) server() {
 // main/mrcoordinator.go calls Done() periodically to find out
 // if the entire job has finished.
 func (c *Coordinator) Done() bool {
-	return c.completed
+	c.completed.mu.Lock()
+	defer c.completed.mu.Unlock()
+	return c.completed.data
 }
 
 // create a Coordinator.
@@ -231,7 +248,8 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 		mapTaskList:        make([]TaskState, len(files)),
 		reduceTaskList:     make([]TaskState, nReduce),
 		files:              files,
-		completed:          false,
+		completed:          WithMutex[bool]{data: false, mu: sync.Mutex{}},
+		registedWorkerCnt:  WithMutex[int]{data: 0, mu: sync.Mutex{}},
 	}
 
 	// Your code here.

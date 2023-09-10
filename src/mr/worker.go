@@ -36,12 +36,11 @@ func ihash(key string) int {
 
 var M int = 0
 var N int = 0
+var Id int = 0
 
 // main/mrworker.go calls this function.
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
-
-	// Your worker implementation here.
 
 	// get basic info of current job
 	getBasicInfo()
@@ -52,11 +51,11 @@ EndlessLoop:
 		time.Sleep(1 * time.Second)
 		taskInfo, err := getTaskInfo()
 		if err != nil {
-			log.Printf("Worker %v: exiting for unknown reason...", os.Getpid())
+			log.Printf("Worker %v: exiting for unknown reason...", Id)
 			break
 		}
 
-		log.Printf("Worker %v: Get Task: %v\n", os.Getpid(), taskInfo)
+		log.Printf("Worker %v: Get Task: %v\n", Id, taskInfo)
 
 		switch taskInfo.TaskType {
 		case "Wait":
@@ -76,7 +75,7 @@ EndlessLoop:
 }
 
 func TaskDone(taskInfo TaskInfo) {
-	log.Printf("Worker %v: TaskDone: %v\n", os.Getpid(), taskInfo)
+	log.Printf("Worker %v: TaskDone: %v\n", Id, taskInfo)
 	args := taskInfo
 	reply := ExampleReply{}
 	ok := call("Coordinator.TaskDone", &args, &reply)
@@ -93,7 +92,7 @@ func execReduceTask(taskInfo TaskInfo, reducef func(string, []string) string) {
 		fileName := fmt.Sprintf("mr-%d-%d", i, taskInfo.TaskId)
 		file, err := os.Open(fileName)
 		if err != nil {
-			log.Fatalf("Worker %v: cannot open %v", os.Getpid(), fileName)
+			log.Fatalf("Worker %v: cannot open %v", Id, fileName)
 		}
 
 		dec := json.NewDecoder(file)
@@ -190,6 +189,7 @@ func getBasicInfo() {
 	if ok {
 		M = reply.M
 		N = reply.N
+		Id = reply.Id
 	}
 }
 
@@ -201,7 +201,7 @@ func call(rpcname string, args interface{}, reply interface{}) bool {
 	sockname := coordinatorSock()
 	c, err := rpc.DialHTTP("unix", sockname)
 	if err != nil {
-		log.Fatal("Worker %v: dialing:", os.Getpid(), err)
+		log.Printf("Worker %v: dialing:%v\n", Id, err)
 		return false
 	}
 	defer c.Close()

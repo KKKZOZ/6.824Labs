@@ -17,8 +17,9 @@ import (
 //
 
 type BasicInfo struct {
-	M int
-	N int
+	M  int
+	N  int
+	Id int
 }
 
 type TaskInfo struct {
