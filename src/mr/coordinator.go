@@ -1,12 +1,12 @@
 package mr
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"net/http"
 	"net/rpc"
 	"os"
+	"sync"
 	"time"
 )
 
@@ -27,11 +27,21 @@ type Coordinator struct {
 	// the number fo completed Reduce Task
 	completedReduceCnt int
 
+	// the mutex for cnt
+	cntMutex sync.Mutex
+
 	// store states of map tasks
 	mapTaskList []TaskState
 	// store states of reduce tasks
 	reduceTaskList []TaskState
 
+	// the mutex for taskList
+	listMutex sync.Mutex
+
+	// to determine whether the job is done
+	completed bool
+
+	// file list
 	files []string
 }
 
@@ -43,38 +53,78 @@ func (c *Coordinator) GetBasicInfo(args *ExampleArgs, reply *BasicInfo) error {
 	return nil
 }
 
+// Set updates the state of a map or reduce task in the coordinator's task list.
+// taskType specifies the type of task list (either "mapTaskList" or "reduceTaskList").
+// id specifies the id of the task to be updated.
+// state specifies the new state of the task.
+func (c *Coordinator) Set(taskType string, id int, state int) {
+	c.listMutex.Lock()
+	defer c.listMutex.Unlock()
+	if taskType == "mapTaskList" {
+		c.mapTaskList[id].State = state
+	}
+	if taskType == "reduceTaskList" {
+		c.reduceTaskList[id].State = state
+	}
+}
+
+// Get returns the state of a map or reduce task with the given id.
+// The taskType parameter should be either "mapTaskList" or "reduceTaskList".
+// Returns 0 if the taskType is invalid or the id is out of range.
+func (c *Coordinator) Get(taskType string, id int) int {
+	c.listMutex.Lock()
+	defer c.listMutex.Unlock()
+	if taskType == "mapTaskList" {
+		return c.mapTaskList[id].State
+	}
+	if taskType == "reduceTaskList" {
+		return c.reduceTaskList[id].State
+	}
+	return 0
+}
+
 func (c *Coordinator) GetTask(args *ExampleArgs, reply *TaskInfo) error {
+	c.cntMutex.Lock()
+	defer c.cntMutex.Unlock()
+
+	if c.completedReduceCnt == c.N {
+		reply.TaskType = "Done"
+		return nil
+	}
+
 	if c.completedMapCnt < c.M {
 		reply.TaskType = "Map"
-		id := c.GetIdleTask(c.mapTaskList)
+		id := c.GetIdleTask("Map")
+
 		reply.TaskId = id
 		if id == -1 {
+			reply.TaskType = "Wait"
 			return nil
 		}
 		reply.FileName = c.files[id]
 
-		// TODO : lock
+		// wait for 10 seconds then check
 		go func() {
-			c.mapTaskList[id].State = 1
 			time.Sleep(10 * time.Second)
-			if c.mapTaskList[id].State == 1 {
-				c.mapTaskList[id].State = 0
+			if c.Get("mapTaskList", id) == 1 {
+				c.Set("mapTaskList", id, 0)
+				log.Printf("Master: Map Task %v Timeout, Reschedule...\n", id)
 			}
 		}()
 	} else {
 		reply.TaskType = "Reduce"
-		id := c.GetIdleTask(c.reduceTaskList)
+		id := c.GetIdleTask("Reduce")
 		reply.TaskId = id
 		if id == -1 {
+			reply.TaskType = "Wait"
 			return nil
 		}
-
-		// TODO : lock
+		// wait for 10 seconds then check
 		go func() {
-			c.reduceTaskList[id].State = 1
 			time.Sleep(10 * time.Second)
-			if c.reduceTaskList[id].State == 1 {
-				c.reduceTaskList[id].State = 0
+			if c.Get("reduceTaskList", id) == 1 {
+				c.Set("reduceTaskList", id, 0)
+				log.Printf("Master: Reduce Task %v Timeout, Reschedule...\n", id)
 			}
 		}()
 
@@ -85,42 +135,70 @@ func (c *Coordinator) GetTask(args *ExampleArgs, reply *TaskInfo) error {
 
 func (c *Coordinator) TaskDone(args *TaskInfo, reply *ExampleReply) error {
 	id := args.TaskId
+	c.listMutex.Lock()
+	defer c.listMutex.Unlock()
+	c.cntMutex.Lock()
+	defer c.cntMutex.Unlock()
 	if args.TaskType == "Map" {
 		// only if the task is in progress
 		if c.mapTaskList[id].State == 1 {
 			c.mapTaskList[id].State = 2
 			c.completedMapCnt++
 		}
+
+		log.Println("Master: Map Task Done: ", id, c.completedMapCnt, c.M)
+		log.Println("Master: ", c.mapTaskList)
+
 	} else {
 		// only if the task is in progress
 		if c.reduceTaskList[id].State == 1 {
 			c.reduceTaskList[id].State = 2
 			c.completedReduceCnt++
+
+			if c.completedReduceCnt == c.N {
+				log.Println("Master: All tasks are done")
+				go func() {
+					time.Sleep(5 * time.Second)
+					c.completed = true
+				}()
+
+			}
+
 		}
 	}
 	return nil
 }
 
-func (c *Coordinator) GetIdleTask(list []TaskState) int {
+func (c *Coordinator) GetIdleTask(task string) int {
+	c.listMutex.Lock()
+	defer c.listMutex.Unlock()
+	var list []TaskState
+	if task == "Map" {
+		list = c.mapTaskList
+	}
+	if task == "Reduce" {
+		list = c.reduceTaskList
+	}
+	id := -1
 	for idx, state := range list {
 		if state.State == 0 {
-			return idx
+			id = idx
+			break
 		}
 	}
-	return -1
-}
-
-// an example RPC handler.
-//
-// the RPC argument and reply types are defined in rpc.go.
-func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
-	reply.Y = args.X + 1
-	return nil
+	if id != -1 {
+		if task == "Map" {
+			c.mapTaskList[id].State = 1
+		}
+		if task == "Reduce" {
+			c.reduceTaskList[id].State = 1
+		}
+	}
+	return id
 }
 
 // start a thread that listens for RPCs from worker.go
 func (c *Coordinator) server() {
-	fmt.Println("server start...")
 	rpc.Register(c)
 	rpc.HandleHTTP()
 	//l, e := net.Listen("tcp", ":1234")
@@ -136,19 +214,15 @@ func (c *Coordinator) server() {
 // main/mrcoordinator.go calls Done() periodically to find out
 // if the entire job has finished.
 func (c *Coordinator) Done() bool {
-
-	if c.completedReduceCnt == c.N {
-		return true
-	} else {
-		return false
-	}
-
+	return c.completed
 }
 
 // create a Coordinator.
 // main/mrcoordinator.go calls this function.
 // nReduce is the number of reduce tasks to use.
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
+	log.Printf("Master: MakeCoordinator: M: %v N: %v\n", len(files), nReduce)
+
 	c := Coordinator{
 		M:                  len(files),
 		N:                  nReduce,
@@ -157,6 +231,7 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 		mapTaskList:        make([]TaskState, len(files)),
 		reduceTaskList:     make([]TaskState, nReduce),
 		files:              files,
+		completed:          false,
 	}
 
 	// Your code here.

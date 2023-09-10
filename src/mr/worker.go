@@ -47,17 +47,25 @@ func Worker(mapf func(string, string) []KeyValue,
 	getBasicInfo()
 
 	// Endless for loop
+EndlessLoop:
 	for {
-		time.Sleep(3 * time.Second)
+		time.Sleep(1 * time.Second)
 		taskInfo, err := getTaskInfo()
 		if err != nil {
+			log.Printf("Worker %v: exiting for unknown reason...", os.Getpid())
+			break
+		}
+
+		log.Printf("Worker %v: Get Task: %v\n", os.Getpid(), taskInfo)
+
+		switch taskInfo.TaskType {
+		case "Wait":
 			continue
-		}
-		// Execute task
-		if taskInfo.TaskType == "Map" {
+		case "Done":
+			break EndlessLoop
+		case "Map":
 			execMapTask(taskInfo, mapf)
-		}
-		if taskInfo.TaskType == "Reduce" {
+		case "Reduce":
 			execReduceTask(taskInfo, reducef)
 		}
 
@@ -65,12 +73,10 @@ func Worker(mapf func(string, string) []KeyValue,
 		TaskDone(taskInfo)
 	}
 
-	// uncomment to send the Example RPC to the coordinator.
-	// CallExample()
-
 }
 
 func TaskDone(taskInfo TaskInfo) {
+	log.Printf("Worker %v: TaskDone: %v\n", os.Getpid(), taskInfo)
 	args := taskInfo
 	reply := ExampleReply{}
 	ok := call("Coordinator.TaskDone", &args, &reply)
@@ -87,7 +93,7 @@ func execReduceTask(taskInfo TaskInfo, reducef func(string, []string) string) {
 		fileName := fmt.Sprintf("mr-%d-%d", i, taskInfo.TaskId)
 		file, err := os.Open(fileName)
 		if err != nil {
-			log.Fatalf("cannot open %v", fileName)
+			log.Fatalf("Worker %v: cannot open %v", os.Getpid(), fileName)
 		}
 
 		dec := json.NewDecoder(file)
@@ -155,7 +161,6 @@ func execMapTask(taskInfo TaskInfo, mapf func(string, string) []KeyValue) {
 		for _, kv := range intermediate {
 			if ihash(kv.Key)%N == i {
 				res = append(res, kv)
-				// fmt.Fprintf(file, "%v %v\n", kv.Key, kv.Value)
 			}
 		}
 
@@ -188,33 +193,6 @@ func getBasicInfo() {
 	}
 }
 
-// example function to show how to make an RPC call to the coordinator.
-//
-// the RPC argument and reply types are defined in rpc.go.
-func CallExample() {
-
-	// declare an argument structure.
-	args := ExampleArgs{}
-
-	// fill in the argument(s).
-	args.X = 99
-
-	// declare a reply structure.
-	reply := ExampleReply{}
-
-	// send the RPC request, wait for the reply.
-	// the "Coordinator.Example" tells the
-	// receiving server that we'd like to call
-	// the Example() method of struct Coordinator.
-	ok := call("Coordinator.Example", &args, &reply)
-	if ok {
-		// reply.Y should be 100.
-		fmt.Printf("reply.Y %v\n", reply.Y)
-	} else {
-		fmt.Printf("call failed!\n")
-	}
-}
-
 // send an RPC request to the coordinator, wait for the response.
 // usually returns true.
 // returns false if something goes wrong.
@@ -223,7 +201,8 @@ func call(rpcname string, args interface{}, reply interface{}) bool {
 	sockname := coordinatorSock()
 	c, err := rpc.DialHTTP("unix", sockname)
 	if err != nil {
-		log.Fatal("dialing:", err)
+		log.Fatal("Worker %v: dialing:", os.Getpid(), err)
+		return false
 	}
 	defer c.Close()
 
