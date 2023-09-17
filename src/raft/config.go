@@ -428,6 +428,7 @@ func (cfg *config) checkOneLeader() int {
 		ms := 450 + (rand.Int63() % 100)
 		time.Sleep(time.Duration(ms) * time.Millisecond)
 
+		//fmt.Println("Collecting")
 		leaders := make(map[int][]int)
 		for i := 0; i < cfg.n; i++ {
 			if cfg.connected[i] {
@@ -436,7 +437,7 @@ func (cfg *config) checkOneLeader() int {
 				}
 			}
 		}
-
+		//fmt.Println("Collect State complete")
 		lastTermWithLeader := -1
 		for term, leaders := range leaders {
 			if len(leaders) > 1 {

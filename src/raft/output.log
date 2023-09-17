@@ -1,0 +1,208 @@
+Test (2A): multiple elections ...
+006009 LEAD S3 timeout, starts election T1
+006010 LEAD S2 timeout, starts election T1
+006011 LEAD S5 timeout, starts election T1
+006011 LEAD S0 timeout, starts election T1
+006012 VOTE S1 votes for S3
+006012 VOTE S6 votes for S0
+006012 VOTE S4 votes for S3
+006013 TIMR S1 Resetting ELT, received AppEnt T1
+006013 TIMR S4 Resetting ELT, received AppEnt T1
+006015 TIMR S6 Resetting ELT, received AppEnt T1
+012722 LEAD S4 timeout, starts election T2
+012724 VOTE S6 votes for S4
+012725 VOTE S3 votes for S4
+012726 VOTE S2 votes for S4
+012726 TIMR S6 Resetting ELT, received AppEnt T2
+012726 TIMR S3 Resetting ELT, received AppEnt T2
+012726 VOTE S5 votes for S4
+012726 TIMR S2 Resetting ELT, received AppEnt T2
+012726 VOTE S0 votes for S4
+012727 VOTE S1 votes for S4
+012727 LEAD S4 achieved Majority for T2 (4), converting to leader
+012727 TIMR S4 Leader, checking heartbeats in T2
+012727 TIMR S1 Resetting ELT, received AppEnt T2
+012727 TIMR S0 Resetting ELT, received AppEnt T2
+012727 TIMR S5 Resetting ELT, received AppEnt T2
+012730 TIMR S3 Resetting ELT, received AppEnt T2
+012730 TIMR S5 Resetting ELT, received AppEnt T2
+012730 TIMR S2 Resetting ELT, received AppEnt T2
+012731 TIMR S0 Resetting ELT, received AppEnt T2
+012731 TIMR S6 Resetting ELT, received AppEnt T2
+012732 TIMR S1 Resetting ELT, received AppEnt T2
+013542 TIMR S4 Leader, checking heartbeats in T2
+013544 TIMR S6 Resetting ELT, received AppEnt T2
+013544 TIMR S2 Resetting ELT, received AppEnt T2
+013544 TIMR S0 Resetting ELT, received AppEnt T2
+013544 TIMR S3 Resetting ELT, received AppEnt T2
+013545 TIMR S5 Resetting ELT, received AppEnt T2
+013545 TIMR S1 Resetting ELT, received AppEnt T2
+015048 TIMR S4 Leader, checking heartbeats in T2
+015050 TIMR S2 Resetting ELT, received AppEnt T2
+015050 TIMR S6 Resetting ELT, received AppEnt T2
+015050 TIMR S5 Resetting ELT, received AppEnt T2
+016555 TIMR S4 Leader, checking heartbeats in T2
+016558 TIMR S2 Resetting ELT, received AppEnt T2
+016558 TIMR S6 Resetting ELT, received AppEnt T2
+016559 TIMR S5 Resetting ELT, received AppEnt T2
+018067 TIMR S4 Leader, checking heartbeats in T2
+018069 TIMR S6 Resetting ELT, received AppEnt T2
+018069 TIMR S2 Resetting ELT, received AppEnt T2
+018070 TIMR S5 Resetting ELT, received AppEnt T2
+019573 TIMR S4 Leader, checking heartbeats in T2
+020049 LEAD S1 timeout, starts election T3
+020051 VOTE S6 votes for S1
+020052 VOTE S2 votes for S1
+020053 VOTE S3 votes for S1
+020053 LEAD S1 achieved Majority for T3 (4), converting to leader
+020053 TIMR S1 Leader, checking heartbeats in T3
+020054 TIMR S2 Resetting ELT, received AppEnt T3
+020055 TIMR S3 Resetting ELT, received AppEnt T3
+020055 TIMR S2 Resetting ELT, received AppEnt T3
+020055 TIMR S3 Resetting ELT, received AppEnt T3
+021062 TIMR S1 Leader, checking heartbeats in T3
+021065 TIMR S3 Resetting ELT, received AppEnt T3
+021067 TIMR S2 Resetting ELT, received AppEnt T3
+021084 TIMR S4 Leader, checking heartbeats in T2
+022452 LEAD S0 timeout, starts election T3
+022563 TIMR S1 Leader, checking heartbeats in T3
+022565 TIMR S2 Resetting ELT, received AppEnt T3
+022566 TIMR S3 Resetting ELT, received AppEnt T3
+022587 TIMR S4 Leader, checking heartbeats in T2
+024068 TIMR S1 Leader, checking heartbeats in T3
+024070 TIMR S2 Resetting ELT, received AppEnt T3
+024070 TIMR S3 Resetting ELT, received AppEnt T3
+024093 TIMR S4 Leader, checking heartbeats in T2
+024472 LEAD S5 timeout, starts election T3
+024474 VOTE S4 stepping down from leader in T3
+024474 VOTE S4 votes for S5
+024475 TIMR S4 Resetting ELT, received AppEnt T3
+025573 TIMR S1 Leader, checking heartbeats in T3
+027077 TIMR S1 Leader, checking heartbeats in T3
+028458 LEAD S0 timeout, starts election T4
+028580 TIMR S1 Leader, checking heartbeats in T3
+030085 TIMR S1 Leader, checking heartbeats in T3
+031371 LEAD S2 timeout, starts election T4
+031373 VOTE S4 votes for S2
+031374 VOTE S5 votes for S2
+031374 TIMR S5 Resetting ELT, received AppEnt T4
+031373 VOTE S3 votes for S2
+031374 TIMR S4 Resetting ELT, received AppEnt T4
+031374 TIMR S3 Resetting ELT, received AppEnt T4
+031374 LEAD S2 achieved Majority for T4 (4), converting to leader
+031375 TIMR S2 Leader, checking heartbeats in T4
+031376 TIMR S3 Resetting ELT, received AppEnt T4
+031376 TIMR S4 Resetting ELT, received AppEnt T4
+031377 TIMR S5 Resetting ELT, received AppEnt T4
+031595 TIMR S1 Leader, checking heartbeats in T3
+031598 TIMR S2 Leader, checking heartbeats in T4
+031599 TIMR S4 Resetting ELT, received AppEnt T4
+031600 TIMR S3 Resetting ELT, received AppEnt T4
+031600 TIMR S5 Resetting ELT, received AppEnt T4
+033096 TIMR S1 Leader, checking heartbeats in T3
+033098 TIMR S2 Leader, checking heartbeats in T4
+033100 TIMR S4 Resetting ELT, received AppEnt T4
+033101 TIMR S3 Resetting ELT, received AppEnt T4
+033101 TIMR S5 Resetting ELT, received AppEnt T4
+034600 TIMR S1 Leader, checking heartbeats in T3
+034601 TIMR S2 Leader, checking heartbeats in T4
+034604 TIMR S5 Resetting ELT, received AppEnt T4
+034604 TIMR S0 Resetting ELT, received AppEnt T4
+034604 TIMR S3 Resetting ELT, received AppEnt T4
+036109 TIMR S1 Leader, checking heartbeats in T3
+036110 TIMR S2 Leader, checking heartbeats in T4
+036112 TIMR S3 Resetting ELT, received AppEnt T4
+036112 TIMR S0 Resetting ELT, received AppEnt T4
+036112 TIMR S5 Resetting ELT, received AppEnt T4
+037620 TIMR S2 Leader, checking heartbeats in T4
+037620 TIMR S1 Leader, checking heartbeats in T3
+037623 TIMR S0 Resetting ELT, received AppEnt T4
+037624 TIMR S3 Resetting ELT, received AppEnt T4
+037626 TIMR S5 Resetting ELT, received AppEnt T4
+039123 TIMR S2 Leader, checking heartbeats in T4
+039124 TIMR S1 Leader, checking heartbeats in T3
+039125 TIMR S3 Resetting ELT, received AppEnt T4
+039126 TIMR S5 Resetting ELT, received AppEnt T4
+039128 TIMR S0 Resetting ELT, received AppEnt T4
+040629 TIMR S1 Leader, checking heartbeats in T3
+040630 TIMR S2 Leader, checking heartbeats in T4
+040633 TIMR S3 Resetting ELT, received AppEnt T4
+040636 TIMR S0 Resetting ELT, received AppEnt T4
+040636 VOTE S1 stepping down from leader in T4
+040637 TIMR S1 Resetting ELT, received AppEnt T4
+040637 TIMR S4 Resetting ELT, received AppEnt T4
+042139 TIMR S2 Leader, checking heartbeats in T4
+042141 TIMR S0 Resetting ELT, received AppEnt T4
+042142 TIMR S4 Resetting ELT, received AppEnt T4
+042142 TIMR S3 Resetting ELT, received AppEnt T4
+042142 TIMR S1 Resetting ELT, received AppEnt T4
+043644 TIMR S2 Leader, checking heartbeats in T4
+043646 TIMR S1 Resetting ELT, received AppEnt T4
+043646 TIMR S3 Resetting ELT, received AppEnt T4
+043646 TIMR S0 Resetting ELT, received AppEnt T4
+043647 TIMR S4 Resetting ELT, received AppEnt T4
+045135 LEAD S5 timeout, starts election T5
+045137 VOTE S2 stepping down from leader in T5
+045137 VOTE S1 votes for S5
+045137 VOTE S2 votes for S5
+045138 TIMR S1 Resetting ELT, received AppEnt T5
+045138 TIMR S2 Resetting ELT, received AppEnt T5
+050357 LEAD S3 timeout, starts election T5
+050449 LEAD S0 timeout, starts election T5
+051256 LEAD S4 timeout, starts election T5
+051646 LEAD S2 timeout, starts election T6
+051648 VOTE S1 votes for S2
+051649 VOTE S5 votes for S2
+051650 TIMR S1 Resetting ELT, received AppEnt T6
+051650 TIMR S5 Resetting ELT, received AppEnt T6
+056868 LEAD S3 timeout, starts election T6
+058657 LEAD S0 timeout, starts election T6
+058854 LEAD S1 timeout, starts election T7
+058856 VOTE S2 votes for S1
+058857 VOTE S5 votes for S1
+058857 TIMR S5 Resetting ELT, received AppEnt T7
+058857 TIMR S2 Resetting ELT, received AppEnt T7
+060163 LEAD S4 timeout, starts election T6
+065060 LEAD S0 timeout, starts election T7
+065172 LEAD S3 timeout, starts election T7
+065266 LEAD S2 timeout, starts election T8
+065268 VOTE S5 votes for S2
+065268 VOTE S1 votes for S2
+065269 TIMR S5 Resetting ELT, received AppEnt T8
+065269 TIMR S1 Resetting ELT, received AppEnt T8
+068163 LEAD S4 timeout, starts election T7
+072470 LEAD S0 timeout, starts election T8
+073078 LEAD S5 timeout, starts election T9
+073080 VOTE S2 votes for S5
+073080 VOTE S1 votes for S5
+073081 TIMR S2 Resetting ELT, received AppEnt T9
+073081 TIMR S1 Resetting ELT, received AppEnt T9
+073776 LEAD S3 timeout, starts election T8
+075970 LEAD S4 timeout, starts election T8
+079587 LEAD S5 timeout, starts election T10
+079590 VOTE S2 votes for S5
+079590 VOTE S1 votes for S5
+079591 TIMR S2 Resetting ELT, received AppEnt T10
+079591 TIMR S1 Resetting ELT, received AppEnt T10
+079981 LEAD S3 timeout, starts election T9
+081376 LEAD S0 timeout, starts election T9
+083079 LEAD S4 timeout, starts election T9
+085896 LEAD S1 timeout, starts election T11
+085899 VOTE S5 votes for S1
+085900 TIMR S5 Resetting ELT, received AppEnt T11
+085899 VOTE S2 votes for S1
+085901 TIMR S2 Resetting ELT, received AppEnt T11
+087389 LEAD S3 timeout, starts election T10
+088776 LEAD S0 timeout, starts election T10
+091184 LEAD S4 timeout, starts election T10
+092204 LEAD S2 timeout, starts election T12
+092207 VOTE S1 votes for S2
+092207 VOTE S5 votes for S2
+092208 TIMR S1 Resetting ELT, received AppEnt T12
+092208 TIMR S5 Resetting ELT, received AppEnt T12
+095198 LEAD S3 timeout, starts election T11
+--- FAIL: TestManyElections2A (9.54s)
+    config.go:455: expected one leader, got none
+FAIL
+exit status 1
+FAIL	6.5840/raft	9.537s

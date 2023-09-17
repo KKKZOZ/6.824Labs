@@ -102,6 +102,7 @@ func TestManyElections2A(t *testing.T) {
 	iters := 10
 	for ii := 1; ii < iters; ii++ {
 		// disconnect three nodes
+		//fmt.Printf("Iteration: %d\n", ii)
 		i1 := rand.Int() % servers
 		i2 := rand.Int() % servers
 		i3 := rand.Int() % servers
@@ -117,9 +118,10 @@ func TestManyElections2A(t *testing.T) {
 		cfg.connect(i2)
 		cfg.connect(i3)
 	}
-
+	//fmt.Println("Almost complete....")
 	cfg.checkOneLeader()
 
+	//fmt.Println("Ready to end")
 	cfg.end()
 }
 

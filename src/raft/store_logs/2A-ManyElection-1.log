@@ -1,0 +1,77 @@
+Test (2A): multiple elections ...
+007716 LEAD S0 timeout, starts election T1
+007726 VOTE S6 votes for S0
+007727 TIMR S6 Resetting ELT by granting others in T1
+007728 LEAD S6 timeout, starts election T2
+007728 LEAD S2 timeout, starts election T1
+007731 VOTE S1 votes for S0
+007733 VOTE S5 votes for S6
+007735 VOTE S3 votes for S0
+007735 VOTE S4 votes for S0
+007735 VOTE S0 votes for S6
+007736 LEAD S0 achieved Majority for T2 (4), converting to leader
+007736 TIMR S0 Leader, checking heartbeats in T2
+007736 TIMR S1 Resetting ELT by granting others in T1
+007737 LEAD S1 timeout, starts election T2
+007738 VOTE S2 votes for S6
+007739 TIMR S3 Resetting ELT by granting others in T1
+007739 LEAD S3 timeout, starts election T2
+007741 TIMR S4 Resetting ELT by granting others in T1
+007741 LEAD S4 timeout, starts election T2
+007743 TIMR S5 Resetting ELT by granting others in T2
+007743 LEAD S5 timeout, starts election T3
+007745 VOTE S6 votes for S5
+007745 TIMR S2 Resetting ELT by granting others in T2
+007746 TIMR S6 Resetting ELT, received AppEnt T3
+007746 TIMR S6 Resetting ELT by granting others in T3
+007746 TIMR S4 Resetting ELT, received AppEnt T2
+007746 TIMR S0 Resetting ELT by granting others in T2
+007747 LEAD S6 achieved Majority for T3 (4), converting to leader
+007747 TIMR S6 Leader, checking heartbeats in T3
+007747 TIMR S1 Resetting ELT, received AppEnt T2
+007747 TIMR S2 Resetting ELT, received AppEnt T2
+007748 VOTE S0 stepping down from leader in T3
+007749 TIMR S3 Resetting ELT, received AppEnt T2
+007750 TIMR S0 Resetting ELT, received AppEnt T3
+007751 TIMR S3 Resetting ELT, received AppEnt T3
+007752 TIMR S4 Resetting ELT, received AppEnt T3
+007752 TIMR S1 Resetting ELT, received AppEnt T3
+007753 TIMR S2 Resetting ELT, received AppEnt T3
+007754 TIMR S5 Resetting ELT, received AppEnt T3
+007754 VOTE S0 votes for S5
+007755 VOTE S1 votes for S5
+007755 LEAD S5 achieved Majority for T3 (4), converting to leader
+007756 TIMR S5 Leader, checking heartbeats in T3
+007757 VOTE S4 votes for S5
+007758 VOTE S2 votes for S5
+007759 TIMR S0 Resetting ELT by granting others in T3
+007759 TIMR S0 Resetting ELT, received AppEnt T3
+007759 TIMR S1 Resetting ELT by granting others in T3
+007760 TIMR S6 Resetting ELT, received AppEnt T3
+007760 VOTE S3 votes for S5
+007760 TIMR S3 Resetting ELT, received AppEnt T3
+007760 TIMR S3 Resetting ELT by granting others in T3
+007760 TIMR S4 Resetting ELT by granting others in T3
+007760 TIMR S4 Resetting ELT, received AppEnt T3
+007760 TIMR S2 Resetting ELT by granting others in T3
+007760 TIMR S2 Resetting ELT, received AppEnt T3
+007761 TIMR S1 Resetting ELT, received AppEnt T3
+009037 TIMR S5 Leader, checking heartbeats in T3
+009039 TIMR S6 Leader, checking heartbeats in T3
+009040 TIMR S4 Resetting ELT, received AppEnt T3
+009041 TIMR S0 Resetting ELT, received AppEnt T3
+009041 TIMR S1 Resetting ELT, received AppEnt T3
+009041 TIMR S6 Resetting ELT, received AppEnt T3
+009041 TIMR S3 Resetting ELT, received AppEnt T3
+009041 TIMR S2 Resetting ELT, received AppEnt T3
+009041 TIMR S1 Resetting ELT, received AppEnt T3
+009042 TIMR S2 Resetting ELT, received AppEnt T3
+009042 TIMR S4 Resetting ELT, received AppEnt T3
+009042 TIMR S0 Resetting ELT, received AppEnt T3
+009042 TIMR S5 Resetting ELT, received AppEnt T3
+009043 TIMR S3 Resetting ELT, received AppEnt T3
+--- FAIL: TestManyElections2A (1.04s)
+    config.go:444: term 3 has 2 (>1) leaders
+FAIL
+exit status 1
+FAIL	6.5840/raft	1.040s
