@@ -82,9 +82,27 @@ go test -run TestCount2B OK
 
 #### All
 
-dstest  -p 50 -n 100 -o .run TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+dstest  -p 50 -n 100 -o run_logs TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
-dstest  -p 50 -n 3000 -o .run TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+dstest  -p 50 -n 100 -o run_logs TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+
+
+dstest  -p 50 -n 100 -o run_logs TestManyElections2A
+
+go test -race -run TestManyElections2A
+
+dstest -r -p 50 -l -o run_logs TestManyElections2A
 
 #### some
-dstest  -p 50 -n 100 -o .run  TestFailAgree2B TestFailNoAgree2B TestRejoin2B
+dstest  -p 50 -n 100 -o run_logs  TestFailAgree2B TestFailNoAgree2B TestRejoin2B
+
+
+Failed test TestManyElections2A - run_logs/TestManyElections2A_224.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_266.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_405.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_478.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_506.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_507.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_511.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_515.log
+Failed test TestManyElections2A - run_logs/TestManyElections2A_517.log

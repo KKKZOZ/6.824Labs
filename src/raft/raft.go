@@ -384,7 +384,7 @@ func (rf *Raft) startElection() {
 	rf.currentState = Candidate
 	rf.currentTerm += 1
 
-	rf.debug(DLeader, "timeout, starts election T%d\n", rf.currentTerm)
+	rf.debug(DLeader, "timeout, starts election for T%d\n", rf.currentTerm)
 
 	rf.votedFor = rf.me
 	args := RequestVoteArgs{
@@ -404,16 +404,31 @@ func (rf *Raft) startElection() {
 				reply := RequestVoteReply{}
 				rf.sendRequestVote(i, &args, &reply)
 
-				if reply.VoteGranted {
+				rf.mu.Lock()
+				validVote := true
+				if reply.Term < rf.currentTerm {
+					validVote = false
+				}
+				rf.mu.Unlock()
+
+				// TODO: reply.Term > rf.currentTerm
+
+				if validVote && reply.VoteGranted {
 					voteCount.mu.Lock()
-					rf.debug(DVote, "received vote from S%d in T%d\n", i, rf.currentTerm)
+					rf.mu.Lock()
+					rf.debug(DVote, "received vote from S%d (for T%d) in T%d\n", i, reply.Term, rf.currentTerm)
+					rf.mu.Unlock()
 					voteCount.data += 1
 					if voteCount.data >= rf.majority {
 						if !voteCount.isTriggered {
 							voteCount.isTriggered = true
+							rf.mu.Lock()
 							rf.debug(DLeader, "achieved Majority for T%d (%d), converting to leader\n", rf.currentTerm, rf.majority)
 							if rf.currentState == Candidate {
+								rf.mu.Unlock()
 								rf.becomeLeader()
+							} else {
+								rf.mu.Unlock()
 							}
 						}
 					}
@@ -438,9 +453,9 @@ func (rf *Raft) becomeLeader() {
 }
 
 func (rf *Raft) sendHeartBeat() {
-	rf.debug(DTimer, "Leader, checking heartbeats in T%d\n", rf.currentTerm)
 
 	rf.mu.Lock()
+	rf.debug(DTimer, "Leader, checking heartbeats in T%d\n", rf.currentTerm)
 	for i := 0; i < len(rf.peers); i++ {
 		if i != rf.me {
 
@@ -479,8 +494,9 @@ func (rf *Raft) sendHeartBeat() {
 
 				ok := rf.sendAppendEntries(i, &args, &reply)
 				if ok {
+					rf.mu.Lock()
 					if reply.Term > rf.currentTerm {
-						rf.mu.Lock()
+
 						rf.currentTerm = reply.Term
 						rf.votedFor = -1
 						if rf.currentState == Leader {
@@ -492,12 +508,12 @@ func (rf *Raft) sendHeartBeat() {
 						return
 					}
 					if reply.Success {
-						rf.mu.Lock()
+
 						rf.nextIndex[i] = args.PrevLogIndex + len(args.Entries) + 1
 						rf.matchIndex[i] = rf.nextIndex[i] - 1
 						rf.mu.Unlock()
 					} else {
-						rf.mu.Lock()
+
 						if rf.nextIndex[i] > 1 {
 							rf.nextIndex[i] = rf.nextIndex[i] - 1
 						}
@@ -643,18 +659,16 @@ func (rf *Raft) ticker() {
 			}
 
 		case event := <-rf.notifyCh:
-
+			rf.mu.Lock()
 			switch event {
 			case Reset:
-				// 这里加锁会死锁!
-				//rf.mu.Lock()
 				rf.debug(DTimer, "Resetting ELT, received AppEnt in T%d\n", rf.currentTerm)
-				//rf.mu.Unlock()
 			case WinInElection:
 				rf.debug(DTimer, "Resetting ELT, by winning an election in T%d\n", rf.currentTerm)
 			case GrantReset:
 				rf.debug(DTimer, "Resetting ELT by granting others in T%d\n", rf.currentTerm)
 			}
+			rf.mu.Unlock()
 
 		}
 

@@ -36,5 +36,43 @@ Leader 变为 Follower 后，重新提交了之前已经提交过的日志
 
 ### 解决方法
 
-在 GetState() 中加锁
+在 `GetState()` 中加锁
 
+
+## TestManyElections2A_29240.log
+### 总结
+
+事故发生因为在 T2 有 2 个 Leader:
+
+![](https://kkkzoz-1304409899.cos.ap-chengdu.myqcloud.com/img/image-20230918233239880.png)
+
+
+
+关键区域未加锁，如下：
+```go
+
+// in func (rf *Raft) RequestVote()
+if args.Term > rf.currentTerm {
+		rf.currentTerm = args.Term
+		rf.votedFor = -1
+
+		if rf.currentState == Candidate {
+			rf.debug(DVote, "stepping down from candidate in T%d\n", rf.currentTerm)
+		}
+
+		if rf.currentState == Leader {
+			rf.debug(DVote, "stepping down from leader in T%d\n", rf.currentTerm)
+		}
+		rf.currentState = Follower
+	}
+```
+
+在发现 `args.Term > rf.currentTerm` 后，应该加锁并连续执行到 `rf.currentState = Follower`
+
+错误的时间线如下：
+
+![614A190FF61254F757F43C8700ABCEED](https://kkkzoz-1304409899.cos.ap-chengdu.myqcloud.com/img/614A190FF61254F757F43C8700ABCEED.png)
+
+### 解决方法
+
+在 `startElection()` 中加锁
