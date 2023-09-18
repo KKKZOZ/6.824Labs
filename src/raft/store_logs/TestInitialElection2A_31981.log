@@ -1,0 +1,34 @@
+Test (2A): initial election ...
+004717 LEAD S2 timeout, starts election T1
+004721 VOTE S1 votes for S2 in T1
+004721 LEAD S0 timeout, starts election T1
+004723 TIMR S1 Resetting ELT by granting others in T1
+004725 VOTE S2 received vote from S1 in T1
+004725 LEAD S1 timeout, starts election T2
+004725 LEAD S2 achieved Majority for T1 (2), converting to leader
+004727 VOTE S0 stepping down from candidate in T2
+004727 VOTE S0 votes for S1 in T2
+004728 VOTE S1 received vote from S0 in T2
+004726 VOTE S2 stepping down from candidate in T2
+004728 TIMR S0 Resetting ELT by granting others in T2
+004728 VOTE S2 votes for S1 in T2
+004728 LEAD S1 achieved Majority for T2 (2), converting to leader
+004735 VOTE S1 received vote from S2 in T2
+004737 TIMR S2 Resetting ELT by granting others in T2
+004737 TIMR S2 Resetting ELT, by winning an election in T2
+004738 TIMR S2 Leader, checking heartbeats in T2
+004738 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+004745 TIMR S1 Resetting ELT, by winning an election in T2
+004746 TIMR S1 Resetting ELT, received AppEnt in T2
+004747 TIMR S1 Leader, checking heartbeats in T2
+004747 LOG1 S1 -> S2 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+004753 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+004755 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+004757 TIMR S2 Resetting ELT, received AppEnt in T2
+004757 TIMR S0 Resetting ELT, received AppEnt in T2
+004757 TIMR S0 Resetting ELT, received AppEnt in T2
+--- FAIL: TestInitialElection2A (0.49s)
+    config.go:448: term 2 has 2 (>1) leaders
+FAIL
+exit status 1
+FAIL	6.5840/raft	0.496s

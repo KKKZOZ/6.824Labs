@@ -84,5 +84,7 @@ go test -run TestCount2B OK
 
 dstest  -p 50 -n 100 -o .run TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
+dstest  -p 50 -n 3000 -o .run TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+
 #### some
 dstest  -p 50 -n 100 -o .run  TestFailAgree2B TestFailNoAgree2B TestRejoin2B
