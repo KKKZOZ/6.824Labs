@@ -1,0 +1,467 @@
+Test (2B): no agreement if too many followers disconnect ...
+000005 CLNT S1 received Client's request in T0
+000005 CLNT S1 rejected it in T0
+000005 CLNT S2 received Client's request in T0
+000005 CLNT S2 rejected it in T0
+000005 CLNT S3 received Client's request in T0
+000005 CLNT S3 rejected it in T0
+000005 CLNT S4 received Client's request in T0
+000005 CLNT S4 rejected it in T0
+000005 CLNT S0 received Client's request in T0
+000005 CLNT S0 rejected it in T0
+000506 CLNT S1 received Client's request in T0
+000506 CLNT S1 rejected it in T0
+000506 CLNT S2 received Client's request in T0
+000506 CLNT S2 rejected it in T0
+000506 CLNT S3 received Client's request in T0
+000506 CLNT S3 rejected it in T0
+000506 CLNT S4 received Client's request in T0
+000507 CLNT S4 rejected it in T0
+000507 CLNT S0 received Client's request in T0
+000507 CLNT S0 rejected it in T0
+001008 CLNT S1 received Client's request in T0
+001008 CLNT S1 rejected it in T0
+001008 CLNT S2 received Client's request in T0
+001008 CLNT S2 rejected it in T0
+001009 CLNT S3 received Client's request in T0
+001009 CLNT S3 rejected it in T0
+001009 CLNT S4 received Client's request in T0
+001009 CLNT S4 rejected it in T0
+001009 CLNT S0 received Client's request in T0
+001009 CLNT S0 rejected it in T0
+001511 CLNT S1 received Client's request in T0
+001511 CLNT S1 rejected it in T0
+001511 CLNT S2 received Client's request in T0
+001511 CLNT S2 rejected it in T0
+001511 CLNT S3 received Client's request in T0
+001511 CLNT S3 rejected it in T0
+001511 CLNT S4 received Client's request in T0
+001511 CLNT S4 rejected it in T0
+001511 CLNT S0 received Client's request in T0
+001511 CLNT S0 rejected it in T0
+002013 CLNT S1 received Client's request in T0
+002014 CLNT S1 rejected it in T0
+002014 CLNT S2 received Client's request in T0
+002014 CLNT S2 rejected it in T0
+002014 CLNT S3 received Client's request in T0
+002014 CLNT S3 rejected it in T0
+002014 CLNT S4 received Client's request in T0
+002014 CLNT S4 rejected it in T0
+002014 CLNT S0 received Client's request in T0
+002014 CLNT S0 rejected it in T0
+002515 CLNT S1 received Client's request in T0
+002515 CLNT S1 rejected it in T0
+002515 CLNT S2 received Client's request in T0
+002515 CLNT S2 rejected it in T0
+002515 CLNT S3 received Client's request in T0
+002515 CLNT S3 rejected it in T0
+002515 CLNT S4 received Client's request in T0
+002515 CLNT S4 rejected it in T0
+002515 CLNT S0 received Client's request in T0
+002515 CLNT S0 rejected it in T0
+003017 CLNT S1 received Client's request in T0
+003017 CLNT S1 rejected it in T0
+003017 CLNT S2 received Client's request in T0
+003017 CLNT S2 rejected it in T0
+003017 CLNT S3 received Client's request in T0
+003017 CLNT S3 rejected it in T0
+003017 CLNT S4 received Client's request in T0
+003018 CLNT S4 rejected it in T0
+003018 CLNT S0 received Client's request in T0
+003018 CLNT S0 rejected it in T0
+003519 CLNT S1 received Client's request in T0
+003519 CLNT S1 rejected it in T0
+003519 CLNT S2 received Client's request in T0
+003519 CLNT S2 rejected it in T0
+003519 CLNT S3 received Client's request in T0
+003519 CLNT S3 rejected it in T0
+003519 CLNT S4 received Client's request in T0
+003519 CLNT S4 rejected it in T0
+003519 CLNT S0 received Client's request in T0
+003519 CLNT S0 rejected it in T0
+004021 CLNT S1 received Client's request in T0
+004022 CLNT S1 rejected it in T0
+004022 CLNT S2 received Client's request in T0
+004022 CLNT S2 rejected it in T0
+004022 CLNT S3 received Client's request in T0
+004022 CLNT S3 rejected it in T0
+004022 CLNT S4 received Client's request in T0
+004022 CLNT S4 rejected it in T0
+004022 CLNT S0 received Client's request in T0
+004022 CLNT S0 rejected it in T0
+004523 CLNT S1 received Client's request in T0
+004524 CLNT S1 rejected it in T0
+004524 CLNT S2 received Client's request in T0
+004524 CLNT S2 rejected it in T0
+004524 CLNT S3 received Client's request in T0
+004524 CLNT S3 rejected it in T0
+004524 CLNT S4 received Client's request in T0
+004524 CLNT S4 rejected it in T0
+004524 CLNT S0 received Client's request in T0
+004524 CLNT S0 rejected it in T0
+005025 CLNT S1 received Client's request in T0
+005026 CLNT S1 rejected it in T0
+005026 CLNT S2 received Client's request in T0
+005026 CLNT S2 rejected it in T0
+005026 CLNT S3 received Client's request in T0
+005026 CLNT S3 rejected it in T0
+005026 CLNT S4 received Client's request in T0
+005026 CLNT S4 rejected it in T0
+005026 CLNT S0 received Client's request in T0
+005026 CLNT S0 rejected it in T0
+005527 CLNT S1 received Client's request in T0
+005528 CLNT S1 rejected it in T0
+005528 CLNT S2 received Client's request in T0
+005528 CLNT S2 rejected it in T0
+005528 CLNT S3 received Client's request in T0
+005528 CLNT S3 rejected it in T0
+005528 CLNT S4 received Client's request in T0
+005528 CLNT S4 rejected it in T0
+005528 CLNT S0 received Client's request in T0
+005528 CLNT S0 rejected it in T0
+006030 CLNT S1 received Client's request in T0
+006030 CLNT S1 rejected it in T0
+006030 CLNT S2 received Client's request in T0
+006030 CLNT S2 rejected it in T0
+006030 CLNT S3 received Client's request in T0
+006030 CLNT S3 rejected it in T0
+006030 CLNT S4 received Client's request in T0
+006030 CLNT S4 rejected it in T0
+006030 CLNT S0 received Client's request in T0
+006030 CLNT S0 rejected it in T0
+006532 CLNT S1 received Client's request in T0
+006532 CLNT S1 rejected it in T0
+006532 CLNT S2 received Client's request in T0
+006532 CLNT S2 rejected it in T0
+006532 CLNT S3 received Client's request in T0
+006532 CLNT S3 rejected it in T0
+006532 CLNT S4 received Client's request in T0
+006532 CLNT S4 rejected it in T0
+006532 CLNT S0 received Client's request in T0
+006532 CLNT S0 rejected it in T0
+007034 CLNT S1 received Client's request in T0
+007034 CLNT S1 rejected it in T0
+007034 CLNT S2 received Client's request in T0
+007034 CLNT S2 rejected it in T0
+007034 CLNT S3 received Client's request in T0
+007034 CLNT S3 rejected it in T0
+007034 CLNT S4 received Client's request in T0
+007034 CLNT S4 rejected it in T0
+007034 CLNT S0 received Client's request in T0
+007034 CLNT S0 rejected it in T0
+007536 CLNT S1 received Client's request in T0
+007537 CLNT S1 rejected it in T0
+007537 CLNT S2 received Client's request in T0
+007537 CLNT S2 rejected it in T0
+007537 CLNT S3 received Client's request in T0
+007537 CLNT S3 rejected it in T0
+007537 CLNT S4 received Client's request in T0
+007537 CLNT S4 rejected it in T0
+007537 CLNT S0 received Client's request in T0
+007537 CLNT S0 rejected it in T0
+008038 CLNT S1 received Client's request in T0
+008039 CLNT S1 rejected it in T0
+008039 CLNT S2 received Client's request in T0
+008039 CLNT S2 rejected it in T0
+008039 CLNT S3 received Client's request in T0
+008039 CLNT S3 rejected it in T0
+008039 CLNT S4 received Client's request in T0
+008039 CLNT S4 rejected it in T0
+008039 CLNT S0 received Client's request in T0
+008039 CLNT S0 rejected it in T0
+008210 LEAD S3 timeout, starts election T1
+008210 LEAD S0 timeout, starts election T1
+008211 LEAD S1 timeout, starts election T1
+008214 VOTE S4 votes for S0 in T1
+008214 VOTE S2 votes for S1 in T1
+008214 TIMR S2 Resetting ELT by granting others in T1
+008214 TIMR S4 Resetting ELT by granting others in T1
+008215 VOTE S1 received vote from S2 in T1
+008215 VOTE S0 received vote from S4 in T1
+008544 CLNT S1 received Client's request in T1
+008544 CLNT S1 rejected it in T1
+008544 CLNT S2 received Client's request in T1
+008544 CLNT S2 rejected it in T1
+008544 CLNT S3 received Client's request in T1
+008544 CLNT S3 rejected it in T1
+008544 CLNT S4 received Client's request in T1
+008544 CLNT S4 rejected it in T1
+008544 CLNT S0 received Client's request in T1
+008544 CLNT S0 rejected it in T1
+009048 CLNT S1 received Client's request in T1
+009048 CLNT S1 rejected it in T1
+009049 CLNT S2 received Client's request in T1
+009049 CLNT S2 rejected it in T1
+009049 CLNT S3 received Client's request in T1
+009049 CLNT S3 rejected it in T1
+009049 CLNT S4 received Client's request in T1
+009049 CLNT S4 rejected it in T1
+009049 CLNT S0 received Client's request in T1
+009049 CLNT S0 rejected it in T1
+009552 CLNT S1 received Client's request in T1
+009552 CLNT S1 rejected it in T1
+009552 CLNT S2 received Client's request in T1
+009552 CLNT S2 rejected it in T1
+009552 CLNT S3 received Client's request in T1
+009552 CLNT S3 rejected it in T1
+009552 CLNT S4 received Client's request in T1
+009552 CLNT S4 rejected it in T1
+009552 CLNT S0 received Client's request in T1
+009552 CLNT S0 rejected it in T1
+010054 CLNT S1 received Client's request in T1
+010055 CLNT S1 rejected it in T1
+010055 CLNT S2 received Client's request in T1
+010055 CLNT S2 rejected it in T1
+010055 CLNT S3 received Client's request in T1
+010055 CLNT S3 rejected it in T1
+010055 CLNT S4 received Client's request in T1
+010055 CLNT S4 rejected it in T1
+010055 CLNT S0 received Client's request in T1
+010055 CLNT S0 rejected it in T1
+010556 CLNT S1 received Client's request in T1
+010556 CLNT S1 rejected it in T1
+010556 CLNT S2 received Client's request in T1
+010556 CLNT S2 rejected it in T1
+010556 CLNT S3 received Client's request in T1
+010556 CLNT S3 rejected it in T1
+010556 CLNT S4 received Client's request in T1
+010556 CLNT S4 rejected it in T1
+010556 CLNT S0 received Client's request in T1
+010556 CLNT S0 rejected it in T1
+011058 CLNT S1 received Client's request in T1
+011059 CLNT S1 rejected it in T1
+011059 CLNT S2 received Client's request in T1
+011059 CLNT S2 rejected it in T1
+011059 CLNT S3 received Client's request in T1
+011059 CLNT S3 rejected it in T1
+011059 CLNT S4 received Client's request in T1
+011059 CLNT S4 rejected it in T1
+011059 CLNT S0 received Client's request in T1
+011059 CLNT S0 rejected it in T1
+011560 CLNT S1 received Client's request in T1
+011560 CLNT S1 rejected it in T1
+011560 CLNT S2 received Client's request in T1
+011560 CLNT S2 rejected it in T1
+011560 CLNT S3 received Client's request in T1
+011561 CLNT S3 rejected it in T1
+011561 CLNT S4 received Client's request in T1
+011561 CLNT S4 rejected it in T1
+011561 CLNT S0 received Client's request in T1
+011561 CLNT S0 rejected it in T1
+012062 CLNT S1 received Client's request in T1
+012062 CLNT S1 rejected it in T1
+012062 CLNT S2 received Client's request in T1
+012062 CLNT S2 rejected it in T1
+012062 CLNT S3 received Client's request in T1
+012062 CLNT S3 rejected it in T1
+012062 CLNT S4 received Client's request in T1
+012062 CLNT S4 rejected it in T1
+012062 CLNT S0 received Client's request in T1
+012062 CLNT S0 rejected it in T1
+012564 CLNT S1 received Client's request in T1
+012564 CLNT S1 rejected it in T1
+012564 CLNT S2 received Client's request in T1
+012564 CLNT S2 rejected it in T1
+012564 CLNT S3 received Client's request in T1
+012564 CLNT S3 rejected it in T1
+012564 CLNT S4 received Client's request in T1
+012564 CLNT S4 rejected it in T1
+012564 CLNT S0 received Client's request in T1
+012564 CLNT S0 rejected it in T1
+013066 CLNT S1 received Client's request in T1
+013066 CLNT S1 rejected it in T1
+013066 CLNT S2 received Client's request in T1
+013066 CLNT S2 rejected it in T1
+013066 CLNT S3 received Client's request in T1
+013066 CLNT S3 rejected it in T1
+013066 CLNT S4 received Client's request in T1
+013066 CLNT S4 rejected it in T1
+013066 CLNT S0 received Client's request in T1
+013066 CLNT S0 rejected it in T1
+013568 CLNT S1 received Client's request in T1
+013568 CLNT S1 rejected it in T1
+013568 CLNT S2 received Client's request in T1
+013568 CLNT S2 rejected it in T1
+013568 CLNT S3 received Client's request in T1
+013568 CLNT S3 rejected it in T1
+013568 CLNT S4 received Client's request in T1
+013568 CLNT S4 rejected it in T1
+013568 CLNT S0 received Client's request in T1
+013568 CLNT S0 rejected it in T1
+014070 CLNT S1 received Client's request in T1
+014070 CLNT S1 rejected it in T1
+014070 CLNT S2 received Client's request in T1
+014070 CLNT S2 rejected it in T1
+014070 CLNT S3 received Client's request in T1
+014070 CLNT S3 rejected it in T1
+014070 CLNT S4 received Client's request in T1
+014070 CLNT S4 rejected it in T1
+014070 CLNT S0 received Client's request in T1
+014070 CLNT S0 rejected it in T1
+014571 CLNT S1 received Client's request in T1
+014572 CLNT S1 rejected it in T1
+014572 CLNT S2 received Client's request in T1
+014572 CLNT S2 rejected it in T1
+014572 CLNT S3 received Client's request in T1
+014572 CLNT S3 rejected it in T1
+014572 CLNT S4 received Client's request in T1
+014572 CLNT S4 rejected it in T1
+014572 CLNT S0 received Client's request in T1
+014572 CLNT S0 rejected it in T1
+014613 LEAD S0 timeout, starts election T2
+014615 VOTE S2 votes for S0 in T2
+014615 VOTE S4 votes for S0 in T2
+014615 TIMR S2 Resetting ELT by granting others in T2
+014615 VOTE S3 stepping down from candidate in T2
+014615 VOTE S3 votes for S0 in T2
+014615 VOTE S0 received vote from S2 in T2
+014615 VOTE S1 stepping down from candidate in T2
+014615 TIMR S3 Resetting ELT by granting others in T2
+014615 VOTE S1 votes for S0 in T2
+014616 VOTE S0 received vote from S3 in T2
+014616 LEAD S0 achieved Majority for T2 (3), converting to leader
+014616 TIMR S0 Leader, checking heartbeats in T2
+014616 VOTE S0 received vote from S1 in T2
+014616 LOG1 S0 -> S4 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+014616 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+014616 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+014616 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+014616 TIMR S1 Resetting ELT by granting others in T2
+014618 TIMR S1 Resetting ELT, received AppEnt T2
+014618 TIMR S3 Resetting ELT, received AppEnt T2
+014619 TIMR S2 Resetting ELT, received AppEnt T2
+015077 CLNT S1 received Client's request in T2
+015077 CLNT S1 rejected it in T2
+015077 CLNT S2 received Client's request in T2
+015077 CLNT S2 rejected it in T2
+015077 CLNT S3 received Client's request in T2
+015077 CLNT S3 rejected it in T2
+015077 CLNT S4 received Client's request in T2
+015077 CLNT S4 rejected it in T2
+015077 CLNT S0 received Client's request in T2
+015077 LOG1 S0 appended log entry {term:2 cmd:10} at 1 in T2
+015077 TIMR S0 Leader, checking heartbeats in T2
+015077 LOG2 S0  Logs: [{0 <nil>} {2 10}]
+015078 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+015078 LOG1 S0 -> S1 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+015078 LOG1 S0 -> S2 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+015078 LOG1 S0 -> S3 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+015079 LOG2 S3  After appended, Logs: [{0 <nil>} {2 10}]
+015079 TIMR S3 Resetting ELT, received AppEnt T2
+015079 LOG2 S1  After appended, Logs: [{0 <nil>} {2 10}]
+015080 LOG2 S2  After appended, Logs: [{0 <nil>} {2 10}]
+015080 TIMR S1 Resetting ELT, received AppEnt T2
+015080 TIMR S2 Resetting ELT, received AppEnt T2
+015583 CMIT S0 commit and applies log at 1 (cmd: 10) in T2
+016578 TIMR S0 Leader, checking heartbeats in T2
+016578 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+016578 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+016579 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+016579 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+016580 CMIT S2 applies log at 1 (cmd: 10) in T2
+016580 CMIT S3 applies log at 1 (cmd: 10) in T2
+016580 CMIT S1 applies log at 1 (cmd: 10) in T2
+016581 TIMR S3 Resetting ELT, received AppEnt T2
+016581 TIMR S2 Resetting ELT, received AppEnt T2
+016581 TIMR S1 Resetting ELT, received AppEnt T2
+018086 TIMR S0 Leader, checking heartbeats in T2
+018086 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+018086 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+018086 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+018086 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+018087 TIMR S3 Resetting ELT, received AppEnt T2
+018088 TIMR S2 Resetting ELT, received AppEnt T2
+018088 TIMR S1 Resetting ELT, received AppEnt T2
+019594 TIMR S0 Leader, checking heartbeats in T2
+019595 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+019595 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+019595 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+019595 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+019596 TIMR S3 Resetting ELT, received AppEnt T2
+019596 TIMR S2 Resetting ELT, received AppEnt T2
+019597 TIMR S1 Resetting ELT, received AppEnt T2
+021105 TIMR S0 Leader, checking heartbeats in T2
+021105 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+021105 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+021106 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+021106 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+021108 TIMR S3 Resetting ELT, received AppEnt T2
+021108 TIMR S1 Resetting ELT, received AppEnt T2
+021108 TIMR S2 Resetting ELT, received AppEnt T2
+022609 TIMR S0 Leader, checking heartbeats in T2
+022610 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+022614 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+022616 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+022616 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+022617 TIMR S1 Resetting ELT, received AppEnt T2
+022617 TIMR S2 Resetting ELT, received AppEnt T2
+022619 TIMR S3 Resetting ELT, received AppEnt T2
+024118 TIMR S0 Leader, checking heartbeats in T2
+024119 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+024119 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+024119 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+024119 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+024121 TIMR S2 Resetting ELT, received AppEnt T2
+024121 TIMR S1 Resetting ELT, received AppEnt T2
+024121 TIMR S3 Resetting ELT, received AppEnt T2
+025622 TIMR S0 Leader, checking heartbeats in T2
+025622 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+025623 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+025623 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+025623 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+025624 TIMR S2 Resetting ELT, received AppEnt T2
+025625 TIMR S1 Resetting ELT, received AppEnt T2
+025625 TIMR S3 Resetting ELT, received AppEnt T2
+027125 TIMR S0 Leader, checking heartbeats in T2
+027126 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+027126 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+027126 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+027126 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+027128 TIMR S2 Resetting ELT, received AppEnt T2
+027128 TIMR S3 Resetting ELT, received AppEnt T2
+027128 TIMR S1 Resetting ELT, received AppEnt T2
+028630 TIMR S0 Leader, checking heartbeats in T2
+028630 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+028630 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+028630 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+028630 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+028632 TIMR S2 Resetting ELT, received AppEnt T2
+028632 TIMR S1 Resetting ELT, received AppEnt T2
+028632 TIMR S3 Resetting ELT, received AppEnt T2
+030133 TIMR S0 Leader, checking heartbeats in T2
+030134 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+030134 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+030135 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+030135 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+030137 TIMR S3 Resetting ELT, received AppEnt T2
+030137 TIMR S1 Resetting ELT, received AppEnt T2
+030138 TIMR S2 Resetting ELT, received AppEnt T2
+031644 TIMR S0 Leader, checking heartbeats in T2
+031644 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+031644 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+031645 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+031645 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+031646 TIMR S2 Resetting ELT, received AppEnt T2
+031646 TIMR S1 Resetting ELT, received AppEnt T2
+031646 TIMR S3 Resetting ELT, received AppEnt T2
+033154 TIMR S0 Leader, checking heartbeats in T2
+033154 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+033155 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+033155 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+033155 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+033156 TIMR S3 Resetting ELT, received AppEnt T2
+033156 TIMR S1 Resetting ELT, received AppEnt T2
+033156 TIMR S2 Resetting ELT, received AppEnt T2
+034656 TIMR S0 Leader, checking heartbeats in T2
+034657 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+034657 LOG1 S0 -> S3 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+034657 LOG1 S0 -> S4 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:1 }
+034657 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:2 len:0 lCommit:1 }
+034659 TIMR S3 Resetting ELT, received AppEnt T2
+034659 TIMR S1 Resetting ELT, received AppEnt T2
+034660 TIMR S2 Resetting ELT, received AppEnt T2
+--- FAIL: TestFailNoAgree2B (3.51s)
+    config.go:602: one(10) failed to reach agreement
+FAIL
+exit status 1
+FAIL	6.5840/raft	3.511s

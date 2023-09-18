@@ -1,0 +1,392 @@
+Test (2B): rejoin of partitioned leader ...
+000005 CLNT S1 received Client's request in T0
+000005 CLNT S1 rejected it in T0
+000005 CLNT S2 received Client's request in T0
+000005 CLNT S2 rejected it in T0
+000005 CLNT S0 received Client's request in T0
+000005 CLNT S0 rejected it in T0
+000508 CLNT S1 received Client's request in T0
+000508 CLNT S1 rejected it in T0
+000508 CLNT S2 received Client's request in T0
+000508 CLNT S2 rejected it in T0
+000508 CLNT S0 received Client's request in T0
+000508 CLNT S0 rejected it in T0
+001014 CLNT S1 received Client's request in T0
+001015 CLNT S1 rejected it in T0
+001015 CLNT S2 received Client's request in T0
+001015 CLNT S2 rejected it in T0
+001015 CLNT S0 received Client's request in T0
+001015 CLNT S0 rejected it in T0
+001520 CLNT S1 received Client's request in T0
+001520 CLNT S1 rejected it in T0
+001520 CLNT S2 received Client's request in T0
+001520 CLNT S2 rejected it in T0
+001520 CLNT S0 received Client's request in T0
+001520 CLNT S0 rejected it in T0
+002021 CLNT S1 received Client's request in T0
+002022 CLNT S1 rejected it in T0
+002022 CLNT S2 received Client's request in T0
+002022 CLNT S2 rejected it in T0
+002022 CLNT S0 received Client's request in T0
+002022 CLNT S0 rejected it in T0
+002523 CLNT S1 received Client's request in T0
+002523 CLNT S1 rejected it in T0
+002523 CLNT S2 received Client's request in T0
+002523 CLNT S2 rejected it in T0
+002523 CLNT S0 received Client's request in T0
+002523 CLNT S0 rejected it in T0
+003026 CLNT S1 received Client's request in T0
+003026 CLNT S1 rejected it in T0
+003026 CLNT S2 received Client's request in T0
+003026 CLNT S2 rejected it in T0
+003026 CLNT S0 received Client's request in T0
+003026 CLNT S0 rejected it in T0
+003528 CLNT S1 received Client's request in T0
+003528 CLNT S1 rejected it in T0
+003528 CLNT S2 received Client's request in T0
+003528 CLNT S2 rejected it in T0
+003528 CLNT S0 received Client's request in T0
+003528 CLNT S0 rejected it in T0
+004030 CLNT S1 received Client's request in T0
+004030 CLNT S1 rejected it in T0
+004030 CLNT S2 received Client's request in T0
+004030 CLNT S2 rejected it in T0
+004031 CLNT S0 received Client's request in T0
+004031 CLNT S0 rejected it in T0
+004534 CLNT S1 received Client's request in T0
+004535 CLNT S1 rejected it in T0
+004535 CLNT S2 received Client's request in T0
+004535 CLNT S2 rejected it in T0
+004535 CLNT S0 received Client's request in T0
+004535 CLNT S0 rejected it in T0
+005036 CLNT S1 received Client's request in T0
+005036 CLNT S1 rejected it in T0
+005036 CLNT S2 received Client's request in T0
+005036 CLNT S2 rejected it in T0
+005036 CLNT S0 received Client's request in T0
+005036 CLNT S0 rejected it in T0
+005538 CLNT S1 received Client's request in T0
+005538 CLNT S1 rejected it in T0
+005538 CLNT S2 received Client's request in T0
+005538 CLNT S2 rejected it in T0
+005538 CLNT S0 received Client's request in T0
+005538 CLNT S0 rejected it in T0
+006041 CLNT S1 received Client's request in T0
+006042 CLNT S1 rejected it in T0
+006042 CLNT S2 received Client's request in T0
+006042 CLNT S2 rejected it in T0
+006042 CLNT S0 received Client's request in T0
+006042 CLNT S0 rejected it in T0
+006543 CLNT S1 received Client's request in T0
+006543 CLNT S1 rejected it in T0
+006543 CLNT S2 received Client's request in T0
+006543 CLNT S2 rejected it in T0
+006543 CLNT S0 received Client's request in T0
+006543 CLNT S0 rejected it in T0
+006815 LEAD S2 timeout, starts election T1
+006820 VOTE S0 votes for S2 in T1
+006820 VOTE S1 votes for S2 in T1
+006821 VOTE S2 received vote from S1 in T1
+006821 LEAD S2 achieved Majority for T1 (2), converting to leader
+006821 VOTE S2 received vote from S0 in T1
+006821 TIMR S0 Resetting ELT by granting others in T1
+006821 TIMR S2 Leader, checking heartbeats in T1
+006822 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+006822 TIMR S1 Resetting ELT by granting others in T1
+006822 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:0 preLogTerm:0 len:0 lCommit:0 }
+006825 TIMR S1 Resetting ELT, received AppEnt in T1
+006826 TIMR S0 Resetting ELT, received AppEnt in T1
+007048 CLNT S1 received Client's request in T1
+007048 CLNT S1 rejected it in T1
+007048 CLNT S2 received Client's request in T1
+007048 LOG1 S2 appended log entry {term:1 cmd:101} at 1 in T1
+007049 LOG2 S2  Logs: [{0 <nil>} {1 101}]
+008323 TIMR S2 Leader, checking heartbeats in T1
+008324 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+008327 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101}]
+008327 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:0 preLogTerm:0 len:1 lCommit:0 }
+008328 LOG2 S0  After appended, Logs: [{0 <nil>} {1 101}]
+008329 TIMR S1 Resetting ELT, received AppEnt in T1
+008329 TIMR S0 Resetting ELT, received AppEnt in T1
+008575 CMIT S2 commit and applies log at 1 (cmd: 101) in T1
+009828 TIMR S2 Leader, checking heartbeats in T1
+009828 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+009828 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+009830 CMIT S0 applies log at 1 (cmd: 101) in T1
+009830 TIMR S0 Resetting ELT, received AppEnt in T1
+009830 CMIT S1 applies log at 1 (cmd: 101) in T1
+009830 TIMR S1 Resetting ELT, received AppEnt in T1
+011335 TIMR S2 Leader, checking heartbeats in T1
+011336 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+011336 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+011339 TIMR S1 Resetting ELT, received AppEnt in T1
+011340 TIMR S0 Resetting ELT, received AppEnt in T1
+012840 TIMR S2 Leader, checking heartbeats in T1
+012840 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+012840 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+012842 TIMR S1 Resetting ELT, received AppEnt in T1
+012842 TIMR S0 Resetting ELT, received AppEnt in T1
+014349 TIMR S2 Leader, checking heartbeats in T1
+014349 LOG1 S2 -> S1 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+014349 LOG1 S2 -> S0 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+014351 TIMR S0 Resetting ELT, received AppEnt in T1
+014351 TIMR S1 Resetting ELT, received AppEnt in T1
+015057 CLNT S2 received Client's request in T1
+015058 LOG1 S2 appended log entry {term:1 cmd:102} at 2 in T1
+015059 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102}]
+015059 CLNT S2 received Client's request in T1
+015059 LOG1 S2 appended log entry {term:1 cmd:103} at 3 in T1
+015059 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103}]
+015059 CLNT S2 received Client's request in T1
+015059 LOG1 S2 appended log entry {term:1 cmd:104} at 4 in T1
+015059 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104}]
+015059 CLNT S1 received Client's request in T1
+015059 CLNT S1 rejected it in T1
+015059 CLNT S0 received Client's request in T1
+015059 CLNT S0 rejected it in T1
+015560 CLNT S1 received Client's request in T1
+015560 CLNT S1 rejected it in T1
+015560 CLNT S0 received Client's request in T1
+015560 CLNT S0 rejected it in T1
+015855 TIMR S2 Leader, checking heartbeats in T1
+015856 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+015856 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+016067 CLNT S1 received Client's request in T1
+016067 CLNT S1 rejected it in T1
+016067 CLNT S0 received Client's request in T1
+016067 CLNT S0 rejected it in T1
+016574 CLNT S1 received Client's request in T1
+016575 CLNT S1 rejected it in T1
+016575 CLNT S0 received Client's request in T1
+016575 CLNT S0 rejected it in T1
+017083 CLNT S1 received Client's request in T1
+017083 CLNT S1 rejected it in T1
+017083 CLNT S0 received Client's request in T1
+017083 CLNT S0 rejected it in T1
+017357 TIMR S2 Leader, checking heartbeats in T1
+017358 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+017358 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+017589 CLNT S1 received Client's request in T1
+017589 CLNT S1 rejected it in T1
+017589 CLNT S0 received Client's request in T1
+017589 CLNT S0 rejected it in T1
+018093 CLNT S1 received Client's request in T1
+018093 CLNT S1 rejected it in T1
+018093 CLNT S0 received Client's request in T1
+018093 CLNT S0 rejected it in T1
+018601 CLNT S1 received Client's request in T1
+018601 CLNT S1 rejected it in T1
+018601 CLNT S0 received Client's request in T1
+018601 CLNT S0 rejected it in T1
+018861 TIMR S2 Leader, checking heartbeats in T1
+018861 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+018861 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+019102 CLNT S1 received Client's request in T1
+019102 CLNT S1 rejected it in T1
+019102 CLNT S0 received Client's request in T1
+019102 CLNT S0 rejected it in T1
+019608 CLNT S1 received Client's request in T1
+019608 CLNT S1 rejected it in T1
+019608 CLNT S0 received Client's request in T1
+019608 CLNT S0 rejected it in T1
+020116 CLNT S1 received Client's request in T1
+020116 CLNT S1 rejected it in T1
+020116 CLNT S0 received Client's request in T1
+020116 CLNT S0 rejected it in T1
+020373 TIMR S2 Leader, checking heartbeats in T1
+020373 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+020374 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+020625 CLNT S1 received Client's request in T1
+020625 CLNT S1 rejected it in T1
+020625 CLNT S0 received Client's request in T1
+020625 CLNT S0 rejected it in T1
+021060 LEAD S1 timeout, starts election T2
+021062 VOTE S0 votes for S1 in T2
+021062 VOTE S1 received vote from S0 in T2
+021062 LEAD S1 achieved Majority for T2 (2), converting to leader
+021062 TIMR S1 Leader, checking heartbeats in T2
+021063 LOG1 S1 -> S2 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+021063 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:1 preLogTerm:1 len:0 lCommit:1 }
+021063 TIMR S0 Resetting ELT by granting others in T2
+021064 TIMR S0 Resetting ELT, received AppEnt in T2
+021134 CLNT S1 received Client's request in T2
+021134 LOG1 S1 appended log entry {term:2 cmd:103} at 2 in T2
+021134 LOG2 S1  Logs: [{0 <nil>} {1 101} {2 103}]
+021875 TIMR S2 Leader, checking heartbeats in T1
+021876 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+021876 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+022570 TIMR S1 Leader, checking heartbeats in T2
+022571 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:1 }
+022571 LOG1 S1 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:1 }
+022574 LOG2 S0  After appended, Logs: [{0 <nil>} {1 101} {2 103}]
+022575 TIMR S0 Resetting ELT, received AppEnt in T2
+022763 CMIT S1 commit and applies log at 2 (cmd: 103) in T2
+023380 TIMR S2 Leader, checking heartbeats in T1
+023381 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+023381 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+024081 TIMR S1 Leader, checking heartbeats in T2
+024082 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+024082 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+024084 CMIT S0 applies log at 2 (cmd: 103) in T2
+024084 TIMR S0 Resetting ELT, received AppEnt in T2
+024891 TIMR S2 Leader, checking heartbeats in T1
+024892 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+024892 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+025587 TIMR S1 Leader, checking heartbeats in T2
+025588 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+025588 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+025591 TIMR S0 Resetting ELT, received AppEnt in T2
+026396 TIMR S2 Leader, checking heartbeats in T1
+026396 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+026396 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+027094 TIMR S1 Leader, checking heartbeats in T2
+027095 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+027097 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+027099 TIMR S0 Resetting ELT, received AppEnt in T2
+027901 TIMR S2 Leader, checking heartbeats in T1
+027901 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+027902 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:3 lCommit:1 }
+028597 TIMR S1 Leader, checking heartbeats in T2
+028597 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+028598 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+028602 TIMR S0 Resetting ELT, received AppEnt in T2
+029026 CLNT S2 received Client's request in T1
+029026 LOG1 S2 appended log entry {term:1 cmd:104} at 5 in T1
+029026 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 104}]
+029402 TIMR S2 Leader, checking heartbeats in T1
+029402 LOG1 S2 -> S1 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:4 lCommit:1 }
+029402 LOG1 S2 -> S0 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:4 lCommit:1 }
+029406 VOTE S2 stepping down from leader in T2
+029407 TIMR S2 Resetting ELT, received AppEnt in T2
+030098 TIMR S1 Leader, checking heartbeats in T2
+030099 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+030099 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+031603 TIMR S1 Leader, checking heartbeats in T2
+031604 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+031605 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+033112 TIMR S1 Leader, checking heartbeats in T2
+033112 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+033113 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+034610 LEAD S0 timeout, starts election T3
+034611 VOTE S2 votes for S0 in T3
+034612 VOTE S0 received vote from S2 in T3
+034612 LEAD S0 achieved Majority for T3 (2), converting to leader
+034612 TIMR S1 Leader, checking heartbeats in T2
+034612 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+034613 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+034613 TIMR S0 Leader, checking heartbeats in T3
+034613 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+034613 TIMR S2 Resetting ELT by granting others in T3
+034613 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+034614 LOG2 S2 Rejected AE RPC, Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 104}] in T3
+034614 LOG2 S2 rf.log[args.PrevLogIndex].Term: 1, args.PrevLogTerm: 2
+034615 TIMR S2 Resetting ELT, received AppEnt in T3
+036119 TIMR S0 Leader, checking heartbeats in T3
+036120 LOG1 S0 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+036120 TIMR S1 Leader, checking heartbeats in T2
+036121 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+036122 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+036122 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+036123 LOG2 S2  After appended, Logs: [{0 <nil>} {1 101} {2 103}]
+036125 CMIT S2 applies log at 2 (cmd: 103) in T3
+036126 TIMR S2 Resetting ELT, received AppEnt in T3
+037622 TIMR S1 Leader, checking heartbeats in T2
+037622 TIMR S0 Leader, checking heartbeats in T3
+037623 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+037623 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+037623 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+037623 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+037625 TIMR S2 Resetting ELT, received AppEnt in T3
+039131 TIMR S1 Leader, checking heartbeats in T2
+039131 TIMR S0 Leader, checking heartbeats in T3
+039132 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+039132 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+039132 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+039132 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+039135 TIMR S2 Resetting ELT, received AppEnt in T3
+040643 TIMR S1 Leader, checking heartbeats in T2
+040643 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+040643 TIMR S0 Leader, checking heartbeats in T3
+040645 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+040645 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+040645 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+040647 TIMR S2 Resetting ELT, received AppEnt in T3
+042148 TIMR S1 Leader, checking heartbeats in T2
+042149 TIMR S0 Leader, checking heartbeats in T3
+042149 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+042150 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+042149 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+042150 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+042152 TIMR S2 Resetting ELT, received AppEnt in T3
+043656 TIMR S0 Leader, checking heartbeats in T3
+043656 TIMR S1 Leader, checking heartbeats in T2
+043656 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+043656 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+043657 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+043657 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+043659 TIMR S2 Resetting ELT, received AppEnt in T3
+045159 TIMR S0 Leader, checking heartbeats in T3
+045159 TIMR S1 Leader, checking heartbeats in T2
+045159 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+045159 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+045159 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+045160 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+045161 TIMR S2 Resetting ELT, received AppEnt in T3
+046667 TIMR S0 Leader, checking heartbeats in T3
+046667 TIMR S1 Leader, checking heartbeats in T2
+046667 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+046667 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+046667 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+046667 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+046669 TIMR S2 Resetting ELT, received AppEnt in T3
+048178 TIMR S0 Leader, checking heartbeats in T3
+048178 TIMR S1 Leader, checking heartbeats in T2
+048178 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+048178 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+048178 LOG1 S0 -> S1 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+048178 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+048179 TIMR S2 Resetting ELT, received AppEnt in T3
+049050 CLNT S0 received Client's request in T3
+049051 LOG1 S0 appended log entry {term:3 cmd:104} at 3 in T3
+049051 LOG2 S0  Logs: [{0 <nil>} {1 101} {2 103} {3 104}]
+049685 TIMR S1 Leader, checking heartbeats in T2
+049685 TIMR S0 Leader, checking heartbeats in T3
+049685 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+049686 LOG1 S0 -> S2 Sending(with heartbeat) {preLogIdx:2 preLogTerm:2 len:1 lCommit:2 }
+049686 LOG1 S0 -> S1 Sending(with heartbeat) {preLogIdx:2 preLogTerm:2 len:1 lCommit:2 }
+049686 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+049688 LOG2 S2  After appended, Logs: [{0 <nil>} {1 101} {2 103} {3 104}]
+049689 TIMR S2 Resetting ELT, received AppEnt in T3
+050121 CMIT S0 commit and applies log at 3 (cmd: 104) in T3
+051196 TIMR S0 Leader, checking heartbeats in T3
+051196 TIMR S1 Leader, checking heartbeats in T2
+051196 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:3 preLogTerm:3 len:0 lCommit:3 }
+051196 LOG1 S1 -> S0 Sending heartbeat {preLogIdx:2 preLogTerm:2 len:0 lCommit:2 }
+051196 LOG1 S0 -> S1 Sending(with heartbeat) {preLogIdx:2 preLogTerm:2 len:1 lCommit:3 }
+051196 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:1 lCommit:2 }
+051198 CMIT S2 applies log at 3 (cmd: 104) in T3
+051199 TIMR S2 Resetting ELT, received AppEnt in T3
+051300 CLNT S1 received Client's request in T2
+051301 LOG1 S1 appended log entry {term:2 cmd:105} at 3 in T2
+051301 LOG2 S1  Logs: [{0 <nil>} {1 101} {2 103} {2 105}]
+052706 TIMR S1 Leader, checking heartbeats in T2
+052707 LOG1 S1 -> S2 Sending(with heartbeat) {preLogIdx:1 preLogTerm:1 len:2 lCommit:2 }
+052712 VOTE S1 stepping down from leader in T3
+052712 TIMR S1 Resetting ELT, received AppEnt in T3
+052713 LOG1 S1 -> S0 Sending(with heartbeat) {preLogIdx:2 preLogTerm:2 len:1 lCommit:2 }
+052713 LOG2 S0  After appended, Logs: [{0 <nil>} {1 101} {2 103} {2 105}]
+052714 TIMR S0 Resetting ELT, received AppEnt in T3
+052715 TIMR S0 Leader, checking heartbeats in T3
+052715 LOG1 S0 -> S2 Sending heartbeat {preLogIdx:3 preLogTerm:2 len:0 lCommit:3 }
+052716 LOG1 S0 -> S1 Sending(with heartbeat) {preLogIdx:2 preLogTerm:2 len:1 lCommit:3 }
+052717 LOG2 S2 Rejected AE RPC, Logs: [{0 <nil>} {1 101} {2 103} {3 104}] in T3
+052717 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {2 103} {2 105}]
+052717 CMIT S1 applies log at 3 (cmd: 105) in T3
+052717 TIMR S2 Resetting ELT, received AppEnt in T3
+052717 LOG2 S2 rf.log[args.PrevLogIndex].Term: 3, args.PrevLogTerm: 2
+052718 TIMR S1 Resetting ELT, received AppEnt in T3
+1: log map[1:101 2:103]; server map[1:101 2:103 3:104]
+1: log map[1:101 2:103]; server map[1:101 2:103 3:104]
+apply error: commit index=3 server=1 105 != server=2 104
+exit status 1
+FAIL	6.5840/raft	5.274s
