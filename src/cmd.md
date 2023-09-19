@@ -121,12 +121,16 @@ dstest  -p 100 -n 200 -o run_logs3 TestFigure82C
 
 
 TestUnreliableAgree2C OK
+
+
 TestFigure8Unreliable2C
+dstest  -p 100 -n 200 -o run_logs TestFigure8Unreliable2C
+
 TestReliableChurn2C
-TestUnreliableChurn2C OK
+TestUnreliableChurn2C 
 
 
-dstest  -p 50 -n 200 -o run_logs2 TestPersist12C  TestPersist22C  TestPersist32C  TestUnreliableAgree2C TestUnreliableChurn2C 
+dstest  -p 100 -n 500 -o run_logs2 TestPersist12C  TestPersist22C  TestPersist32C TestFigure82C TestUnreliableAgree2C
 
 #### All
-dstest  -p 50 -n 100 -o run_logs TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
+dstest  -p 100 -n 1000 -o run_logs TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C

@@ -165,7 +165,10 @@ func (rf *Raft) persist() {
 	}
 	w := new(bytes.Buffer)
 	e := labgob.NewEncoder(w)
-	e.Encode(state)
+	err := e.Encode(state)
+	if err != nil {
+		return
+	}
 	raftstate := w.Bytes()
 	rf.persister.Save(raftstate, nil)
 
@@ -193,7 +196,7 @@ func (rf *Raft) readPersist(data []byte) {
 	d := labgob.NewDecoder(r)
 	var state PersistentState
 	if d.Decode(&state) != nil {
-		DPrintf("Error: Raft %d failed to read persist\n", rf.me)
+		rf.debug(DError, "Error: Raft %d failed to read persist\n", rf.me)
 	} else {
 		rf.mu.Lock()
 		rf.currentTerm = state.CurrentTerm
@@ -308,7 +311,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 // can't be reached, a lost request, or a lost reply.
 //
 // Call() is guaranteed to return (perhaps after a delay) *except* if the
-// handler function on the server side does not return.  Thus there
+// handler function on the server side does not return, thus there
 // is no need to implement your own timeouts around Call().
 //
 // look at the comments in ../labrpc/labrpc.go for more details.
@@ -333,9 +336,16 @@ type AppendEntriesArgs struct {
 	LeaderCommit int        // leader's commitIndex
 }
 
+type RejectionDetail struct {
+	XTerm  int // term in the conflicting entry (if any)
+	XIndex int // index of first entry with that term (if any)
+	XLen   int // log length
+}
+
 type AppendEntriesReply struct {
-	Term    int  // currentTerm, for leader to update itself
-	Success bool // true if follower contained entry matching prevLogIndex and prevLogTerm
+	Term          int  // currentTerm, for leader to update itself
+	Success       bool // true if follower contained entry matching prevLogIndex and prevLogTerm
+	RejectionInfo RejectionDetail
 }
 
 // AppendEntries RPC handler.
@@ -362,6 +372,32 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	if rf.log[args.PrevLogIndex].Term != args.PrevLogTerm {
 		reply.Term = rf.currentTerm
 		reply.Success = false
+		var rejectInfo RejectionDetail
+
+		if args.PrevLogIndex > rf.lastLogIndex {
+			rejectInfo = RejectionDetail{
+				XTerm:  -1,
+				XIndex: -1,
+				XLen:   rf.lastLogIndex,
+			}
+		} else {
+			firstIndex := args.PrevLogIndex
+			for ; firstIndex >= 0; firstIndex-- {
+				if rf.log[firstIndex].Term != rf.log[args.PrevLogIndex].Term {
+					break
+				}
+			}
+			firstIndex++
+
+			rejectInfo = RejectionDetail{
+				XTerm:  rf.log[args.PrevLogIndex].Term,
+				XIndex: firstIndex,
+				XLen:   rf.lastLogIndex,
+			}
+
+		}
+		reply.RejectionInfo = rejectInfo
+
 		rf.mu.Unlock()
 		rf.notifyCh <- Reset
 		rf.debug(DLog2, "Rejected AE RPC, Logs: %v in T%d\n", rf.log[:rf.lastLogIndex+1], rf.currentTerm)
@@ -562,14 +598,30 @@ func (rf *Raft) sendHeartBeat() {
 						return
 					}
 					if reply.Success {
-
 						rf.nextIndex[i] = args.PrevLogIndex + len(args.Entries) + 1
 						rf.matchIndex[i] = rf.nextIndex[i] - 1
 						rf.mu.Unlock()
 					} else {
 
-						if rf.nextIndex[i] > 1 {
-							rf.nextIndex[i] = rf.nextIndex[i] - 1
+						// optimization that backs up nextIndex by more than one entry at a time
+						rejectInfo := reply.RejectionInfo
+						// Case 1: follower's log is too short:
+						if reply.RejectionInfo.XTerm == -1 {
+							rf.nextIndex[i] = max(1, rejectInfo.XLen)
+						} else {
+							// Case 2: leader doesn't have XTerm:
+							if !rf.containsXTerm(rejectInfo.XTerm) {
+								rf.nextIndex[i] = max(1, rejectInfo.XIndex)
+							} else {
+								// Case 3: leader has XTerm:
+								for j := rf.lastLogIndex; j >= 0; j-- {
+									if rf.log[j].Term == rejectInfo.XTerm {
+										rf.nextIndex[i] = j
+										break
+									}
+								}
+								rf.nextIndex[i] = max(1, rf.nextIndex[i])
+							}
 						}
 						rf.mu.Unlock()
 					}
@@ -602,12 +654,12 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	// Your code here (2B).
 	if rf.currentState != Leader {
 		isLeader = false
-		rf.debug(DClient, "rejected Client's request in T%d\n", rf.currentTerm)
+		//rf.debug(DClient, "rejected Client's request in T%d\n", rf.currentTerm)
 		rf.mu.Unlock()
 		return index, term, isLeader
 	}
 
-	rf.debug(DClient, "received Client's request in T%d\n", rf.currentTerm)
+	rf.debug(DClient, "accepted Client's request in T%d\n", rf.currentTerm)
 
 	rf.lastLogIndex++
 	rf.log[rf.lastLogIndex] = LogEntry{Term: rf.currentTerm, Command: command}
@@ -682,29 +734,6 @@ func (rf *Raft) ticker() {
 					}
 				}
 			}
-
-			// 	cnt := 1
-			// 	for i := 0; i < len(rf.peers); i++ {
-			// 		if i != rf.me {
-			// 			if rf.matchIndex[i] > rf.commitIndex {
-			// 				cnt += 1
-			// 			}
-			// 		}
-			// 	}
-			// 	// TODO: A Leader cannot determine commitment using log entries from older terms.
-			// 	if cnt >= rf.majority {
-			// 		rf.commitIndex += 1
-			// 		rf.lastApplied += 1
-			// 		if rf.commitIndex != 0 {
-			// 			rf.applyChan <- ApplyMsg{
-			// 				CommandValid: true,
-			// 				Command:      rf.log[rf.commitIndex].Command,
-			// 				CommandIndex: rf.commitIndex,
-			// 			}
-			// 		}
-			// 		rf.debug(DCommit, "commit and applies log at %d (cmd: %v) in T%d\n", rf.commitIndex, rf.log[rf.commitIndex].Command, rf.currentTerm)
-			// 	}
-			// }
 			rf.persist()
 			rf.mu.Unlock()
 		}
@@ -736,7 +765,7 @@ func (rf *Raft) ticker() {
 
 		// Your code here (2A)
 		// Check if a leader election should be started.
-		interval := time.Duration(50+rand.Intn(20)) * 10 * time.Millisecond
+		interval := time.Duration(30+rand.Intn(20)) * 10 * time.Millisecond
 		timeout := time.After(interval)
 		select {
 		case <-timeout:
@@ -751,9 +780,9 @@ func (rf *Raft) ticker() {
 			rf.mu.Lock()
 			switch event {
 			case Reset:
-				rf.debug(DTimer, "Resetting ELT, received AppEnt in T%d\n", rf.currentTerm)
+				rf.debug(DTimer, "Resetting ELT by receiving an AppEnt in T%d\n", rf.currentTerm)
 			case WinInElection:
-				rf.debug(DTimer, "Resetting ELT, by winning an election in T%d\n", rf.currentTerm)
+				rf.debug(DTimer, "Resetting ELT by winning an election in T%d\n", rf.currentTerm)
 			case GrantReset:
 				rf.debug(DTimer, "Resetting ELT by granting others in T%d\n", rf.currentTerm)
 			}
@@ -818,6 +847,15 @@ func Make(peers []*labrpc.ClientEnd, me int,
 func (rf *Raft) debug(topic LogTopic, format string, a ...interface{}) {
 	prefix := fmt.Sprintf("S%d ", rf.me)
 	Debug(topic, prefix+format, a...)
+}
+
+func (rf *Raft) containsXTerm(XTerm int) bool {
+	for i := 0; i <= rf.lastLogIndex; i++ {
+		if rf.log[i].Term == XTerm {
+			return true
+		}
+	}
+	return false
 }
 
 func Trunc(data any, length int) string {
