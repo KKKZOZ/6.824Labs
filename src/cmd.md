@@ -106,3 +106,27 @@ Failed test TestManyElections2A - run_logs/TestManyElections2A_507.log
 Failed test TestManyElections2A - run_logs/TestManyElections2A_511.log
 Failed test TestManyElections2A - run_logs/TestManyElections2A_515.log
 Failed test TestManyElections2A - run_logs/TestManyElections2A_517.log
+
+
+## 2C
+
+### Task List
+
+TestPersist12C OK
+TestPersist22C OK
+TestPersist32C OK
+
+TestFigure82C
+dstest  -p 100 -n 200 -o run_logs3 TestFigure82C
+
+
+TestUnreliableAgree2C OK
+TestFigure8Unreliable2C
+TestReliableChurn2C
+TestUnreliableChurn2C OK
+
+
+dstest  -p 50 -n 200 -o run_logs2 TestPersist12C  TestPersist22C  TestPersist32C  TestUnreliableAgree2C TestUnreliableChurn2C 
+
+#### All
+dstest  -p 50 -n 100 -o run_logs TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
