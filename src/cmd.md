@@ -84,7 +84,7 @@ go test -run TestCount2B OK
 
 dstest  -p 50 -n 100 -o run_logs TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
-dstest  -p 50 -n 100 -o run_logs TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+dstest  -p 50 -n 6000 -o run_logs TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
 
 dstest  -p 50 -n 100 -o run_logs TestManyElections2A
