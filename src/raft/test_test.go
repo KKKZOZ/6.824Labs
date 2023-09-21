@@ -104,7 +104,6 @@ func TestManyElections2A(t *testing.T) {
 	iters := 10
 	for ii := 1; ii < iters; ii++ {
 		// disconnect three nodes
-		//fmt.Printf("Iteration: %d\n", ii)
 		i1 := rand.Int() % servers
 		i2 := rand.Int() % servers
 		i3 := rand.Int() % servers
@@ -120,10 +119,9 @@ func TestManyElections2A(t *testing.T) {
 		cfg.connect(i2)
 		cfg.connect(i3)
 	}
-	//fmt.Println("Almost complete....")
+
 	cfg.checkOneLeader()
 
-	//fmt.Println("Ready to end")
 	cfg.end()
 }
 
@@ -141,7 +139,7 @@ func TestBasicAgree2B(t *testing.T) {
 			t.Fatalf("some have committed before Start()")
 		}
 
-		xindex := cfg.one(index*100, servers, true)
+		xindex := cfg.one(index*100, servers, false)
 		if xindex != index {
 			t.Fatalf("got index %v but expected %v", xindex, index)
 		}
@@ -159,14 +157,14 @@ func TestRPCBytes2B(t *testing.T) {
 
 	cfg.begin("Test (2B): RPC byte count")
 
-	cfg.one(99, servers, true)
+	cfg.one(99, servers, false)
 	bytes0 := cfg.bytesTotal()
 
 	iters := 10
 	var sent int64 = 0
 	for index := 2; index < iters+2; index++ {
 		cmd := randstring(5000)
-		xindex := cfg.one(cmd, servers, true)
+		xindex := cfg.one(cmd, servers, false)
 		if xindex != index {
 			t.Fatalf("got index %v but expected %v", xindex, index)
 		}
@@ -191,7 +189,7 @@ func TestFollowerFailure2B(t *testing.T) {
 
 	cfg.begin("Test (2B): test progressive failure of followers")
 
-	cfg.one(101, servers, true)
+	cfg.one(101, servers, false)
 
 	// disconnect one follower from the network.
 	leader1 := cfg.checkOneLeader()
@@ -199,9 +197,9 @@ func TestFollowerFailure2B(t *testing.T) {
 
 	// the leader and remaining follower should be
 	// able to agree despite the disconnected follower.
-	cfg.one(102, servers-1, true)
+	cfg.one(102, servers-1, false)
 	time.Sleep(RaftElectionTimeout)
-	cfg.one(103, servers-1, true)
+	cfg.one(103, servers-1, false)
 
 	// disconnect the remaining follower
 	leader2 := cfg.checkOneLeader()
@@ -236,7 +234,7 @@ func TestLeaderFailure2B(t *testing.T) {
 
 	cfg.begin("Test (2B): test failure of leaders")
 
-	cfg.one(101, servers, true)
+	cfg.one(101, servers, false)
 
 	// disconnect the first leader.
 	leader1 := cfg.checkOneLeader()
@@ -244,9 +242,9 @@ func TestLeaderFailure2B(t *testing.T) {
 
 	// the remaining followers should elect
 	// a new leader.
-	cfg.one(102, servers-1, true)
+	cfg.one(102, servers-1, false)
 	time.Sleep(RaftElectionTimeout)
-	cfg.one(103, servers-1, true)
+	cfg.one(103, servers-1, false)
 
 	// disconnect the new leader.
 	leader2 := cfg.checkOneLeader()
@@ -277,7 +275,7 @@ func TestFailAgree2B(t *testing.T) {
 
 	cfg.begin("Test (2B): agreement after follower reconnects")
 
-	cfg.one(101, servers, true)
+	cfg.one(101, servers, false)
 
 	// disconnect one follower from the network.
 	leader := cfg.checkOneLeader()
@@ -285,11 +283,11 @@ func TestFailAgree2B(t *testing.T) {
 
 	// the leader and remaining follower should be
 	// able to agree despite the disconnected follower.
-	cfg.one(102, servers-1, true)
-	cfg.one(103, servers-1, true)
+	cfg.one(102, servers-1, false)
+	cfg.one(103, servers-1, false)
 	time.Sleep(RaftElectionTimeout)
-	cfg.one(104, servers-1, true)
-	cfg.one(105, servers-1, true)
+	cfg.one(104, servers-1, false)
+	cfg.one(105, servers-1, false)
 
 	// re-connect
 	cfg.connect((leader + 1) % servers)

@@ -1,0 +1,259 @@
+Test (2B): agreement after follower reconnects ...
+0056157 LEAD S2 timeout, starts election for T1
+0056179 VOTE S1 votes for S2 in T1
+0056181 VOTE S0 votes for S2 in T1
+0056195 VOTE S2 received vote from S1 (for T1) in T1
+0056196 LEAD S2 achieved Majority for T1 (2), converting to leader
+0056196 VOTE S2 received vote from S0 (for T1) in T1
+0056196 TIMR S1 Resetting ELT by granting others in T1
+0056195 TIMR S0 Resetting ELT by granting others in T1
+0056197 TIMR S2 Leader, checking heartbeats in T1
+0056199 TIMR S2 Resetting ELT by winning an election in T1
+0056199 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0056202 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0056226 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0056227 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0060497 CLNT S2 accepted Client's request in T1
+0060500 LOG1 S2 appended log entry {term:1 cmd:101} at 1 in T1
+0060500 LOG2 S2  Logs: [{0 <nil>} {1 101}]
+0061209 TIMR S2 Leader, checking heartbeats in T1
+0061212 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:0 preLogT:0 len:1 lCommit:0}
+0061216 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:0 preLogT:0 len:1 lCommit:0}
+0061229 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101}]
+0061233 LOG2 S0  After appended, Logs: [{0 <nil>} {1 101}]
+0061242 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0061267 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0065514 CMIT S2 applies log at 1 (cmd: 101) in T1
+0066262 TIMR S2 Leader, checking heartbeats in T1
+0066263 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0066269 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0066273 CMIT S1 applies log at 1 (cmd: 101) in T1
+0066278 CMIT S0 applies log at 1 (cmd: 101) in T1
+0066288 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0066292 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0071298 TIMR S2 Leader, checking heartbeats in T1
+0071304 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0071307 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0071329 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0071335 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0076327 TIMR S2 Leader, checking heartbeats in T1
+0076332 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0076336 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0076361 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0076363 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0081406 TIMR S2 Leader, checking heartbeats in T1
+0081410 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0081415 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0081434 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0081440 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0086478 TIMR S2 Leader, checking heartbeats in T1
+0086482 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0086488 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0086506 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0086507 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0091555 TIMR S2 Leader, checking heartbeats in T1
+0091558 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0091562 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0091583 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0091585 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0096649 TIMR S2 Leader, checking heartbeats in T1
+0096651 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0096654 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0096673 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0096674 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0101754 TIMR S2 Leader, checking heartbeats in T1
+0101760 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0101767 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0101788 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0101802 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0106842 TIMR S2 Leader, checking heartbeats in T1
+0106847 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0106854 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0106881 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0106883 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0111944 TIMR S2 Leader, checking heartbeats in T1
+0111945 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0111969 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0111976 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0111988 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0117045 TIMR S2 Leader, checking heartbeats in T1
+0117046 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0117055 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0117071 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0117081 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0117335 CLNT S2 accepted Client's request in T1
+0117336 LOG1 S2 appended log entry {term:1 cmd:102} at 2 in T1
+0117337 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102}]
+0122114 TIMR S2 Leader, checking heartbeats in T1
+0122119 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:1 lCommit:1}
+0122124 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:1 lCommit:1}
+0122130 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {1 102}]
+0122144 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0126537 CMIT S2 applies log at 2 (cmd: 102) in T1
+0127195 TIMR S2 Leader, checking heartbeats in T1
+0127198 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:2 preLogT:1 len:0 lCommit:2}
+0127208 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:1 lCommit:2}
+0127210 CMIT S1 applies log at 2 (cmd: 102) in T1
+0127224 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0127621 CLNT S2 accepted Client's request in T1
+0127622 LOG1 S2 appended log entry {term:1 cmd:103} at 3 in T1
+0127623 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103}]
+0132283 TIMR S2 Leader, checking heartbeats in T1
+0132285 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:2 preLogT:1 len:1 lCommit:2}
+0132290 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:2}
+0132297 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {1 102} {1 103}]
+0132311 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0136757 CMIT S2 applies log at 3 (cmd: 103) in T1
+0137305 TIMR S2 Leader, checking heartbeats in T1
+0137307 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0137312 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0137319 CMIT S1 applies log at 3 (cmd: 103) in T1
+0137333 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0142333 TIMR S2 Leader, checking heartbeats in T1
+0142337 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0142341 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0142365 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0147357 TIMR S2 Leader, checking heartbeats in T1
+0147360 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0147364 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0147387 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0152433 TIMR S2 Leader, checking heartbeats in T1
+0152436 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0152439 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0152469 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0157453 TIMR S2 Leader, checking heartbeats in T1
+0157458 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0157485 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0157488 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0162559 TIMR S2 Leader, checking heartbeats in T1
+0162561 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0162566 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0162583 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0167605 TIMR S2 Leader, checking heartbeats in T1
+0167610 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0167614 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0167644 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0172665 TIMR S2 Leader, checking heartbeats in T1
+0172667 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0172672 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0172687 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0173136 LEAD S0 timeout, starts election for T2
+0177699 TIMR S2 Leader, checking heartbeats in T1
+0177705 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0177717 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0177735 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0182770 TIMR S2 Leader, checking heartbeats in T1
+0182774 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0182785 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0182805 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0187783 TIMR S2 Leader, checking heartbeats in T1
+0187785 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0187787 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0187807 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0192862 TIMR S2 Leader, checking heartbeats in T1
+0192866 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0192870 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0192889 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0197963 TIMR S2 Leader, checking heartbeats in T1
+0197965 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0197969 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0197985 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0202969 TIMR S2 Leader, checking heartbeats in T1
+0202971 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0202977 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0203004 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0207987 TIMR S2 Leader, checking heartbeats in T1
+0207989 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0207994 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0208008 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0213050 TIMR S2 Leader, checking heartbeats in T1
+0213053 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0213058 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0213083 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0218132 TIMR S2 Leader, checking heartbeats in T1
+0218134 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0218140 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0218162 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0223193 TIMR S2 Leader, checking heartbeats in T1
+0223195 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0223217 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0223220 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0228239 TIMR S2 Leader, checking heartbeats in T1
+0228240 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0228243 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0228264 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0230173 LEAD S0 timeout, starts election for T3
+0233301 TIMR S2 Leader, checking heartbeats in T1
+0233305 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0233313 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:2 lCommit:3}
+0233338 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0238079 CLNT S2 accepted Client's request in T1
+0238081 LOG1 S2 appended log entry {term:1 cmd:104} at 4 in T1
+0238081 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104}]
+0238380 TIMR S2 Leader, checking heartbeats in T1
+0238382 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:3 preLogT:1 len:1 lCommit:3}
+0238389 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:3 lCommit:3}
+0238392 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104}]
+0238405 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0243085 CMIT S2 applies log at 4 (cmd: 104) in T1
+0243397 TIMR S2 Leader, checking heartbeats in T1
+0243399 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:4 preLogT:1 len:0 lCommit:4}
+0243405 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:3 lCommit:4}
+0243408 CMIT S1 applies log at 4 (cmd: 104) in T1
+0243423 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0244225 CLNT S2 accepted Client's request in T1
+0244226 LOG1 S2 appended log entry {term:1 cmd:105} at 5 in T1
+0244227 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 105}]
+0248500 TIMR S2 Leader, checking heartbeats in T1
+0248501 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:4 preLogT:1 len:1 lCommit:4}
+0248504 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:4 lCommit:4}
+0248509 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 105}]
+0248521 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0253215 CMIT S2 applies log at 5 (cmd: 105) in T1
+0253572 TIMR S2 Leader, checking heartbeats in T1
+0253573 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:5 preLogT:1 len:0 lCommit:5}
+0253579 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:4 lCommit:5}
+0253584 CMIT S1 applies log at 5 (cmd: 105) in T1
+0253601 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0254509 CLNT S2 accepted Client's request in T1
+0254512 LOG1 S2 appended log entry {term:1 cmd:106} at 6 in T1
+0254512 LOG2 S2  Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 105} {1 106}]
+0258658 TIMR S2 Leader, checking heartbeats in T1
+0258660 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:5 preLogT:1 len:1 lCommit:5}
+0258664 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:5 lCommit:5}
+0258671 LOG2 S1  After appended, Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 105} {1 106}]
+0258685 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0258694 VOTE S2 stepping down from leader in T3
+0258705 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0294268 LEAD S0 timeout, starts election for T4
+0294282 VOTE S2 rejects voting S0 in T4
+0294286 VOTE S1 rejects voting S0 in T4
+0314743 LEAD S2 timeout, starts election for T5
+0314760 VOTE S1 votes for S2 in T5
+0314768 VOTE S0 stepping down from candidate in T5
+0314769 VOTE S0 votes for S2 in T5
+0314775 VOTE S2 received vote from S1 (for T5) in T5
+0314776 LEAD S2 achieved Majority for T5 (2), converting to leader
+0314776 TIMR S2 Leader, checking heartbeats in T5
+0314776 LOG1 S2 -> S1 Sending heartbeat in T5 {T:5 preLogIdx:6 preLogT:1 len:0 lCommit:5}
+0314783 VOTE S2 received vote from S0 (for T5) in T5
+0314784 TIMR S0 Resetting ELT by granting others in T5
+0314785 TIMR S2 Resetting ELT by winning an election in T5
+0314787 LOG1 S2 -> S0 Sending heartbeat in T5 {T:5 preLogIdx:6 preLogT:1 len:0 lCommit:5}
+0314796 LOG2 S0 Rejected AE RPC, Logs: [{0 <nil>} {1 101}] in T5
+0314797 LOG2 S0 rf.log[args.PrevLogIndex].Term: 0, args.PrevLogTerm: 1
+0314801 TIMR S1 Resetting ELT by granting others in T5
+0314802 TIMR S1 Resetting ELT by receiving an AppEnt in T5
+0314813 TIMR S0 Resetting ELT by receiving an AppEnt in T5
+0319803 TIMR S2 Leader, checking heartbeats in T5
+0319805 LOG1 S2 -> S1 Sending heartbeat in T5 {T:5 preLogIdx:6 preLogT:1 len:0 lCommit:5}
+0319810 LOG1 S2 -> S0 Sending (with heartbeat) in T5 {T:5 preLogIdx:0 preLogT:0 len:6 lCommit:5}
+0319824 LOG2 S0  After appended, Logs: [{0 <nil>} {1 101} {1 102} {1 103} {1 104} {1 105} {1 106}]
+0319827 CMIT S0 applies log at 2 (cmd: 102) in T5
+0319828 CMIT S0 applies log at 3 (cmd: 103) in T5
+0319828 CMIT S0 applies log at 4 (cmd: 104) in T5
+0319828 CMIT S0 applies log at 5 (cmd: 105) in T5
+apply error: server 0 apply out of order 3
+0319833 TIMR S1 Resetting ELT by receiving an AppEnt in T5
+exit status 1
+FAIL	6.5840/raft	3.200s

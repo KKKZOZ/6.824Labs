@@ -1,0 +1,2381 @@
+Test (2B): basic agreement ...
+0061200 LEAD S2 timeout, starts election for T1
+0061247 VOTE S1 votes for S2 in T1
+0061263 VOTE S0 votes for S2 in T1
+0061298 VOTE S2 received vote from S0 (for T1) in T1
+0061299 LEAD S2 achieved Majority for T1 (2), converting to leader
+0061301 TIMR S2 Leader, checking heartbeats in T1
+0061302 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0061322 TEST S0 ready to get the lock
+0061324 TEST S0 get the lock already
+0061325 TIMR S0 Resetting ELT by granting others in T1
+0061326 TEST S2 ready to get the lock
+0061327 TEST S2 get the lock already
+0061327 TIMR S2 Resetting ELT by winning an election in T1
+0061328 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0061369 TEST S0 ready to get the lock
+0061370 TEST S0 get the lock already
+0061370 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0066390 TIMR S2 Leader, checking heartbeats in T1
+0066429 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0066518 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0066567 TEST S0 ready to get the lock
+0066568 TEST S0 get the lock already
+0066569 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0071473 TIMR S2 Leader, checking heartbeats in T1
+0071477 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0071572 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0071623 TEST S0 ready to get the lock
+0071624 TEST S0 get the lock already
+0071624 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0076548 TIMR S2 Leader, checking heartbeats in T1
+0076551 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0076576 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0076616 TEST S0 ready to get the lock
+0076617 TEST S0 get the lock already
+0076617 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0081593 TIMR S2 Leader, checking heartbeats in T1
+0081600 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0081626 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0081676 TEST S0 ready to get the lock
+0081677 TEST S0 get the lock already
+0081677 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0086805 TIMR S2 Leader, checking heartbeats in T1
+0086809 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0086831 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0086872 TEST S0 ready to get the lock
+0086873 TEST S0 get the lock already
+0086873 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0091845 TIMR S2 Leader, checking heartbeats in T1
+0091851 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0091879 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0091932 TEST S0 ready to get the lock
+0091933 TEST S0 get the lock already
+0091933 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0096894 TIMR S2 Leader, checking heartbeats in T1
+0096897 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0096931 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0096983 TEST S0 ready to get the lock
+0096984 TEST S0 get the lock already
+0096985 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0101960 TIMR S2 Leader, checking heartbeats in T1
+0101966 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0102039 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0102083 TEST S0 ready to get the lock
+0102084 TEST S0 get the lock already
+0102084 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0106968 TIMR S2 Leader, checking heartbeats in T1
+0106973 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0107015 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0107122 TEST S0 ready to get the lock
+0107123 TEST S0 get the lock already
+0107125 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0112476 TIMR S2 Leader, checking heartbeats in T1
+0112480 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0112501 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0112545 TEST S0 ready to get the lock
+0112546 TEST S0 get the lock already
+0112547 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0117657 TIMR S2 Leader, checking heartbeats in T1
+0117661 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0117684 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0117722 TEST S0 ready to get the lock
+0117723 TEST S0 get the lock already
+0117723 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0122915 TIMR S2 Leader, checking heartbeats in T1
+0122921 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0122951 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0123053 TEST S0 ready to get the lock
+0123054 TEST S0 get the lock already
+0123055 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0127941 TIMR S2 Leader, checking heartbeats in T1
+0127944 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0127976 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0128079 TEST S0 ready to get the lock
+0128081 TEST S0 get the lock already
+0128081 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0132983 TIMR S2 Leader, checking heartbeats in T1
+0132988 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0133013 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0133049 TEST S0 ready to get the lock
+0133050 TEST S0 get the lock already
+0133051 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0138051 TIMR S2 Leader, checking heartbeats in T1
+0138059 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0138108 TEST S0 ready to get the lock
+0138110 TEST S0 get the lock already
+0138110 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0138055 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0143078 TIMR S2 Leader, checking heartbeats in T1
+0143082 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0143104 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0143143 TEST S0 ready to get the lock
+0143144 TEST S0 get the lock already
+0143144 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0148090 TIMR S2 Leader, checking heartbeats in T1
+0148096 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0148228 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0148369 TEST S0 ready to get the lock
+0148371 TEST S0 get the lock already
+0148372 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0153183 TIMR S2 Leader, checking heartbeats in T1
+0153977 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0154017 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0154070 TEST S0 ready to get the lock
+0154072 TEST S0 get the lock already
+0154073 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0159002 TIMR S2 Leader, checking heartbeats in T1
+0159012 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0159049 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0159107 TEST S0 ready to get the lock
+0159772 TEST S0 get the lock already
+0159777 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0164505 TIMR S2 Leader, checking heartbeats in T1
+0164513 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0164546 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0164603 TEST S0 ready to get the lock
+0164604 TEST S0 get the lock already
+0164605 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0169537 TIMR S2 Leader, checking heartbeats in T1
+0169542 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0169564 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0169603 TEST S0 ready to get the lock
+0169604 TEST S0 get the lock already
+0169604 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0174631 TIMR S2 Leader, checking heartbeats in T1
+0174634 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0174667 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0174709 TEST S0 ready to get the lock
+0174710 TEST S0 get the lock already
+0174710 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0180592 TIMR S2 Leader, checking heartbeats in T1
+0180596 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0180617 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0180655 TEST S0 ready to get the lock
+0180656 TEST S0 get the lock already
+0180656 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0186697 TIMR S2 Leader, checking heartbeats in T1
+0186702 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0186731 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0186780 TEST S0 ready to get the lock
+0186781 TEST S0 get the lock already
+0186782 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0191772 TIMR S2 Leader, checking heartbeats in T1
+0191779 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0191809 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0191850 TEST S0 ready to get the lock
+0191851 TEST S0 get the lock already
+0191852 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0196945 TIMR S2 Leader, checking heartbeats in T1
+0196950 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0196985 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0197037 TEST S0 ready to get the lock
+0197120 TEST S0 get the lock already
+0197120 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0202035 TIMR S2 Leader, checking heartbeats in T1
+0202041 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0202079 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0202685 TEST S0 ready to get the lock
+0202688 TEST S0 get the lock already
+0202689 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0207138 TIMR S2 Leader, checking heartbeats in T1
+0207145 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0207177 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0207231 TEST S0 ready to get the lock
+0207232 TEST S0 get the lock already
+0207233 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0212176 TIMR S2 Leader, checking heartbeats in T1
+0212182 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0212187 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0212237 TEST S0 ready to get the lock
+0212238 TEST S0 get the lock already
+0212238 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0217229 TIMR S2 Leader, checking heartbeats in T1
+0217236 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0217273 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0217319 TEST S0 ready to get the lock
+0217323 TEST S0 get the lock already
+0217324 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0222642 TIMR S2 Leader, checking heartbeats in T1
+0222646 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0222655 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0222685 TEST S0 ready to get the lock
+0222886 TEST S0 get the lock already
+0222887 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0227669 TIMR S2 Leader, checking heartbeats in T1
+0227681 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0227779 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0227848 TEST S0 ready to get the lock
+0227849 TEST S0 get the lock already
+0227850 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0233572 TIMR S2 Leader, checking heartbeats in T1
+0233577 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0233622 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0233674 TEST S0 ready to get the lock
+0233675 TEST S0 get the lock already
+0233676 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0238633 TIMR S2 Leader, checking heartbeats in T1
+0238638 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0238666 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0238728 TEST S0 ready to get the lock
+0238729 TEST S0 get the lock already
+0238729 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0244706 TIMR S2 Leader, checking heartbeats in T1
+0244710 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0244766 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0244819 TEST S0 ready to get the lock
+0244820 TEST S0 get the lock already
+0244820 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0249734 TIMR S2 Leader, checking heartbeats in T1
+0249740 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0249762 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0249805 TEST S0 ready to get the lock
+0249806 TEST S0 get the lock already
+0249806 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0254815 TIMR S2 Leader, checking heartbeats in T1
+0254819 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0254829 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0254899 TEST S0 ready to get the lock
+0254900 TEST S0 get the lock already
+0254901 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0260309 TIMR S2 Leader, checking heartbeats in T1
+0260315 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0260427 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0260471 TEST S0 ready to get the lock
+0260472 TEST S0 get the lock already
+0260473 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0265866 TIMR S2 Leader, checking heartbeats in T1
+0265876 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0265916 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0265963 TEST S0 ready to get the lock
+0265964 TEST S0 get the lock already
+0265965 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0270902 TIMR S2 Leader, checking heartbeats in T1
+0270910 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0270939 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0270987 TEST S0 ready to get the lock
+0270989 TEST S0 get the lock already
+0270989 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0275949 TIMR S2 Leader, checking heartbeats in T1
+0275957 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0275991 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0276039 TEST S0 ready to get the lock
+0276040 TEST S0 get the lock already
+0276041 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0281024 TIMR S2 Leader, checking heartbeats in T1
+0281029 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0281222 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0281271 TEST S0 ready to get the lock
+0281272 TEST S0 get the lock already
+0281273 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0286091 TIMR S2 Leader, checking heartbeats in T1
+0286097 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0286244 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0286337 TEST S0 ready to get the lock
+0286339 TEST S0 get the lock already
+0286339 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0291143 TIMR S2 Leader, checking heartbeats in T1
+0291148 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0291188 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0291266 TEST S0 ready to get the lock
+0291267 TEST S0 get the lock already
+0291268 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0296347 TIMR S2 Leader, checking heartbeats in T1
+0296414 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0296485 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0296707 TEST S0 ready to get the lock
+0296709 TEST S0 get the lock already
+0296710 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0301904 TIMR S2 Leader, checking heartbeats in T1
+0301911 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0301917 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0301974 TEST S0 ready to get the lock
+0301975 TEST S0 get the lock already
+0301975 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0306919 TIMR S2 Leader, checking heartbeats in T1
+0306925 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0306982 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0307029 TEST S0 ready to get the lock
+0307030 TEST S0 get the lock already
+0307030 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0312086 TIMR S2 Leader, checking heartbeats in T1
+0312089 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0312166 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0312209 TEST S0 ready to get the lock
+0312210 TEST S0 get the lock already
+0312210 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0317402 TIMR S2 Leader, checking heartbeats in T1
+0317406 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0317461 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0317506 TEST S0 ready to get the lock
+0317507 TEST S0 get the lock already
+0317508 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0322501 TIMR S2 Leader, checking heartbeats in T1
+0322505 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0322527 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0322828 TEST S0 ready to get the lock
+0322853 TEST S0 get the lock already
+0322854 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0327578 TIMR S2 Leader, checking heartbeats in T1
+0327589 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0327723 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0327738 TEST S0 ready to get the lock
+0327739 TEST S0 get the lock already
+0327740 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0333162 TIMR S2 Leader, checking heartbeats in T1
+0333168 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0333238 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0333390 TEST S0 ready to get the lock
+0333391 TEST S0 get the lock already
+0333392 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0338207 TIMR S2 Leader, checking heartbeats in T1
+0338213 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0338371 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0338451 TEST S0 ready to get the lock
+0338452 TEST S0 get the lock already
+0338453 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0343319 TIMR S2 Leader, checking heartbeats in T1
+0343322 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0343354 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0344148 TEST S0 ready to get the lock
+0344151 TEST S0 get the lock already
+0344152 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0348365 TIMR S2 Leader, checking heartbeats in T1
+0348370 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0348401 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0348441 TEST S0 ready to get the lock
+0348442 TEST S0 get the lock already
+0348442 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0353478 TIMR S2 Leader, checking heartbeats in T1
+0353483 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0353511 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0353557 TEST S0 ready to get the lock
+0353558 TEST S0 get the lock already
+0353559 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0358506 TIMR S2 Leader, checking heartbeats in T1
+0358512 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0358569 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0358638 TEST S0 ready to get the lock
+0358639 TEST S0 get the lock already
+0358640 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0363649 TIMR S2 Leader, checking heartbeats in T1
+0363655 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0363736 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0363806 TEST S0 ready to get the lock
+0363807 TEST S0 get the lock already
+0363818 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0368720 TIMR S2 Leader, checking heartbeats in T1
+0368724 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0368745 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0368789 TEST S0 ready to get the lock
+0368790 TEST S0 get the lock already
+0368790 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0373800 TIMR S2 Leader, checking heartbeats in T1
+0373805 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0373832 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0373871 TEST S0 ready to get the lock
+0373872 TEST S0 get the lock already
+0373872 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0379437 TIMR S2 Leader, checking heartbeats in T1
+0379443 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0379478 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0379532 TEST S0 ready to get the lock
+0379533 TEST S0 get the lock already
+0379534 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0384484 TIMR S2 Leader, checking heartbeats in T1
+0384490 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0384708 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0385028 TEST S0 ready to get the lock
+0385051 TEST S0 get the lock already
+0385053 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0389508 TIMR S2 Leader, checking heartbeats in T1
+0389515 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0389543 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0389582 TEST S0 ready to get the lock
+0389584 TEST S0 get the lock already
+0389584 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0394711 TIMR S2 Leader, checking heartbeats in T1
+0394715 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0394737 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0394777 TEST S0 ready to get the lock
+0394778 TEST S0 get the lock already
+0394779 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0399824 TIMR S2 Leader, checking heartbeats in T1
+0399828 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0399848 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0399884 TEST S0 ready to get the lock
+0399885 TEST S0 get the lock already
+0399885 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0404865 TIMR S2 Leader, checking heartbeats in T1
+0404872 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0404930 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0405265 TEST S0 ready to get the lock
+0405267 TEST S0 get the lock already
+0405268 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0409874 TIMR S2 Leader, checking heartbeats in T1
+0409878 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0409906 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0409957 TEST S0 ready to get the lock
+0409958 TEST S0 get the lock already
+0409959 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0414909 TIMR S2 Leader, checking heartbeats in T1
+0414916 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0414943 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0414989 TEST S0 ready to get the lock
+0414990 TEST S0 get the lock already
+0414990 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0419955 TIMR S2 Leader, checking heartbeats in T1
+0419959 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0419983 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0420021 TEST S0 ready to get the lock
+0420022 TEST S0 get the lock already
+0420022 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0425009 TIMR S2 Leader, checking heartbeats in T1
+0425013 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0425038 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0425078 TEST S0 ready to get the lock
+0425078 TEST S0 get the lock already
+0425079 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0430072 TIMR S2 Leader, checking heartbeats in T1
+0430075 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0430094 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0431010 TEST S0 ready to get the lock
+0431028 TEST S0 get the lock already
+0431030 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0435084 TIMR S2 Leader, checking heartbeats in T1
+0435088 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0435111 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0435156 TEST S0 ready to get the lock
+0435157 TEST S0 get the lock already
+0435158 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0440133 TIMR S2 Leader, checking heartbeats in T1
+0440136 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0440155 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0440195 TEST S0 ready to get the lock
+0440196 TEST S0 get the lock already
+0440196 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0445157 TIMR S2 Leader, checking heartbeats in T1
+0445161 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0445184 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0445242 TEST S0 ready to get the lock
+0445243 TEST S0 get the lock already
+0445244 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0450174 TIMR S2 Leader, checking heartbeats in T1
+0450178 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0450442 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0450708 TEST S0 ready to get the lock
+0450710 TEST S0 get the lock already
+0450710 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0456017 TIMR S2 Leader, checking heartbeats in T1
+0456021 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0456060 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0456160 TEST S0 ready to get the lock
+0456162 TEST S0 get the lock already
+0456162 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0464334 TIMR S2 Leader, checking heartbeats in T1
+0464338 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0464428 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0464499 TEST S0 ready to get the lock
+0464500 TEST S0 get the lock already
+0464501 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0469386 TIMR S2 Leader, checking heartbeats in T1
+0469392 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0469701 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0469764 TEST S0 ready to get the lock
+0469765 TEST S0 get the lock already
+0469765 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0474490 TIMR S2 Leader, checking heartbeats in T1
+0474494 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0474672 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0474703 TEST S0 ready to get the lock
+0474704 TEST S0 get the lock already
+0474705 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0479501 TIMR S2 Leader, checking heartbeats in T1
+0479504 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0479523 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0479559 TEST S0 ready to get the lock
+0479560 TEST S0 get the lock already
+0479561 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0484578 TIMR S2 Leader, checking heartbeats in T1
+0484582 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0484603 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0484637 TEST S0 ready to get the lock
+0484638 TEST S0 get the lock already
+0484639 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0492742 TIMR S2 Leader, checking heartbeats in T1
+0492747 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0492750 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0492780 TEST S0 ready to get the lock
+0492804 TEST S0 get the lock already
+0492805 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0497820 TIMR S2 Leader, checking heartbeats in T1
+0497834 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0497837 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0497868 TEST S0 ready to get the lock
+0497869 TEST S0 get the lock already
+0497869 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0502870 TIMR S2 Leader, checking heartbeats in T1
+0502876 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0502879 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0502913 TEST S0 ready to get the lock
+0502914 TEST S0 get the lock already
+0502914 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0507884 TIMR S2 Leader, checking heartbeats in T1
+0507886 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0507891 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0507936 TEST S0 ready to get the lock
+0507937 TEST S0 get the lock already
+0507938 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0512907 TIMR S2 Leader, checking heartbeats in T1
+0512910 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0512913 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0512951 TEST S0 ready to get the lock
+0512952 TEST S0 get the lock already
+0512953 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0517929 TIMR S2 Leader, checking heartbeats in T1
+0517933 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0517941 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0517967 TEST S0 ready to get the lock
+0517983 TEST S0 get the lock already
+0517984 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0522936 TIMR S2 Leader, checking heartbeats in T1
+0522940 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0522960 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0522995 TEST S0 ready to get the lock
+0522996 TEST S0 get the lock already
+0522996 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0527976 TIMR S2 Leader, checking heartbeats in T1
+0527984 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0527998 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0528056 TEST S0 ready to get the lock
+0528057 TEST S0 get the lock already
+0528058 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0533025 TIMR S2 Leader, checking heartbeats in T1
+0533030 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0533036 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0533062 TEST S0 ready to get the lock
+0533063 TEST S0 get the lock already
+0533064 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0538118 TIMR S2 Leader, checking heartbeats in T1
+0538122 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0538125 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0538153 TEST S0 ready to get the lock
+0538154 TEST S0 get the lock already
+0538154 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0543133 TIMR S2 Leader, checking heartbeats in T1
+0543136 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0543140 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0543159 TEST S0 ready to get the lock
+0543160 TEST S0 get the lock already
+0543160 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0548161 TIMR S2 Leader, checking heartbeats in T1
+0548163 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0548165 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0548184 TEST S0 ready to get the lock
+0548185 TEST S0 get the lock already
+0548185 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0553178 TIMR S2 Leader, checking heartbeats in T1
+0553181 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0553183 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0553207 TEST S0 ready to get the lock
+0553208 TEST S0 get the lock already
+0553209 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0558285 TIMR S2 Leader, checking heartbeats in T1
+0558290 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0558292 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0563312 TIMR S2 Leader, checking heartbeats in T1
+0563316 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0563319 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0568324 TIMR S2 Leader, checking heartbeats in T1
+0568326 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0568328 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0573358 TIMR S2 Leader, checking heartbeats in T1
+0573359 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0573361 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0578464 TIMR S2 Leader, checking heartbeats in T1
+0578468 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0578473 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0583549 TIMR S2 Leader, checking heartbeats in T1
+0583551 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0583556 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0587151 TEST S0 ready to get the lock
+0587154 TEST S0 get the lock already
+0587154 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0587172 TEST S0 ready to get the lock
+0587174 TEST S0 get the lock already
+0587174 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0587195 TEST S0 ready to get the lock
+0587196 TEST S0 get the lock already
+0587197 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0587221 TEST S0 ready to get the lock
+0587223 TEST S0 get the lock already
+0587223 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0587241 TEST S0 ready to get the lock
+0587276 TEST S0 get the lock already
+0587277 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0587278 TEST S0 ready to get the lock
+0587279 TEST S0 get the lock already
+0587279 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0588652 TIMR S2 Leader, checking heartbeats in T1
+0588661 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0588665 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0588706 TEST S0 ready to get the lock
+0588707 TEST S0 get the lock already
+0588708 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0593707 TIMR S2 Leader, checking heartbeats in T1
+0593712 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0593717 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0593745 TEST S0 ready to get the lock
+0593761 TEST S0 get the lock already
+0593761 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0598776 TIMR S2 Leader, checking heartbeats in T1
+0598781 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0598805 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0599303 TEST S0 ready to get the lock
+0599305 TEST S0 get the lock already
+0599306 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0613397 TIMR S2 Leader, checking heartbeats in T1
+0613406 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0613437 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0613492 TEST S0 ready to get the lock
+0613493 TEST S0 get the lock already
+0613495 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0618484 TIMR S2 Leader, checking heartbeats in T1
+0618491 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0618514 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0618552 TEST S0 ready to get the lock
+0618553 TEST S0 get the lock already
+0618553 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0623566 TIMR S2 Leader, checking heartbeats in T1
+0623570 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0623590 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0623629 TEST S0 ready to get the lock
+0623630 TEST S0 get the lock already
+0623631 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0628591 TIMR S2 Leader, checking heartbeats in T1
+0628597 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0628615 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0628706 TEST S0 ready to get the lock
+0628708 TEST S0 get the lock already
+0628708 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0634589 TIMR S2 Leader, checking heartbeats in T1
+0634592 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0634614 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0634650 TEST S0 ready to get the lock
+0634651 TEST S0 get the lock already
+0634651 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0639742 TIMR S2 Leader, checking heartbeats in T1
+0639745 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0639785 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0639856 TEST S0 ready to get the lock
+0639858 TEST S0 get the lock already
+0639858 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0644903 TIMR S2 Leader, checking heartbeats in T1
+0644907 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0644931 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0644976 TEST S0 ready to get the lock
+0644977 TEST S0 get the lock already
+0644978 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0650104 TIMR S2 Leader, checking heartbeats in T1
+0650110 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0650155 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0650931 TEST S0 ready to get the lock
+0650933 TEST S0 get the lock already
+0650933 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0655180 TIMR S2 Leader, checking heartbeats in T1
+0658767 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0658821 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0658838 TEST S0 ready to get the lock
+0658839 TEST S0 get the lock already
+0658842 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0663745 TIMR S2 Leader, checking heartbeats in T1
+0663749 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0663794 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0663845 TEST S0 ready to get the lock
+0663847 TEST S0 get the lock already
+0663848 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0668777 TIMR S2 Leader, checking heartbeats in T1
+0668788 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0668789 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0668836 TEST S0 ready to get the lock
+0668836 TEST S0 get the lock already
+0668837 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0673901 TIMR S2 Leader, checking heartbeats in T1
+0673905 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0673925 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0674063 TEST S0 ready to get the lock
+0674064 TEST S0 get the lock already
+0674065 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0679083 TIMR S2 Leader, checking heartbeats in T1
+0679090 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0679127 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0679235 TEST S0 ready to get the lock
+0679236 TEST S0 get the lock already
+0679236 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0684294 TIMR S2 Leader, checking heartbeats in T1
+0684298 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0684317 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0684383 TEST S0 ready to get the lock
+0684384 TEST S0 get the lock already
+0684384 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0689632 TIMR S2 Leader, checking heartbeats in T1
+0689636 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0689659 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0689720 TEST S0 ready to get the lock
+0689721 TEST S0 get the lock already
+0689722 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0695227 TIMR S2 Leader, checking heartbeats in T1
+0695231 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0695267 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0695307 TEST S0 ready to get the lock
+0695340 TEST S0 get the lock already
+0695341 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0700245 TIMR S2 Leader, checking heartbeats in T1
+0700250 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0700287 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0700338 TEST S0 ready to get the lock
+0700339 TEST S0 get the lock already
+0700340 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0705418 TIMR S2 Leader, checking heartbeats in T1
+0705423 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0705450 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0705495 TEST S0 ready to get the lock
+0705496 TEST S0 get the lock already
+0705497 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0710517 TIMR S2 Leader, checking heartbeats in T1
+0710521 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0710549 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0710588 TEST S0 ready to get the lock
+0710589 TEST S0 get the lock already
+0710589 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0715742 TIMR S2 Leader, checking heartbeats in T1
+0715747 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0716482 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0716536 TEST S0 ready to get the lock
+0716537 TEST S0 get the lock already
+0716538 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0720878 TIMR S2 Leader, checking heartbeats in T1
+0720885 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0720885 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0720943 TEST S0 ready to get the lock
+0720944 TEST S0 get the lock already
+0720945 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0725980 TIMR S2 Leader, checking heartbeats in T1
+0725986 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0726018 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0726125 TEST S0 ready to get the lock
+0726126 TEST S0 get the lock already
+0726127 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0731053 TIMR S2 Leader, checking heartbeats in T1
+0731059 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0731081 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0731116 TEST S0 ready to get the lock
+0731116 TEST S0 get the lock already
+0731117 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0736131 TIMR S2 Leader, checking heartbeats in T1
+0736140 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0736148 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0736200 TEST S0 ready to get the lock
+0736223 TEST S0 get the lock already
+0736224 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0741180 TIMR S2 Leader, checking heartbeats in T1
+0741191 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0741196 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0741234 TEST S0 ready to get the lock
+0741244 TEST S0 get the lock already
+0741245 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0746285 TIMR S2 Leader, checking heartbeats in T1
+0746292 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0746298 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0746328 TEST S0 ready to get the lock
+0746329 TEST S0 get the lock already
+0746330 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0751336 TIMR S2 Leader, checking heartbeats in T1
+0751344 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0751350 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0751388 TEST S0 ready to get the lock
+0751402 TEST S0 get the lock already
+0751403 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0756414 TIMR S2 Leader, checking heartbeats in T1
+0756416 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0756426 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0756471 TEST S0 ready to get the lock
+0756472 TEST S0 get the lock already
+0756472 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0761471 TIMR S2 Leader, checking heartbeats in T1
+0761476 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0761505 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0761553 TEST S0 ready to get the lock
+0761554 TEST S0 get the lock already
+0761554 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0766579 TIMR S2 Leader, checking heartbeats in T1
+0766583 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0766588 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0772162 TEST S0 ready to get the lock
+0773212 TIMR S2 Leader, checking heartbeats in T1
+0773312 TEST S0 get the lock already
+0773313 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0773328 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0773350 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0773369 TEST S0 ready to get the lock
+0773369 TEST S0 get the lock already
+0773370 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0778319 TIMR S2 Leader, checking heartbeats in T1
+0778322 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0778325 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0778349 TEST S0 ready to get the lock
+0778363 TEST S0 get the lock already
+0778364 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0783332 TIMR S2 Leader, checking heartbeats in T1
+0783334 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0783337 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0783368 TEST S0 ready to get the lock
+0783369 TEST S0 get the lock already
+0783370 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0788362 TIMR S2 Leader, checking heartbeats in T1
+0788375 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0788380 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0788426 TEST S0 ready to get the lock
+0788427 TEST S0 get the lock already
+0788427 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0793408 TIMR S2 Leader, checking heartbeats in T1
+0793411 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0793426 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0793457 TEST S0 ready to get the lock
+0793458 TEST S0 get the lock already
+0793458 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0798427 TIMR S2 Leader, checking heartbeats in T1
+0798429 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0798430 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0798458 TEST S0 ready to get the lock
+0798468 TEST S0 get the lock already
+0798469 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0803968 TIMR S2 Leader, checking heartbeats in T1
+0803975 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0804013 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0804074 TEST S0 ready to get the lock
+0804075 TEST S0 get the lock already
+0804076 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0809076 TIMR S2 Leader, checking heartbeats in T1
+0809080 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0809097 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0809137 TEST S0 ready to get the lock
+0809149 TEST S0 get the lock already
+0809150 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0814085 TIMR S2 Leader, checking heartbeats in T1
+0814088 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0814090 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0814131 TEST S0 ready to get the lock
+0814133 TEST S0 get the lock already
+0814133 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0820588 TIMR S2 Leader, checking heartbeats in T1
+0820593 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0820619 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0820656 TEST S0 ready to get the lock
+0820657 TEST S0 get the lock already
+0820659 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0825604 TIMR S2 Leader, checking heartbeats in T1
+0825648 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0825691 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0825818 TEST S0 ready to get the lock
+0825820 TEST S0 get the lock already
+0825823 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0830659 TIMR S2 Leader, checking heartbeats in T1
+0830664 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0830707 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0830749 TEST S0 ready to get the lock
+0830750 TEST S0 get the lock already
+0830751 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0835811 TIMR S2 Leader, checking heartbeats in T1
+0835814 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0835861 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0835911 TEST S0 ready to get the lock
+0835913 TEST S0 get the lock already
+0835913 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0840932 TIMR S2 Leader, checking heartbeats in T1
+0840937 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0840985 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0841037 TEST S0 ready to get the lock
+0841039 TEST S0 get the lock already
+0841039 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0846276 TIMR S2 Leader, checking heartbeats in T1
+0846282 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0846286 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0846407 TEST S0 ready to get the lock
+0846408 TEST S0 get the lock already
+0846409 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0851288 TIMR S2 Leader, checking heartbeats in T1
+0851293 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0851346 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0851392 TEST S0 ready to get the lock
+0851393 TEST S0 get the lock already
+0851393 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0856449 TIMR S2 Leader, checking heartbeats in T1
+0856453 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0856482 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0856548 TEST S0 ready to get the lock
+0856550 TEST S0 get the lock already
+0856550 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0861553 TIMR S2 Leader, checking heartbeats in T1
+0861557 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0861608 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0861663 TEST S0 ready to get the lock
+0861664 TEST S0 get the lock already
+0861665 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0866577 TIMR S2 Leader, checking heartbeats in T1
+0866581 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0866636 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0866682 TEST S0 ready to get the lock
+0866684 TEST S0 get the lock already
+0866684 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0871632 TIMR S2 Leader, checking heartbeats in T1
+0871638 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0871650 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0871704 TEST S0 ready to get the lock
+0871705 TEST S0 get the lock already
+0871706 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0876691 TIMR S2 Leader, checking heartbeats in T1
+0876695 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0876724 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0876765 TEST S0 ready to get the lock
+0876767 TEST S0 get the lock already
+0876767 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0881748 TIMR S2 Leader, checking heartbeats in T1
+0881758 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0881903 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0882036 TEST S0 ready to get the lock
+0882037 TEST S0 get the lock already
+0882037 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0886835 TIMR S2 Leader, checking heartbeats in T1
+0886843 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0886914 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0886996 TEST S0 ready to get the lock
+0886998 TEST S0 get the lock already
+0886998 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0891909 TIMR S2 Leader, checking heartbeats in T1
+0891918 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0891923 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0891982 TEST S0 ready to get the lock
+0891983 TEST S0 get the lock already
+0891983 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0896928 TIMR S2 Leader, checking heartbeats in T1
+0896940 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0896969 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0897100 TEST S0 ready to get the lock
+0897102 TEST S0 get the lock already
+0897103 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0902036 TIMR S2 Leader, checking heartbeats in T1
+0902044 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0902093 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0902157 TEST S0 ready to get the lock
+0902158 TEST S0 get the lock already
+0902159 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0907047 TIMR S2 Leader, checking heartbeats in T1
+0907052 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0907082 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0907122 TEST S0 ready to get the lock
+0907123 TEST S0 get the lock already
+0907123 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0912239 TIMR S2 Leader, checking heartbeats in T1
+0912250 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0912256 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0912336 TEST S0 ready to get the lock
+0912337 TEST S0 get the lock already
+0912338 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0917267 TIMR S2 Leader, checking heartbeats in T1
+0917273 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0917272 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0917348 TEST S0 ready to get the lock
+0917350 TEST S0 get the lock already
+0917350 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0922280 TIMR S2 Leader, checking heartbeats in T1
+0922284 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0922336 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0922366 TEST S0 ready to get the lock
+0922400 TEST S0 get the lock already
+0922401 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0927343 TIMR S2 Leader, checking heartbeats in T1
+0927349 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0927362 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0927424 TEST S0 ready to get the lock
+0927426 TEST S0 get the lock already
+0927426 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0932470 TIMR S2 Leader, checking heartbeats in T1
+0932485 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0932518 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0932565 TEST S0 ready to get the lock
+0932566 TEST S0 get the lock already
+0932566 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0937728 TIMR S2 Leader, checking heartbeats in T1
+0937731 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0937756 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0937805 TEST S0 ready to get the lock
+0937806 TEST S0 get the lock already
+0937806 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0942826 TIMR S2 Leader, checking heartbeats in T1
+0942834 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0942877 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0942948 TEST S0 ready to get the lock
+0942950 TEST S0 get the lock already
+0942951 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0947966 TIMR S2 Leader, checking heartbeats in T1
+0947974 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0948050 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0948105 TEST S0 ready to get the lock
+0948106 TEST S0 get the lock already
+0948107 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0953193 TIMR S2 Leader, checking heartbeats in T1
+0953207 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0953237 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0953287 TEST S0 ready to get the lock
+0953289 TEST S0 get the lock already
+0953289 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0958253 TIMR S2 Leader, checking heartbeats in T1
+0958261 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0958281 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0958324 TEST S0 ready to get the lock
+0958326 TEST S0 get the lock already
+0958326 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0963344 TIMR S2 Leader, checking heartbeats in T1
+0963348 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0963428 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0963481 TEST S0 ready to get the lock
+0963482 TEST S0 get the lock already
+0963482 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0968419 TIMR S2 Leader, checking heartbeats in T1
+0968423 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0968456 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0968502 TEST S0 ready to get the lock
+0968503 TEST S0 get the lock already
+0968504 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0973490 TIMR S2 Leader, checking heartbeats in T1
+0973497 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0973531 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0973576 TEST S0 ready to get the lock
+0973577 TEST S0 get the lock already
+0973577 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0978551 TIMR S2 Leader, checking heartbeats in T1
+0978555 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0978587 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0978629 TEST S0 ready to get the lock
+0978630 TEST S0 get the lock already
+0978631 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0983617 TIMR S2 Leader, checking heartbeats in T1
+0983621 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0983649 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0983730 TEST S0 ready to get the lock
+0983732 TEST S0 get the lock already
+0983732 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0988702 TIMR S2 Leader, checking heartbeats in T1
+0988706 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0988731 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0988798 TEST S0 ready to get the lock
+0988800 TEST S0 get the lock already
+0988800 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0993865 TIMR S2 Leader, checking heartbeats in T1
+0993869 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0993895 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0993940 TEST S0 ready to get the lock
+0993941 TEST S0 get the lock already
+0993941 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0998930 TIMR S2 Leader, checking heartbeats in T1
+0998935 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0998967 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0999022 TEST S0 ready to get the lock
+0999024 TEST S0 get the lock already
+0999024 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1004287 TIMR S2 Leader, checking heartbeats in T1
+1004292 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1004320 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1004367 TEST S0 ready to get the lock
+1004369 TEST S0 get the lock already
+1004369 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1009561 TIMR S2 Leader, checking heartbeats in T1
+1009582 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1009679 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1009801 TEST S0 ready to get the lock
+1009803 TEST S0 get the lock already
+1009803 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1014861 TIMR S2 Leader, checking heartbeats in T1
+1014880 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1015141 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1015209 TEST S0 ready to get the lock
+1015211 TEST S0 get the lock already
+1015211 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1019872 TIMR S2 Leader, checking heartbeats in T1
+1019878 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1019902 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1019948 TEST S0 ready to get the lock
+1019950 TEST S0 get the lock already
+1019950 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1024898 TIMR S2 Leader, checking heartbeats in T1
+1024903 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1025099 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1025188 TEST S0 ready to get the lock
+1025190 TEST S0 get the lock already
+1025191 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1030033 TIMR S2 Leader, checking heartbeats in T1
+1030037 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1030062 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1030108 TEST S0 ready to get the lock
+1030111 TEST S0 get the lock already
+1030111 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1035149 TIMR S2 Leader, checking heartbeats in T1
+1035154 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1035266 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1035782 TEST S0 ready to get the lock
+1035889 TEST S0 get the lock already
+1035891 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1041453 TIMR S2 Leader, checking heartbeats in T1
+1041458 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1041511 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1041555 TEST S0 ready to get the lock
+1041556 TEST S0 get the lock already
+1041557 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1046596 TIMR S2 Leader, checking heartbeats in T1
+1046600 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1046622 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1046669 TEST S0 ready to get the lock
+1046670 TEST S0 get the lock already
+1046670 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1051927 TIMR S2 Leader, checking heartbeats in T1
+1051931 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1051970 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1052011 TEST S0 ready to get the lock
+1052012 TEST S0 get the lock already
+1052012 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1057054 TIMR S2 Leader, checking heartbeats in T1
+1057057 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1057073 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1057106 TEST S0 ready to get the lock
+1057106 TEST S0 get the lock already
+1057107 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1062085 TIMR S2 Leader, checking heartbeats in T1
+1062089 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1062134 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1062174 TEST S0 ready to get the lock
+1062175 TEST S0 get the lock already
+1062176 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1067110 TIMR S2 Leader, checking heartbeats in T1
+1067114 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1067154 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1067192 TEST S0 ready to get the lock
+1067193 TEST S0 get the lock already
+1067193 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1072183 TIMR S2 Leader, checking heartbeats in T1
+1072186 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1072213 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1072257 TEST S0 ready to get the lock
+1072258 TEST S0 get the lock already
+1072259 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1078615 TIMR S2 Leader, checking heartbeats in T1
+1078620 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1078639 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1078670 TEST S0 ready to get the lock
+1078670 TEST S0 get the lock already
+1078671 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1084445 TIMR S2 Leader, checking heartbeats in T1
+1084449 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1084466 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1084506 TEST S0 ready to get the lock
+1084506 TEST S0 get the lock already
+1084507 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1089650 TIMR S2 Leader, checking heartbeats in T1
+1089664 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1089828 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1089914 TEST S0 ready to get the lock
+1089915 TEST S0 get the lock already
+1089915 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1094748 TIMR S2 Leader, checking heartbeats in T1
+1094767 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1094796 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1094856 TEST S0 ready to get the lock
+1094857 TEST S0 get the lock already
+1094857 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1099774 TIMR S2 Leader, checking heartbeats in T1
+1099780 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1099918 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1100041 TEST S0 ready to get the lock
+1100042 TEST S0 get the lock already
+1100043 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1104793 TIMR S2 Leader, checking heartbeats in T1
+1104798 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1104819 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1104860 TEST S0 ready to get the lock
+1104861 TEST S0 get the lock already
+1104862 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1109817 TIMR S2 Leader, checking heartbeats in T1
+1109822 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1109877 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1109892 TEST S0 ready to get the lock
+1109893 TEST S0 get the lock already
+1109894 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1114897 TIMR S2 Leader, checking heartbeats in T1
+1114903 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1114985 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1115035 TEST S0 ready to get the lock
+1115037 TEST S0 get the lock already
+1115037 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1119930 TIMR S2 Leader, checking heartbeats in T1
+1119934 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1119957 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1119997 TEST S0 ready to get the lock
+1119998 TEST S0 get the lock already
+1119998 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1124990 TIMR S2 Leader, checking heartbeats in T1
+1125014 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1125034 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1125069 TEST S0 ready to get the lock
+1125070 TEST S0 get the lock already
+1125070 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1130473 TIMR S2 Leader, checking heartbeats in T1
+1130476 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1130498 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1130537 TEST S0 ready to get the lock
+1130538 TEST S0 get the lock already
+1130539 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1135510 TIMR S2 Leader, checking heartbeats in T1
+1135515 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1135606 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1135834 TEST S0 ready to get the lock
+1135837 TEST S0 get the lock already
+1135837 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1140548 TIMR S2 Leader, checking heartbeats in T1
+1140552 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1140575 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1140615 TEST S0 ready to get the lock
+1140615 TEST S0 get the lock already
+1140616 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1145590 TIMR S2 Leader, checking heartbeats in T1
+1145593 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1145610 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1145663 TEST S0 ready to get the lock
+1145664 TEST S0 get the lock already
+1145665 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1150696 TIMR S2 Leader, checking heartbeats in T1
+1150698 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1150751 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1150797 TEST S0 ready to get the lock
+1150798 TEST S0 get the lock already
+1150799 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1155759 TIMR S2 Leader, checking heartbeats in T1
+1155763 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1155805 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1155849 TEST S0 ready to get the lock
+1155850 TEST S0 get the lock already
+1155850 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1160838 TIMR S2 Leader, checking heartbeats in T1
+1160841 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1160901 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1160952 TEST S0 ready to get the lock
+1160953 TEST S0 get the lock already
+1160954 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1165848 TIMR S2 Leader, checking heartbeats in T1
+1165853 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1165876 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1166345 TEST S0 ready to get the lock
+1166348 TEST S0 get the lock already
+1166348 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1170911 TIMR S2 Leader, checking heartbeats in T1
+1170917 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1170969 TEST S0 ready to get the lock
+1170970 TEST S0 get the lock already
+1170971 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1170976 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1176005 TIMR S2 Leader, checking heartbeats in T1
+1176009 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1176032 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1176069 TEST S0 ready to get the lock
+1176070 TEST S0 get the lock already
+1176071 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1181062 TIMR S2 Leader, checking heartbeats in T1
+1181065 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1181087 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1181126 TEST S0 ready to get the lock
+1181127 TEST S0 get the lock already
+1181127 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1186263 TIMR S2 Leader, checking heartbeats in T1
+1186267 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1186289 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1186353 TEST S0 ready to get the lock
+1186355 TEST S0 get the lock already
+1186355 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1191268 TIMR S2 Leader, checking heartbeats in T1
+1191271 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1191291 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1191333 TEST S0 ready to get the lock
+1191333 TEST S0 get the lock already
+1191334 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1196338 TIMR S2 Leader, checking heartbeats in T1
+1196342 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1196364 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1196405 TEST S0 ready to get the lock
+1196406 TEST S0 get the lock already
+1196406 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1201436 TIMR S2 Leader, checking heartbeats in T1
+1201440 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1201468 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1201511 TEST S0 ready to get the lock
+1201512 TEST S0 get the lock already
+1201513 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1206714 TIMR S2 Leader, checking heartbeats in T1
+1206717 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1206739 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1206785 TEST S0 ready to get the lock
+1206786 TEST S0 get the lock already
+1206787 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1211720 TIMR S2 Leader, checking heartbeats in T1
+1211724 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1211745 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1211801 TEST S0 ready to get the lock
+1211802 TEST S0 get the lock already
+1211803 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1216787 TIMR S2 Leader, checking heartbeats in T1
+1216790 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1216814 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1216855 TEST S0 ready to get the lock
+1216856 TEST S0 get the lock already
+1216856 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1221796 TIMR S2 Leader, checking heartbeats in T1
+1221801 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1221853 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1221896 TEST S0 ready to get the lock
+1221899 TEST S0 get the lock already
+1221899 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1226863 TIMR S2 Leader, checking heartbeats in T1
+1226868 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1226891 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1226942 TEST S0 ready to get the lock
+1226943 TEST S0 get the lock already
+1226944 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1232003 TIMR S2 Leader, checking heartbeats in T1
+1232007 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1232029 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1232072 TEST S0 ready to get the lock
+1232073 TEST S0 get the lock already
+1232073 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1237088 TIMR S2 Leader, checking heartbeats in T1
+1237095 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1237120 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1237162 TEST S0 ready to get the lock
+1237164 TEST S0 get the lock already
+1237164 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1242107 TIMR S2 Leader, checking heartbeats in T1
+1242111 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1242133 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1242174 TEST S0 ready to get the lock
+1242175 TEST S0 get the lock already
+1242175 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1247210 TIMR S2 Leader, checking heartbeats in T1
+1247215 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1247238 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1247272 TEST S0 ready to get the lock
+1247273 TEST S0 get the lock already
+1247274 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1252227 TIMR S2 Leader, checking heartbeats in T1
+1252231 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1252252 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1252294 TEST S0 ready to get the lock
+1252295 TEST S0 get the lock already
+1252295 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1257258 TIMR S2 Leader, checking heartbeats in T1
+1257262 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1257285 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1257341 TEST S0 ready to get the lock
+1257342 TEST S0 get the lock already
+1257342 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1262356 TIMR S2 Leader, checking heartbeats in T1
+1262361 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1262386 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1262430 TEST S0 ready to get the lock
+1262431 TEST S0 get the lock already
+1262431 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1267440 TIMR S2 Leader, checking heartbeats in T1
+1267444 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1267485 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1267536 TEST S0 ready to get the lock
+1267537 TEST S0 get the lock already
+1267538 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1272605 TIMR S2 Leader, checking heartbeats in T1
+1272610 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1272634 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1273085 TEST S0 ready to get the lock
+1273087 TEST S0 get the lock already
+1273088 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1278357 TIMR S2 Leader, checking heartbeats in T1
+1278361 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1278367 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1278415 TEST S0 ready to get the lock
+1278416 TEST S0 get the lock already
+1278416 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1283467 TIMR S2 Leader, checking heartbeats in T1
+1283472 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1283491 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1283530 TEST S0 ready to get the lock
+1283531 TEST S0 get the lock already
+1283532 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1288554 TIMR S2 Leader, checking heartbeats in T1
+1288559 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1288613 TEST S0 ready to get the lock
+1288614 TEST S0 get the lock already
+1288615 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1288622 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1293590 TIMR S2 Leader, checking heartbeats in T1
+1293594 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1293619 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1293674 TEST S0 ready to get the lock
+1293675 TEST S0 get the lock already
+1293676 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1298655 TIMR S2 Leader, checking heartbeats in T1
+1298659 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1298679 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1298720 TEST S0 ready to get the lock
+1298721 TEST S0 get the lock already
+1298721 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1303749 TIMR S2 Leader, checking heartbeats in T1
+1303753 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1303775 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1303816 TEST S0 ready to get the lock
+1303817 TEST S0 get the lock already
+1303818 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1308952 TIMR S2 Leader, checking heartbeats in T1
+1308956 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1308985 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1309023 TEST S0 ready to get the lock
+1313973 TIMR S2 Leader, checking heartbeats in T1
+1313977 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1313998 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1319097 TIMR S2 Leader, checking heartbeats in T1
+1319101 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1319123 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1324183 TIMR S2 Leader, checking heartbeats in T1
+1324186 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1324202 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1329261 TIMR S2 Leader, checking heartbeats in T1
+1329264 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1329279 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1409762 TIMR S2 Leader, checking heartbeats in T1
+1410163 TEST S0 get the lock already
+1412178 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1412661 TEST S0 ready to get the lock
+1412663 TEST S0 get the lock already
+1412663 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1414910 TEST S0 ready to get the lock
+1414913 TEST S0 get the lock already
+1414913 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1414813 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1413114 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1417929 TEST S0 ready to get the lock
+1418059 TEST S0 get the lock already
+1418060 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1418061 TEST S0 ready to get the lock
+1418061 TEST S0 get the lock already
+1418061 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1419852 TIMR S2 Leader, checking heartbeats in T1
+1419862 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1419872 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1421837 TEST S0 ready to get the lock
+1421840 TEST S0 get the lock already
+1421841 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1421842 TEST S0 ready to get the lock
+1421842 TEST S0 get the lock already
+1421843 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1425043 TIMR S2 Leader, checking heartbeats in T1
+1425050 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1425074 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1425169 TEST S0 ready to get the lock
+1425170 TEST S0 get the lock already
+1425170 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1430202 TIMR S2 Leader, checking heartbeats in T1
+1430207 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1430226 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1435211 TIMR S2 Leader, checking heartbeats in T1
+1435216 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1435218 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1440316 TIMR S2 Leader, checking heartbeats in T1
+1440320 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1440324 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1445423 TIMR S2 Leader, checking heartbeats in T1
+1445433 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1445435 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1450441 TIMR S2 Leader, checking heartbeats in T1
+1450446 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1450451 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1568737 TEST S0 ready to get the lock
+1568819 TEST S0 get the lock already
+1568820 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1568821 TEST S0 ready to get the lock
+1568821 TEST S0 get the lock already
+1568821 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1568822 TEST S0 ready to get the lock
+1568822 TEST S0 get the lock already
+1568822 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1568822 TEST S0 ready to get the lock
+1568822 TEST S0 get the lock already
+1568822 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1568823 TEST S0 ready to get the lock
+1568823 TEST S0 get the lock already
+1568823 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1579114 TIMR S2 Leader, checking heartbeats in T1
+1579122 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1579159 TEST S0 ready to get the lock
+1579160 TEST S0 get the lock already
+1579160 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1579161 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1592258 TIMR S2 Leader, checking heartbeats in T1
+1616018 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1616047 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1621033 TIMR S2 Leader, checking heartbeats in T1
+1621036 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1621058 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1626117 TIMR S2 Leader, checking heartbeats in T1
+1626119 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1626131 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1630946 TEST S0 ready to get the lock
+1631220 TIMR S2 Leader, checking heartbeats in T1
+1631226 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1638674 TIMR S2 Leader, checking heartbeats in T1
+1638678 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1632658 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1643603 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1646979 TIMR S2 Leader, checking heartbeats in T1
+1662303 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1667038 TEST S0 get the lock already
+1667040 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1667041 TEST S0 ready to get the lock
+1667041 TEST S0 get the lock already
+1667041 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1667117 TEST S0 ready to get the lock
+1667118 TEST S0 get the lock already
+1667119 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1667191 TEST S0 ready to get the lock
+1667192 TEST S0 get the lock already
+1667192 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1667643 TIMR S2 Leader, checking heartbeats in T1
+1668117 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1668204 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1668268 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1668745 TEST S0 ready to get the lock
+1668746 TEST S0 get the lock already
+1668747 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1668748 TEST S0 ready to get the lock
+1668748 TEST S0 get the lock already
+1668748 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1668749 TEST S0 ready to get the lock
+1668749 TEST S0 get the lock already
+1668750 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1673205 TIMR S2 Leader, checking heartbeats in T1
+1673211 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1673238 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1673281 TEST S0 ready to get the lock
+1673282 TEST S0 get the lock already
+1673283 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1678253 TIMR S2 Leader, checking heartbeats in T1
+1678257 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1678282 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1678326 TEST S0 ready to get the lock
+1678327 TEST S0 get the lock already
+1678327 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1683414 TIMR S2 Leader, checking heartbeats in T1
+1683419 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1683465 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1683541 TEST S0 ready to get the lock
+1683542 TEST S0 get the lock already
+1683543 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1688482 TIMR S2 Leader, checking heartbeats in T1
+1688486 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1688572 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1688621 TEST S0 ready to get the lock
+1688622 TEST S0 get the lock already
+1688623 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1693513 TIMR S2 Leader, checking heartbeats in T1
+1693518 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1693542 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1693595 TEST S0 ready to get the lock
+1693596 TEST S0 get the lock already
+1693596 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1698603 TIMR S2 Leader, checking heartbeats in T1
+1698607 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1698628 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1698910 TEST S0 ready to get the lock
+1698912 TEST S0 get the lock already
+1698913 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1703760 TIMR S2 Leader, checking heartbeats in T1
+1703763 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1703804 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1703846 TEST S0 ready to get the lock
+1703847 TEST S0 get the lock already
+1703848 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1709598 TIMR S2 Leader, checking heartbeats in T1
+1709602 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1709659 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1709706 TEST S0 ready to get the lock
+1709707 TEST S0 get the lock already
+1709708 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1714777 TIMR S2 Leader, checking heartbeats in T1
+1714780 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1714807 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1714853 TEST S0 ready to get the lock
+1714855 TEST S0 get the lock already
+1714855 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1719837 TIMR S2 Leader, checking heartbeats in T1
+1719840 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1719888 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1720099 TEST S0 ready to get the lock
+1720101 TEST S0 get the lock already
+1720102 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1724939 TIMR S2 Leader, checking heartbeats in T1
+1724945 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1724965 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1725001 TEST S0 ready to get the lock
+1725002 TEST S0 get the lock already
+1725002 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1730019 TIMR S2 Leader, checking heartbeats in T1
+1730022 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1730041 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1730077 TEST S0 ready to get the lock
+1730078 TEST S0 get the lock already
+1730079 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1735088 TIMR S2 Leader, checking heartbeats in T1
+1735091 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1735114 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1735151 TEST S0 ready to get the lock
+1735151 TEST S0 get the lock already
+1735152 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1740192 TIMR S2 Leader, checking heartbeats in T1
+1740196 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1740226 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1740286 TEST S0 ready to get the lock
+1740288 TEST S0 get the lock already
+1740288 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1745203 TIMR S2 Leader, checking heartbeats in T1
+1745207 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1745238 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1745290 TEST S0 ready to get the lock
+1745320 TEST S0 get the lock already
+1745322 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1750317 TIMR S2 Leader, checking heartbeats in T1
+1750321 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1750330 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1750377 TEST S0 ready to get the lock
+1750378 TEST S0 get the lock already
+1750379 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1755405 TIMR S2 Leader, checking heartbeats in T1
+1755412 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1755434 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1755477 TEST S0 ready to get the lock
+1755478 TEST S0 get the lock already
+1755479 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1760489 TIMR S2 Leader, checking heartbeats in T1
+1760492 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1760518 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1760561 TEST S0 ready to get the lock
+1760562 TEST S0 get the lock already
+1760563 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1765528 TIMR S2 Leader, checking heartbeats in T1
+1765532 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1765590 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1767362 TEST S0 ready to get the lock
+1767529 TEST S0 get the lock already
+1767530 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1770557 TIMR S2 Leader, checking heartbeats in T1
+1770572 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1770587 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1770641 TEST S0 ready to get the lock
+1770710 TEST S0 get the lock already
+1770711 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1775598 TIMR S2 Leader, checking heartbeats in T1
+1775603 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1775627 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1775697 TEST S0 ready to get the lock
+1775698 TEST S0 get the lock already
+1775698 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1780622 TIMR S2 Leader, checking heartbeats in T1
+1780628 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1780634 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1780704 TEST S0 ready to get the lock
+1780726 TEST S0 get the lock already
+1780727 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1785704 TIMR S2 Leader, checking heartbeats in T1
+1785708 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1785716 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1785764 TEST S0 ready to get the lock
+1785765 TEST S0 get the lock already
+1785766 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1790750 TIMR S2 Leader, checking heartbeats in T1
+1790760 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1790778 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1790849 TEST S0 ready to get the lock
+1790850 TEST S0 get the lock already
+1790851 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1795823 TIMR S2 Leader, checking heartbeats in T1
+1795835 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1795842 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1795871 TEST S0 ready to get the lock
+1795890 TEST S0 get the lock already
+1795893 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1800903 TIMR S2 Leader, checking heartbeats in T1
+1800908 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1800909 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1800981 TEST S0 ready to get the lock
+1800983 TEST S0 get the lock already
+1800983 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1805954 TIMR S2 Leader, checking heartbeats in T1
+1805958 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1806006 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1806052 TEST S0 ready to get the lock
+1806053 TEST S0 get the lock already
+1806054 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1810985 TIMR S2 Leader, checking heartbeats in T1
+1810988 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1811010 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1811087 TEST S0 ready to get the lock
+1811089 TEST S0 get the lock already
+1811089 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1816304 TIMR S2 Leader, checking heartbeats in T1
+1816315 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1816375 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1816493 TEST S0 ready to get the lock
+1816495 TEST S0 get the lock already
+1816496 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1821424 TIMR S2 Leader, checking heartbeats in T1
+1821443 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1821467 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1821505 TEST S0 ready to get the lock
+1821506 TEST S0 get the lock already
+1821507 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1826728 TIMR S2 Leader, checking heartbeats in T1
+1826733 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1826768 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1826824 TEST S0 ready to get the lock
+1826825 TEST S0 get the lock already
+1826826 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1831739 TIMR S2 Leader, checking heartbeats in T1
+1831744 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1831765 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1831817 TEST S0 ready to get the lock
+1831819 TEST S0 get the lock already
+1831819 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1836820 TIMR S2 Leader, checking heartbeats in T1
+1836830 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1836834 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1836880 TEST S0 ready to get the lock
+1836899 TEST S0 get the lock already
+1836903 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1841922 TIMR S2 Leader, checking heartbeats in T1
+1841930 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1841931 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1841966 TEST S0 ready to get the lock
+1841980 TEST S0 get the lock already
+1841981 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1846938 TIMR S2 Leader, checking heartbeats in T1
+1846943 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1846944 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1846999 TEST S0 ready to get the lock
+1847037 TEST S0 get the lock already
+1847039 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1852044 TIMR S2 Leader, checking heartbeats in T1
+1852050 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1852078 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1852136 TEST S0 ready to get the lock
+1852137 TEST S0 get the lock already
+1852137 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1857082 TIMR S2 Leader, checking heartbeats in T1
+1857092 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1857113 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1857184 TEST S0 ready to get the lock
+1857185 TEST S0 get the lock already
+1857186 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1862122 TIMR S2 Leader, checking heartbeats in T1
+1862128 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1862150 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1862225 TEST S0 ready to get the lock
+1862226 TEST S0 get the lock already
+1862226 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1867213 TIMR S2 Leader, checking heartbeats in T1
+1867217 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1867277 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1867324 TEST S0 ready to get the lock
+1867325 TEST S0 get the lock already
+1867326 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1872393 TIMR S2 Leader, checking heartbeats in T1
+1872401 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1872416 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1872455 TEST S0 ready to get the lock
+1872477 TEST S0 get the lock already
+1872478 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1877853 TIMR S2 Leader, checking heartbeats in T1
+1877860 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1877898 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1877941 TEST S0 ready to get the lock
+1877942 TEST S0 get the lock already
+1877942 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1883030 TIMR S2 Leader, checking heartbeats in T1
+1883036 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1883062 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1883131 TEST S0 ready to get the lock
+1883132 TEST S0 get the lock already
+1883136 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1888127 TIMR S2 Leader, checking heartbeats in T1
+1888131 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1888154 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1888202 TEST S0 ready to get the lock
+1888203 TEST S0 get the lock already
+1888204 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1893171 TIMR S2 Leader, checking heartbeats in T1
+1893177 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1893207 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1893265 TEST S0 ready to get the lock
+1893267 TEST S0 get the lock already
+1893267 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1898209 TIMR S2 Leader, checking heartbeats in T1
+1898214 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1898241 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1898289 TEST S0 ready to get the lock
+1898291 TEST S0 get the lock already
+1898291 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1903246 TIMR S2 Leader, checking heartbeats in T1
+1903251 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1903300 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1903392 TEST S0 ready to get the lock
+1903394 TEST S0 get the lock already
+1903394 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1908286 TIMR S2 Leader, checking heartbeats in T1
+1908292 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1908319 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1908375 TEST S0 ready to get the lock
+1908376 TEST S0 get the lock already
+1908377 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1913365 TIMR S2 Leader, checking heartbeats in T1
+1913369 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1913399 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1913454 TEST S0 ready to get the lock
+1913455 TEST S0 get the lock already
+1913455 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1918388 TIMR S2 Leader, checking heartbeats in T1
+1918395 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1918453 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1918482 TEST S0 ready to get the lock
+1918483 TEST S0 get the lock already
+1918484 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1923457 TIMR S2 Leader, checking heartbeats in T1
+1923461 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1923485 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1923529 TEST S0 ready to get the lock
+1923530 TEST S0 get the lock already
+1923531 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1928554 TIMR S2 Leader, checking heartbeats in T1
+1928558 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1928634 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1928904 TEST S0 ready to get the lock
+1928905 TEST S0 get the lock already
+1928906 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1933868 TIMR S2 Leader, checking heartbeats in T1
+1933873 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1933896 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1933945 TEST S0 ready to get the lock
+1933946 TEST S0 get the lock already
+1933947 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1939052 TIMR S2 Leader, checking heartbeats in T1
+1939056 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1939093 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1939167 TEST S0 ready to get the lock
+1939169 TEST S0 get the lock already
+1939170 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1944397 TIMR S2 Leader, checking heartbeats in T1
+1944401 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1944449 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1944620 TEST S0 ready to get the lock
+1944622 TEST S0 get the lock already
+1944622 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1949425 TIMR S2 Leader, checking heartbeats in T1
+1949431 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1949460 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1949506 TEST S0 ready to get the lock
+1949507 TEST S0 get the lock already
+1949508 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1954495 TIMR S2 Leader, checking heartbeats in T1
+1954499 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1954521 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1954560 TEST S0 ready to get the lock
+1954561 TEST S0 get the lock already
+1954561 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1959511 TIMR S2 Leader, checking heartbeats in T1
+1959517 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1959555 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1959634 TEST S0 ready to get the lock
+1959635 TEST S0 get the lock already
+1959636 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1964593 TIMR S2 Leader, checking heartbeats in T1
+1964600 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1964624 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1964667 TEST S0 ready to get the lock
+1964669 TEST S0 get the lock already
+1964669 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1969659 TIMR S2 Leader, checking heartbeats in T1
+1969663 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1969684 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1970293 TEST S0 ready to get the lock
+1970295 TEST S0 get the lock already
+1970296 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1974721 TIMR S2 Leader, checking heartbeats in T1
+1974729 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1974772 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1974960 TEST S0 ready to get the lock
+1974962 TEST S0 get the lock already
+1974962 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1979742 TIMR S2 Leader, checking heartbeats in T1
+1979747 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1979816 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1979867 TEST S0 ready to get the lock
+1979868 TEST S0 get the lock already
+1979869 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1984891 TIMR S2 Leader, checking heartbeats in T1
+1984894 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1984920 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1984971 TEST S0 ready to get the lock
+1984972 TEST S0 get the lock already
+1984973 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1990067 TIMR S2 Leader, checking heartbeats in T1
+1990128 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1990334 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1990354 TEST S0 ready to get the lock
+1990355 TEST S0 get the lock already
+1990355 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+1995682 TIMR S2 Leader, checking heartbeats in T1
+1995686 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1995743 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+1995791 TEST S0 ready to get the lock
+1995793 TEST S0 get the lock already
+1995793 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2000714 TIMR S2 Leader, checking heartbeats in T1
+2000717 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2000762 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2000804 TEST S0 ready to get the lock
+2000805 TEST S0 get the lock already
+2000805 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2005737 TIMR S2 Leader, checking heartbeats in T1
+2005817 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2005882 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2005923 TEST S0 ready to get the lock
+2005923 TEST S0 get the lock already
+2005924 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2010765 TIMR S2 Leader, checking heartbeats in T1
+2010771 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2010805 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2010852 TEST S0 ready to get the lock
+2010854 TEST S0 get the lock already
+2010854 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2015837 TIMR S2 Leader, checking heartbeats in T1
+2015844 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2015868 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2015967 TEST S0 ready to get the lock
+2015969 TEST S0 get the lock already
+2015969 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2020846 TIMR S2 Leader, checking heartbeats in T1
+2020851 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2020877 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2020928 TEST S0 ready to get the lock
+2020929 TEST S0 get the lock already
+2020930 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2025986 TIMR S2 Leader, checking heartbeats in T1
+2025990 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2026015 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2026060 TEST S0 ready to get the lock
+2026062 TEST S0 get the lock already
+2026062 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2031015 TIMR S2 Leader, checking heartbeats in T1
+2031019 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2031041 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2031090 TEST S0 ready to get the lock
+2031091 TEST S0 get the lock already
+2031092 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2036217 TIMR S2 Leader, checking heartbeats in T1
+2036223 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2036254 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2036315 TEST S0 ready to get the lock
+2036317 TEST S0 get the lock already
+2036317 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2041297 TIMR S2 Leader, checking heartbeats in T1
+2041306 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2041333 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2041383 TEST S0 ready to get the lock
+2041384 TEST S0 get the lock already
+2041385 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2046475 TIMR S2 Leader, checking heartbeats in T1
+2046480 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2046507 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2046571 TEST S0 ready to get the lock
+2046572 TEST S0 get the lock already
+2046572 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2051817 TIMR S2 Leader, checking heartbeats in T1
+2051824 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2051849 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2051900 TEST S0 ready to get the lock
+2051901 TEST S0 get the lock already
+2051902 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2057244 TIMR S2 Leader, checking heartbeats in T1
+2057252 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2057285 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2057340 TEST S0 ready to get the lock
+2057341 TEST S0 get the lock already
+2057342 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2062288 TIMR S2 Leader, checking heartbeats in T1
+2062294 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2062323 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2062376 TEST S0 ready to get the lock
+2062377 TEST S0 get the lock already
+2062377 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2067351 TIMR S2 Leader, checking heartbeats in T1
+2067357 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2067380 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2067422 TEST S0 ready to get the lock
+2067423 TEST S0 get the lock already
+2067423 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2072508 TIMR S2 Leader, checking heartbeats in T1
+2072511 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2072535 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2072578 TEST S0 ready to get the lock
+2072579 TEST S0 get the lock already
+2072580 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2077569 TIMR S2 Leader, checking heartbeats in T1
+2077574 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2077608 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2077664 TEST S0 ready to get the lock
+2077665 TEST S0 get the lock already
+2077665 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2082607 TIMR S2 Leader, checking heartbeats in T1
+2082611 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2082638 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2082674 TEST S0 ready to get the lock
+2082698 TEST S0 get the lock already
+2082699 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2087648 TIMR S2 Leader, checking heartbeats in T1
+2087652 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2087756 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2087790 TEST S0 ready to get the lock
+2087791 TEST S0 get the lock already
+2087791 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2092818 TIMR S2 Leader, checking heartbeats in T1
+2092827 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2092830 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2092881 TEST S0 ready to get the lock
+2092882 TEST S0 get the lock already
+2092882 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2098135 TIMR S2 Leader, checking heartbeats in T1
+2098139 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2098167 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2098209 TEST S0 ready to get the lock
+2098210 TEST S0 get the lock already
+2098210 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2103203 TIMR S2 Leader, checking heartbeats in T1
+2103210 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2103242 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2103294 TEST S0 ready to get the lock
+2103296 TEST S0 get the lock already
+2103296 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2108374 TIMR S2 Leader, checking heartbeats in T1
+2108380 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2108418 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2108463 TEST S0 ready to get the lock
+2108471 TEST S0 get the lock already
+2108472 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2113426 TIMR S2 Leader, checking heartbeats in T1
+2113456 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2113477 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2113515 TEST S0 ready to get the lock
+2113516 TEST S0 get the lock already
+2113516 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2119416 TIMR S2 Leader, checking heartbeats in T1
+2119420 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2119469 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2119528 TEST S0 ready to get the lock
+2119529 TEST S0 get the lock already
+2119530 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2124534 TIMR S2 Leader, checking heartbeats in T1
+2124541 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2124613 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2124690 TEST S0 ready to get the lock
+2124691 TEST S0 get the lock already
+2124692 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2129586 TIMR S2 Leader, checking heartbeats in T1
+2129591 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2129622 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2129661 TEST S0 ready to get the lock
+2129662 TEST S0 get the lock already
+2129662 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2134699 TIMR S2 Leader, checking heartbeats in T1
+2134705 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2134733 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2134777 TEST S0 ready to get the lock
+2134779 TEST S0 get the lock already
+2134779 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2139752 TIMR S2 Leader, checking heartbeats in T1
+2139756 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2139781 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2139821 TEST S0 ready to get the lock
+2139822 TEST S0 get the lock already
+2139822 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2144764 TIMR S2 Leader, checking heartbeats in T1
+2144770 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2144800 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2144838 TEST S0 ready to get the lock
+2144839 TEST S0 get the lock already
+2144840 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2149795 TIMR S2 Leader, checking heartbeats in T1
+2149800 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2149824 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2149866 TEST S0 ready to get the lock
+2149867 TEST S0 get the lock already
+2149868 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2154978 TIMR S2 Leader, checking heartbeats in T1
+2154983 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2155004 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2155039 TEST S0 ready to get the lock
+2155039 TEST S0 get the lock already
+2155040 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2160062 TIMR S2 Leader, checking heartbeats in T1
+2160947 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2160948 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2161014 TEST S0 ready to get the lock
+2161015 TEST S0 get the lock already
+2161016 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2166008 TIMR S2 Leader, checking heartbeats in T1
+2166013 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2166044 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2166097 TEST S0 ready to get the lock
+2166098 TEST S0 get the lock already
+2166099 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2171028 TIMR S2 Leader, checking heartbeats in T1
+2171033 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2171054 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2171094 TEST S0 ready to get the lock
+2171095 TEST S0 get the lock already
+2171095 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2176127 TIMR S2 Leader, checking heartbeats in T1
+2176130 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2176156 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2176192 TEST S0 ready to get the lock
+2176193 TEST S0 get the lock already
+2176194 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2181158 TIMR S2 Leader, checking heartbeats in T1
+2181161 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2181198 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2181274 TEST S0 ready to get the lock
+2181275 TEST S0 get the lock already
+2181276 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2186494 TIMR S2 Leader, checking heartbeats in T1
+2186497 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2186520 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2186557 TEST S0 ready to get the lock
+2186558 TEST S0 get the lock already
+2186558 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2191556 TIMR S2 Leader, checking heartbeats in T1
+2191561 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2191589 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2191645 TEST S0 ready to get the lock
+2191646 TEST S0 get the lock already
+2191647 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2196627 TIMR S2 Leader, checking heartbeats in T1
+2196629 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2196649 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2196685 TEST S0 ready to get the lock
+2196686 TEST S0 get the lock already
+2196686 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2201714 TIMR S2 Leader, checking heartbeats in T1
+2201718 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2201736 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2201773 TEST S0 ready to get the lock
+2201774 TEST S0 get the lock already
+2201774 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2207070 TIMR S2 Leader, checking heartbeats in T1
+2207075 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2207082 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2207112 TEST S0 ready to get the lock
+2207137 TEST S0 get the lock already
+2207139 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2212108 TIMR S2 Leader, checking heartbeats in T1
+2212112 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2212121 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2212171 TEST S0 ready to get the lock
+2212172 TEST S0 get the lock already
+2212173 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2217180 TIMR S2 Leader, checking heartbeats in T1
+2217184 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2217205 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2217244 TEST S0 ready to get the lock
+2217245 TEST S0 get the lock already
+2217245 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2222268 TIMR S2 Leader, checking heartbeats in T1
+2222272 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2222292 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2222334 TEST S0 ready to get the lock
+2222335 TEST S0 get the lock already
+2222336 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2227280 TIMR S2 Leader, checking heartbeats in T1
+2227284 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2227320 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2227361 TEST S0 ready to get the lock
+2227362 TEST S0 get the lock already
+2227363 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2232344 TIMR S2 Leader, checking heartbeats in T1
+2232349 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2232366 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2232442 TEST S0 ready to get the lock
+2232444 TEST S0 get the lock already
+2232444 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2237497 TIMR S2 Leader, checking heartbeats in T1
+2237500 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2237521 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2237561 TEST S0 ready to get the lock
+2237562 TEST S0 get the lock already
+2237563 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2242540 TIMR S2 Leader, checking heartbeats in T1
+2242544 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2242584 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2242647 TEST S0 ready to get the lock
+2242648 TEST S0 get the lock already
+2242649 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2247568 TIMR S2 Leader, checking heartbeats in T1
+2247572 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2247611 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2247652 TEST S0 ready to get the lock
+2247653 TEST S0 get the lock already
+2247653 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2252597 TIMR S2 Leader, checking heartbeats in T1
+2252603 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2252633 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2252694 TEST S0 ready to get the lock
+2252695 TEST S0 get the lock already
+2252696 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2258270 TIMR S2 Leader, checking heartbeats in T1
+2258274 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2258316 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2258353 TEST S0 ready to get the lock
+2258354 TEST S0 get the lock already
+2258355 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2263424 TIMR S2 Leader, checking heartbeats in T1
+2263430 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2263546 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2263595 TEST S0 ready to get the lock
+2263597 TEST S0 get the lock already
+2263598 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2268459 TIMR S2 Leader, checking heartbeats in T1
+2268463 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2268490 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2268530 TEST S0 ready to get the lock
+2268531 TEST S0 get the lock already
+2268532 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2273550 TIMR S2 Leader, checking heartbeats in T1
+2273553 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2273570 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2273603 TEST S0 ready to get the lock
+2273604 TEST S0 get the lock already
+2273604 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2278611 TIMR S2 Leader, checking heartbeats in T1
+2278615 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2278635 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2278671 TEST S0 ready to get the lock
+2278694 TEST S0 get the lock already
+2278695 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2283721 TIMR S2 Leader, checking heartbeats in T1
+2283725 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2283759 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2283800 TEST S0 ready to get the lock
+2283801 TEST S0 get the lock already
+2283802 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2288817 TIMR S2 Leader, checking heartbeats in T1
+2288820 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2288845 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2288891 TEST S0 ready to get the lock
+2293827 TIMR S2 Leader, checking heartbeats in T1
+2293831 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2293850 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2299013 TIMR S2 Leader, checking heartbeats in T1
+2299019 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2299048 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2304084 TIMR S2 Leader, checking heartbeats in T1
+2304089 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2304108 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2309336 TIMR S2 Leader, checking heartbeats in T1
+2309365 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2309342 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2434390 TIMR S2 Leader, checking heartbeats in T1
+2489727 TEST S0 get the lock already
+2491442 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2491905 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2491980 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2492316 TEST S0 ready to get the lock
+2492318 TEST S0 get the lock already
+2492318 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2492319 TEST S0 ready to get the lock
+2492320 TEST S0 get the lock already
+2492327 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2492328 TEST S0 ready to get the lock
+2492328 TEST S0 get the lock already
+2492329 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2492329 TEST S0 ready to get the lock
+2492329 TEST S0 get the lock already
+2492330 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2492330 TEST S0 ready to get the lock
+2492331 TEST S0 get the lock already
+2492331 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2496815 TIMR S2 Leader, checking heartbeats in T1
+2497122 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2497149 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2497225 TEST S0 ready to get the lock
+2497226 TEST S0 get the lock already
+2497227 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2502139 TIMR S2 Leader, checking heartbeats in T1
+2502144 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2502168 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2502225 TEST S0 ready to get the lock
+2502226 TEST S0 get the lock already
+2502226 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2507255 TIMR S2 Leader, checking heartbeats in T1
+2507258 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2507277 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2507317 TEST S0 ready to get the lock
+2507318 TEST S0 get the lock already
+2507318 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2512272 TIMR S2 Leader, checking heartbeats in T1
+2512276 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2512311 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2512342 TEST S0 ready to get the lock
+2512342 TEST S0 get the lock already
+2512343 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2519509 TIMR S2 Leader, checking heartbeats in T1
+2519512 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2519534 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2519579 TEST S0 ready to get the lock
+2519580 TEST S0 get the lock already
+2519580 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2524561 TIMR S2 Leader, checking heartbeats in T1
+2524566 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2524610 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2524650 TEST S0 ready to get the lock
+2524651 TEST S0 get the lock already
+2524652 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2529605 TIMR S2 Leader, checking heartbeats in T1
+2529610 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2529639 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2529683 TEST S0 ready to get the lock
+2529684 TEST S0 get the lock already
+2529684 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2534883 TIMR S2 Leader, checking heartbeats in T1
+2534886 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2534935 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2534971 TEST S0 ready to get the lock
+2534971 TEST S0 get the lock already
+2534972 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2539935 TIMR S2 Leader, checking heartbeats in T1
+2540001 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2540081 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2540097 TEST S0 ready to get the lock
+2540098 TEST S0 get the lock already
+2540098 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+2545224 TIMR S2 Leader, checking heartbeats in T1
+2545229 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2545250 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+2545292 TEST S0 ready to get the lock
+2545293 TEST S0 get the lock already
