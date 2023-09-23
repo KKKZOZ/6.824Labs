@@ -19,7 +19,7 @@ dslogs output.log -c 7 -i TIMR
 dstest  -p 5 -n 30 -o .run ManyElections 
 
 
-cat test_test.go| grep 2A | sed 's\(\ \g'|awk '/func/ {printf "%s ",$2;}' | xargs dstest -p 4 -o .run -v 1 -r  -s
+
 
 
 cat test_test.go|grep 'func Test'> test.txt
@@ -42,7 +42,7 @@ TestRejoin2B
 TestBackup2B
 TestCount2B
 
-VERBOSE=1 go test -run TestBasicAgree2B > output.log
+VERBOSE=1 go test -run TestInitialElection2A > output.log
 
 go test -run TestBasicAgree2B
 
@@ -81,7 +81,7 @@ go test -run TestCount2B OK
 
 #### All
 
-dstest -p 100 -n 3000 -o run_logsBB TestBasicAgree2B
+dstest -p 32 -n 100 -o run_logsB TestBasicAgree2B
 
 go test -timeout 2s -run=TestBasicAgree2B
 
@@ -97,7 +97,7 @@ go test -race -run TestManyElections2A
 dstest -r -p 50 -l -o run_logs TestManyElections2A
 
 #### some
-dstest  -p 50 -n 100 -o run_logs  TestFailAgree2B TestFailNoAgree2B TestRejoin2B
+dstest  -p 50 -n 100 -o run_logsB  TestFailAgree2B TestFailNoAgree2B TestRejoin2B
 
 
 ## 2C
@@ -122,10 +122,14 @@ TestReliableChurn2C
 TestUnreliableChurn2C 
 
 
-dstest  -p 100 -n 500 -o run_logs2 TestPersist12C  TestPersist22C  TestPersist32C TestFigure82C TestUnreliableAgree2C
+dstest  -p 32 -n 1000 -o run_logsC TestPersist12C  TestPersist22C  TestPersist32C TestFigure82C TestUnreliableAgree2C
+
+dstest  -p 32 -n 2000 -o run_logsC TestUnreliableChurn2C
 
 #### All
-dstest  -p 8 -n 50 -o run_logs TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
+dstest  -p 32 -n 1000 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
+
+
 
 
 #### Failed

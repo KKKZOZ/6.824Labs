@@ -156,7 +156,7 @@ if args.LeaderCommit > rf.commitIndex {
 如果是为了避免 channel wait 带来的死锁或者阻塞，应该在外层 for 循环时开启 go routine，这样既能保证不因为 channel 阻塞，也能保证 log 是按线性顺序被 apply 的
 
 ## Deadlock Example
-###
+### 情况说明
 
 ![image-20230921165543588](https://kkkzoz-1304409899.cos.ap-chengdu.myqcloud.com/img/image-20230921165543588.png)
 
@@ -218,3 +218,62 @@ if rf.votedFor == -1 || rf.votedFor == args.CandidateId {
 ```
 
 ![099484DC5CB03B68EE90341FBAE801D5](https://kkkzoz-1304409899.cos.ap-chengdu.myqcloud.com/img/099484DC5CB03B68EE90341FBAE801D5.png)
+
+
+## Goroutine Delay
+### 情况说明
+
+体现在 Log 中，就是一个 Server 在（1663275） "S1 stepping down from leader in T19" 后，在 1749279 ，发送了“TIMR S1 Leader, checking heartbeats in T19”
+
+意思是当 S1 不再是 Leader 时，仍然触发了 `sendHeartbeat()` 这个函数，观察以下源代码：
+
+```go
+// Heartbeat
+go func() {
+	for !rf.killed() {
+		timeout := time.After(HeartbeatInterval)
+		select {
+		case <-timeout:
+			rf.mu.Lock()
+			if rf.currentState == Leader {
+				rf.sendHeartBeat()
+			}
+			rf.mu.Unlock()
+		case event := <-rf.heartbeatCh:
+			switch event {
+			case HeartbeatReset:
+				rf.mu.Lock()
+				rf.debug(DLeader, "heartbeat reset")
+				rf.sendHeartBeat()
+				rf.mu.Unlock()
+			}
+		}
+	}
+}()
+```
+
+首先可以确定不是 timeout 触发的，因为 timeout 后会获取锁再检查当前是不是 Leader；
+只有可能是 `rf.heartbeatCh` 收到了一个 `Reset` 指令，但是为什么会延后这么久呢？再观察我们 `Reset` 的地方：
+
+```go
+func (rf *Raft) becomeLeader() {
+	rf.currentState = Leader
+	// reinitialize after election
+	for i := 0; i < len(rf.peers); i++ {
+		rf.nextIndex[i] = rf.lastLogIndex + 1
+		rf.matchIndex[i] = 0
+	}
+	go func() {
+		rf.notifyCh <- WinInElection
+		rf.heartbeatCh <- HeartbeatReset
+	}()
+}
+```
+
+问题就出在这里，由于我们用了一个 goroutine 去向管道里发消息，但是这个 goroutine 可能不会马上执行，有可能因为调度或者CPU负载过高，延时执行
+
+解决方法最好就是直接在这个线程内触发 `rf.heartbeatCh <- HeartbeatReset` 但是这样就必须释放锁，整个锁的结构又要大改
+
+一种修补方案是，在 `case event := <-rf.heartbeatCh:` 里再检查是不是 Leader，但是这样违反了 raft 的要求：一个 Leader 当选后必须马上发一轮心跳检测宣告自己为 Leader
+
+个人认为是因为 CPU 负载过高引起的，正常情况下这个 goroutine 不应该延时这么久
