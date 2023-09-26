@@ -67,12 +67,14 @@ type config struct {
 var ncpu_once sync.Once
 
 func make_config(t *testing.T, n int, unreliable bool, snapshot bool) *config {
-	ncpu_once.Do(func() {
-		if runtime.NumCPU() < 2 {
-			fmt.Printf("warning: only one CPU, which may conceal locking bugs\n")
-		}
-		rand.Seed(makeSeed())
-	})
+	ncpu_once.Do(
+		func() {
+			if runtime.NumCPU() < 2 {
+				fmt.Printf("warning: only one CPU, which may conceal locking bugs\n")
+			}
+			rand.Seed(makeSeed())
+		},
+	)
 	runtime.GOMAXPROCS(4)
 	cfg := &config{}
 	cfg.t = t
@@ -148,8 +150,10 @@ func (cfg *config) checkLogs(i int, m ApplyMsg) (string, bool) {
 		if old, oldok := cfg.logs[j][m.CommandIndex]; oldok && old != v {
 			log.Printf("%v: log %v; server %v\n", i, cfg.logs[i], cfg.logs[j])
 			// some server has already committed a different value for this entry!
-			err_msg = fmt.Sprintf("commit index=%v server=%v %v != server=%v %v",
-				m.CommandIndex, i, m.Command, j, old)
+			err_msg = fmt.Sprintf(
+				"commit index=%v server=%v %v != server=%v %v",
+				m.CommandIndex, i, m.Command, j, old,
+			)
 		}
 	}
 	_, prevok := cfg.logs[i][m.CommandIndex-1]
@@ -195,6 +199,7 @@ func (cfg *config) ingestSnap(i int, snapshot []byte, index int) string {
 	var xlog []interface{}
 	if d.Decode(&lastIncludedIndex) != nil ||
 		d.Decode(&xlog) != nil {
+		log.Printf("len(snapshot)=%d index=%d\n", len(snapshot), index)
 		log.Fatalf("snapshot decode error")
 		return "snapshot Decode() error"
 	}
@@ -229,7 +234,9 @@ func (cfg *config) applierSnap(i int, applyCh chan ApplyMsg) {
 			cfg.mu.Unlock()
 		} else if m.CommandValid {
 			if m.CommandIndex != cfg.lastApplied[i]+1 {
-				err_msg = fmt.Sprintf("server %v apply out of order, expected index %v, got %v", i, cfg.lastApplied[i]+1, m.CommandIndex)
+				err_msg = fmt.Sprintf(
+					"server %v apply out of order, expected index %v, got %v", i, cfg.lastApplied[i]+1, m.CommandIndex,
+				)
 			}
 
 			if err_msg == "" {
@@ -305,7 +312,7 @@ func (cfg *config) start1(i int, applier func(int, chan ApplyMsg)) {
 		snapshot := cfg.saved[i].ReadSnapshot()
 		if snapshot != nil && len(snapshot) > 0 {
 			// mimic KV server and process snapshot now.
-			// ideally Raft should send it up on applyCh...
+			// ideally Raft should send it up on applyCh..
 			err := cfg.ingestSnap(i, snapshot, -1)
 			if err != "" {
 				cfg.t.Fatal(err)
@@ -334,7 +341,7 @@ func (cfg *config) start1(i int, applier func(int, chan ApplyMsg)) {
 }
 
 func (cfg *config) checkTimeout() {
-	// enforce a two minute real-time limit on each test
+	// enforce a two minutes real-time limit on each test
 	if !cfg.t.Failed() && time.Since(cfg.start) > 120*time.Second {
 		cfg.t.Fatal("test took longer than 120 seconds")
 	}
@@ -504,8 +511,10 @@ func (cfg *config) nCommitted(index int) (int, interface{}) {
 
 		if ok {
 			if count > 0 && cmd != cmd1 {
-				cfg.t.Fatalf("committed values do not match: index %v, %v, %v",
-					index, cmd, cmd1)
+				cfg.t.Fatalf(
+					"committed values do not match: index %v, %v, %v",
+					index, cmd, cmd1,
+				)
 			}
 			count += 1
 			cmd = cmd1
@@ -539,8 +548,10 @@ func (cfg *config) wait(index int, n int, startTerm int) interface{} {
 	}
 	nd, cmd := cfg.nCommitted(index)
 	if nd < n {
-		cfg.t.Fatalf("only %d decided for index %d; wanted %d",
-			nd, index, n)
+		cfg.t.Fatalf(
+			"only %d decided for index %d; wanted %d",
+			nd, index, n,
+		)
 	}
 	return cmd
 }

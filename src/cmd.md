@@ -25,7 +25,7 @@ dstest  -p 5 -n 30 -o .run ManyElections
 cat test_test.go|grep 'func Test'> test.txt
 
 
-dstest  -p 100 -n 3000 -o run_logsA TestInitialElection2A TestReElection2A TestManyElections2A
+dstest  -p 32 -n 100 -o run_logsA TestInitialElection2A TestReElection2A TestManyElections2A
 
 ## 2B
 
@@ -87,7 +87,7 @@ go test -timeout 2s -run=TestBasicAgree2B
 
 dstest  -p 100 -n 1000 -o run_logsBB TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
-dstest  -p 100 -n 6000 -o run_logs TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
+dstest  -p 32 -n 1000 -o run_logsAB TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B
 
 
 dstest  -p 50 -n 100 -o run_logs TestManyElections2A
@@ -127,11 +127,41 @@ dstest  -p 32 -n 1000 -o run_logsC TestPersist12C  TestPersist22C  TestPersist32
 dstest  -p 32 -n 2000 -o run_logsC TestUnreliableChurn2C
 
 #### All
-dstest  -p 32 -n 1000 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
+dstest  -p 32 -n 100 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
 
 
 
 
-#### Failed
+## 2D
+### TaskList
+
+TestSnapshotBasic2D
+
+VERBOSE=1 go test -run TestSnapshotBasic2D > output.log
+
+dstest  -p 32 -n 960 -o run_logsD TestSnapshotBasic2D
+
+dstest  -p 50 -n 960 -o run_logsD TestSnapshotBasic2D
+
+TestSnapshotInstall2D
+VERBOSE=1 go test -run TestSnapshotInstall2D > output.log
+
+dstest -p 10 -n 10 -o run_logsD TestSnapshotInstall2D
 
 
+TestSnapshotInstallUnreliable2D
+dstest -p 50 -n 300 -o run_logsD TestSnapshotInstallUnreliable2D
+
+TestSnapshotInstallCrash2D
+VERBOSE=1 go test -run TestSnapshotInstallCrash2D > output.log
+TestSnapshotInstallUnCrash2D
+TestSnapshotAllCrash2D
+TestSnapshotInit2D
+
+
+
+dstest  -p 50 -n 100 -o run_logsD TestSnapshotBasic2D TestSnapshotInstall2D TestSnapshotInstallUnreliable2D TestSnapshotInstallCrash2D TestSnapshotInstallUnCrash2D TestSnapshotAllCrash2D TestSnapshotInit2D
+
+
+#### All
+dstest  -p 50 -n 100 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C TestSnapshotBasic2D TestSnapshotInstall2D TestSnapshotInstallUnreliable2D TestSnapshotInstallCrash2D TestSnapshotInstallUnCrash2D TestSnapshotAllCrash2D TestSnapshotInit2D 
