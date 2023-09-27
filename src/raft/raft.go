@@ -114,9 +114,9 @@ type Raft struct {
 	notifyCh    chan Event
 	heartbeatCh chan Event
 
-	applyChan chan ApplyMsg
-	inputChan chan ApplyMsg
-	snapshot  Snapshot
+	applyChan      chan ApplyMsg
+	inputApplyChan chan ApplyMsg
+	snapshot       Snapshot
 }
 
 type PersistentState struct {
@@ -144,11 +144,8 @@ func (sp Snapshot) String() string {
 // GetState return currentTerm and whether this server
 // believes it is the leader.
 func (rf *Raft) GetState() (int, bool) {
-
 	var term int
 	var isLeader bool
-	// Your code here (2A).
-
 	rf.mu.Lock()
 	term = rf.currentTerm
 	isLeader = rf.currentState == Leader
@@ -215,7 +212,7 @@ func (rf *Raft) readPersist(raftState []byte, spBytes []byte) {
 	if spBytes != nil && len(spBytes) > 0 {
 		rf.mu.Lock()
 		rf.snapshot.Data = spBytes
-		rf.inputChan <- ApplyMsg{
+		rf.inputApplyChan <- ApplyMsg{
 			SnapshotValid: true,
 			Snapshot:      rf.snapshot.Data,
 			SnapshotTerm:  rf.snapshot.LastIncludedTerm,
@@ -292,7 +289,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			reply.Term, reply.VoteGranted = rf.currentTerm, true
 			rf.votedFor = args.CandidateId
 			rf.lastResetTime = time.Now()
-			go func() { rf.notifyCh <- GrantReset }()
+			rf.notifyCh <- GrantReset
 			return
 		} else {
 			reply.Term, reply.VoteGranted = rf.currentTerm, false
@@ -393,7 +390,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			XLen:   rf.getLastLogIndex(),
 		}
 		rf.lastResetTime = time.Now()
-		go func() { rf.notifyCh <- Reset }()
+		rf.notifyCh <- Reset
 		rf.debug(
 			DLog2, "Rejected AE RPC in T%d (from S%d), because args.PrevLogIndex:%d > rf.lastLogIndex:%d",
 			rf.currentTerm, args.LeaderId, args.PrevLogIndex, rf.getLastLogIndex(),
@@ -410,7 +407,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			XLen:   rf.getLastLogIndex(),
 		}
 		rf.lastResetTime = time.Now()
-		go func() { rf.notifyCh <- Reset }()
+		rf.notifyCh <- Reset
 		rf.debug(
 			DLog2, "Rejected AE RPC in T%d (from S%d), because args.PrevLogIndex:%d < rf.firstLogIndex:%d",
 			rf.currentTerm, args.LeaderId, args.PrevLogIndex, rf.getFirstLogIndex(),
@@ -438,7 +435,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 
 		reply.RejectionInfo = rejectInfo
 		rf.lastResetTime = time.Now()
-		go func() { rf.notifyCh <- Reset }()
+		rf.notifyCh <- Reset
 		rf.debug(
 			DLog2, "Rejected AE RPC (from S%d), Logs: %v in T%d\n",
 			args.LeaderId, rf.log, rf.currentTerm,
@@ -455,28 +452,16 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		// If an existing entry conflicts with a new one (same index but different terms)
 		// delete the existing entry and all that follow it
 
-		//if rf.log[args.PrevLogIndex+1] != args.Entries[0] {
-		//	// rf.log = rf.log[:args.PrevLogIndex+1]
-		//	rf.lastLogIndex = args.PrevLogIndex
-		//}
-
 		// Append any new entries not already in the log
 		for i := 0; i < len(args.Entries); i++ {
-
 			if args.PrevLogIndex+i+1 <= rf.getLastLogIndex() {
-				if rf.log[args.PrevLogIndex+i+1-rf.getFirstLogIndex()].Term != args.Entries[i].Term {
+				if rf.getTermByIndex(args.PrevLogIndex+i+1-rf.getFirstLogIndex()) != args.Entries[i].Term {
 					rf.log = rf.log[:args.PrevLogIndex+i+1-rf.getFirstLogIndex()]
 					rf.log = append(rf.log, args.Entries[i])
 				}
 			} else {
 				rf.log = append(rf.log, args.Entries[i])
 			}
-
-			//if rf.log[args.PrevLogIndex+i+1] != args.Entries[i] {
-			//	rf.log[args.PrevLogIndex+i+1] = args.Entries[i]
-			//}
-			//rf.lastLogIndex++
-			//rf.log[rf.lastLogIndex] = args.Entries[i]
 		}
 		//rf.lastLogIndex = args.PrevLogIndex + len(args.Entries)
 		rf.debug(DLog2, " After appended, lastLogIndex:%d, Logs: %v", rf.getLastLogIndex(), rf.log)
@@ -494,7 +479,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				DCommit, "applies log as a Follower at %d %v in T%d\n",
 				i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm,
 			)
-			rf.inputChan <- ApplyMsg{
+			rf.inputApplyChan <- ApplyMsg{
 				CommandValid: true,
 				Command:      rf.log[i-rf.getFirstLogIndex()].Command,
 				CommandIndex: i,
@@ -503,7 +488,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		}
 	}
 	rf.lastResetTime = time.Now()
-	go func() { rf.notifyCh <- Reset }()
+	rf.notifyCh <- Reset
 	rf.debug(DInfo, "accepted AE RPC (from S%d) in T%d\n", args.LeaderId, rf.currentTerm)
 }
 
@@ -524,14 +509,13 @@ func (rf *Raft) startElection() {
 	rf.currentState = Candidate
 	rf.currentTerm += 1
 	rf.debug(DLeader, "timeout, starts a new election for T%d\n", rf.currentTerm)
-
 	rf.votedFor = rf.me
 
 	var preLogTerm int
+	// TODO: Really need this if?
 	if len(rf.log) == 0 {
 		preLogTerm = rf.snapshot.LastIncludedTerm
 	} else {
-
 		preLogTerm = rf.getTermByIndex(rf.getLastLogIndex() - rf.getFirstLogIndex())
 	}
 
@@ -543,7 +527,6 @@ func (rf *Raft) startElection() {
 	}
 
 	voteCount := &VoteCount{data: 1, isTriggered: false}
-
 	for i := 0; i < len(rf.peers); i++ {
 		if i != rf.me {
 			go func(i int) {
@@ -597,7 +580,6 @@ func (rf *Raft) becomeLeader() {
 	rf.mu.Unlock()
 	rf.notifyCh <- WinInElection
 	rf.heartbeatCh <- HeartbeatReset
-
 }
 
 func (rf *Raft) sendHeartBeat() {
@@ -636,7 +618,7 @@ func (rf *Raft) sendHeartBeat() {
 					}
 					rf.nextIndex[i] = max(rf.nextIndex[i], nextIndex)
 					rf.debug(DSnap, "reset nextIndex[%d] to %d\n", i, rf.nextIndex[i])
-					go func() { rf.notifyCh <- Reset }()
+					rf.notifyCh <- Reset
 					return
 				}(i, args, args.LastIncludedIndex+1)
 				continue
@@ -703,7 +685,6 @@ func (rf *Raft) sendHeartBeat() {
 						rf.notifyCh <- Reset
 						return
 					}
-
 					if reply.Success {
 						rf.nextIndex[i] = args.PrevLogIndex + len(args.Entries) + 1
 						rf.matchIndex[i] = rf.nextIndex[i] - 1
@@ -765,17 +746,13 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	index := -1
 	term := -1
 	isLeader := true
-	// Your code here (2B).
 	if rf.currentState != Leader {
 		isLeader = false
-		//rf.debug(DClient, "rejected Client's request in T%d\n", rf.currentTerm)
 		return index, term, isLeader
 	}
 
 	rf.debug(DClient, "accepted Client's request in T%d\n", rf.currentTerm)
 
-	//rf.lastLogIndex++
-	//rf.log[rf.lastLogIndex] = LogEntry{Index: rf.lastLogIndex, Term: rf.currentTerm, Command: command}
 	logEntry := LogEntry{
 		Index:   rf.getLastLogIndex() + 1,
 		Term:    rf.currentTerm,
@@ -832,32 +809,13 @@ func (rf *Raft) ticker() {
 							DCommit, "applying log as a Leader at %d %v in T%d,[%d - %d]\n",
 							i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm, i, rf.getFirstLogIndex(),
 						)
-						rf.inputChan <- ApplyMsg{
+						rf.inputApplyChan <- ApplyMsg{
 							CommandValid: true,
 							Command:      rf.log[i-rf.getFirstLogIndex()].Command,
 							CommandIndex: i,
 						}
 						rf.lastApplied = i
 					}
-
-					//for i := rf.lastApplied + 1; i <= rf.commitIndex; i++ {
-					//	rf.mu.Unlock()
-					//	rf.spMux.Lock()
-					//	rf.debug(
-					//		DCommit, "applying log as a Leader at %d %v in T%d,[%d - %d]\n",
-					//		i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm, i, rf.getFirstLogIndex(),
-					//	)
-					//	rf.applyChan <- ApplyMsg{
-					//		CommandValid: true,
-					//		Command:      rf.log[i-rf.getFirstLogIndex()].Command,
-					//		CommandIndex: i,
-					//	}
-					//	rf.spMux.Unlock()
-					//	time.Sleep(5 * time.Millisecond)
-					//	rf.mu.Lock()
-					//	rf.lastApplied = i
-					//}
-					//rf.debug(DCommit, "finishes applying in T%d\n", rf.currentTerm)
 				}
 			}
 			rf.persist()
@@ -895,7 +853,7 @@ func (rf *Raft) ticker() {
 		rf.mu.Lock()
 		rf.lastResetTime = time.Now()
 		rf.mu.Unlock()
-		interval := time.Duration(50+rand.Intn(20)) * 10 * time.Millisecond
+		interval := time.Duration(30+rand.Intn(10)) * 10 * time.Millisecond
 		timeout := time.After(interval)
 		select {
 		case <-timeout:
@@ -1006,7 +964,7 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 					DCommit, "applies log as a Follower at %d %v in T%d\n",
 					i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm,
 				)
-				rf.inputChan <- ApplyMsg{
+				rf.inputApplyChan <- ApplyMsg{
 					CommandValid: true,
 					Command:      rf.log[i-rf.getFirstLogIndex()].Command,
 					CommandIndex: i,
@@ -1020,7 +978,7 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 		// TODO: correct?
 		//rf.commitIndex = args.LastIncludedIndex
 		//rf.lastApplied = args.LastIncludedIndex
-		go func() { rf.notifyCh <- Reset }()
+		rf.notifyCh <- Reset
 		return
 	} else {
 		// discard the entire log
@@ -1029,13 +987,13 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 		rf.commitIndex = args.LastIncludedIndex
 		rf.lastApplied = args.LastIncludedIndex
 		rf.debug(DSnap, "accepted the snapshot, rf.log:%v\n", rf.log)
-		rf.inputChan <- ApplyMsg{
+		rf.inputApplyChan <- ApplyMsg{
 			SnapshotValid: true,
 			Snapshot:      rf.snapshot.Data,
 			SnapshotIndex: rf.snapshot.LastIncludedIndex,
 			SnapshotTerm:  rf.snapshot.LastIncludedTerm,
 		}
-		go func() { rf.notifyCh <- Reset }()
+		rf.notifyCh <- Reset
 		return
 	}
 
@@ -1069,20 +1027,20 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		nextIndex:    make([]int, len(peers)),
 		matchIndex:   make([]int, len(peers)),
 		majority:     len(peers)/2 + 1,
-		notifyCh:     make(chan Event),
-		heartbeatCh:  make(chan Event),
+		notifyCh:     make(chan Event, 100),
+		heartbeatCh:  make(chan Event, 100),
 		snapshot: Snapshot{
 			LastIncludedIndex: 0,
 			LastIncludedTerm:  0,
 			Data:              nil,
 		},
-		inputChan: make(chan ApplyMsg),
+		inputApplyChan: make(chan ApplyMsg),
 	}
 
 	rf.debug(DInfo, "starting...\n")
 
 	// Your initialization code here (2A, 2B, 2C).
-	go ApplyMsgHelper(rf.inputChan, rf.applyChan)
+	go QueueHelper[ApplyMsg](rf.inputApplyChan, rf.applyChan)
 
 	rand.Seed(time.Now().Unix())
 
@@ -1163,17 +1121,15 @@ func Trunc(data any, length int) string {
 	return truncated
 }
 
-func ApplyMsgHelper(input chan ApplyMsg, output chan ApplyMsg) {
-	q := make([]ApplyMsg, 0)
-
+func QueueHelper[T any](input chan T, output chan T) {
+	q := make([]T, 0)
 	for input != nil || len(q) > 0 {
-		var sendOut chan ApplyMsg
-		var next ApplyMsg
+		var sendOut chan T
+		var next T
 		if len(q) > 0 {
 			sendOut = output
 			next = q[0]
 		}
-
 		select {
 		case msg, ok := <-input:
 			if !ok {

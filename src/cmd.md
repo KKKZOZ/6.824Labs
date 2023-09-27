@@ -27,6 +27,8 @@ cat test_test.go|grep 'func Test'> test.txt
 
 dstest  -p 32 -n 100 -o run_logsA TestInitialElection2A TestReElection2A TestManyElections2A
 
+dstest  -p 100 -n 1000 -o run_logsA TestInitialElection2A
+
 ## 2B
 
 ### Task List
@@ -127,7 +129,7 @@ dstest  -p 32 -n 1000 -o run_logsC TestPersist12C  TestPersist22C  TestPersist32
 dstest  -p 32 -n 2000 -o run_logsC TestUnreliableChurn2C
 
 #### All
-dstest  -p 32 -n 100 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
+dstest  -p 50 -n 50 -o run_logsAll TestInitialElection2A TestReElection2A TestManyElections2A TestBasicAgree2B TestRPCBytes2B TestFollowerFailure2B TestLeaderFailure2B TestFailAgree2B TestFailNoAgree2B TestConcurrentStarts2B TestRejoin2B TestBackup2B TestCount2B  TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C
 
 
 
