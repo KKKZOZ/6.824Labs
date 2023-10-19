@@ -1,13 +1,22 @@
 package kvraft
 
-import "6.5840/labrpc"
-import "crypto/rand"
-import "math/big"
+import (
+	"crypto/rand"
+	"fmt"
+	"math/big"
+	"sync"
 
+	. "6.5840/debug"
+	"6.5840/labrpc"
+)
 
 type Clerk struct {
 	servers []*labrpc.ClientEnd
 	// You will have to modify this struct.
+	mu           sync.Mutex
+	lastLeaderId int
+	clientId     int64
+	seqNum       int
 }
 
 func nrand() int64 {
@@ -21,7 +30,48 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
 	// You'll have to add code here.
+	ck.clientId = nrand()
+	ck.lastLeaderId = -1
 	return ck
+}
+
+func (ck *Clerk) sendRequest(method string, argsT any) Reply {
+	//ck.mu.Lock()
+	var lastLeaderId int
+	if ck.lastLeaderId != -1 {
+		lastLeaderId = ck.lastLeaderId
+	} else {
+		lastLeaderId = 0
+	}
+	//ck.mu.Unlock()
+	var replyT Reply
+
+	for {
+		var ok bool
+		if method == "Get" {
+			args, _ := argsT.(GetArgs)
+			reply := GetReply{}
+			ok = ck.servers[lastLeaderId].Call("KVServer."+method, &args, &reply)
+			replyT = reply
+		} else {
+			args, _ := argsT.(PutAppendArgs)
+			reply := PutAppendReply{}
+			ok = ck.servers[lastLeaderId].Call("KVServer."+method, &args, &reply)
+			replyT = reply
+		}
+
+		if !ok || replyT.Error() == ErrWrongLeader {
+			ck.debug(SRequest, "failed (method: %v, args: %v),resending...\n", method, argsT)
+			lastLeaderId = (lastLeaderId + 1) % len(ck.servers)
+		} else {
+			//ck.mu.Lock()
+			ck.lastLeaderId = lastLeaderId
+			//ck.mu.Unlock()
+			break
+		}
+	}
+
+	return replyT
 }
 
 // fetch the current value for a key.
@@ -35,9 +85,18 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 // must match the declared types of the RPC handler function's
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) string {
-
 	// You will have to modify this function.
-	return ""
+	args := GetArgs{ck.makeInfo(), key}
+	// reply := ck.sendRequest("Get", args).(GetReply)
+	reply := GetReply{}
+
+	reply = ck.sendRequest("Get", args).(GetReply)
+
+	if reply.Err == OK {
+		return reply.Value
+	} else {
+		return ""
+	}
 }
 
 // shared by Put and Append.
@@ -50,6 +109,9 @@ func (ck *Clerk) Get(key string) string {
 // arguments. and reply must be passed as a pointer.
 func (ck *Clerk) PutAppend(key string, value string, op string) {
 	// You will have to modify this function.
+	args := PutAppendArgs{ck.makeInfo(), key, value, op}
+	_ = ck.sendRequest("PutAppend", args).(PutAppendReply)
+
 }
 
 func (ck *Clerk) Put(key string, value string) {
@@ -57,4 +119,17 @@ func (ck *Clerk) Put(key string, value string) {
 }
 func (ck *Clerk) Append(key string, value string) {
 	ck.PutAppend(key, value, "Append")
+}
+
+func (ck *Clerk) makeInfo() ClientInfo {
+	ck.mu.Lock()
+	defer ck.mu.Unlock()
+
+	ck.seqNum++
+	return ClientInfo{ck.clientId, ck.seqNum}
+}
+
+func (ck *Clerk) debug(topic LogTopic, format string, a ...interface{}) {
+	prefix := fmt.Sprintf("S%d ", ck.clientId)
+	Debug(topic, prefix+format, a...)
 }

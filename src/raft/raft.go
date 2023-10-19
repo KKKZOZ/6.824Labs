@@ -627,10 +627,12 @@ func (rf *Raft) sendHeartBeat() {
 			if len(rf.log) == 0 {
 				preLogTerm = rf.snapshot.LastIncludedTerm
 			} else {
-				rf.debug(
-					DTest, "len(rf.log):%d, rf.nextIndex[%d]:%d, rf.getFirstLogIndex():%d",
-					len(rf.log), i, rf.nextIndex[i], rf.getFirstLogIndex(),
-				)
+				//rf.debug(
+				//	DTest, "len(rf.log):%d, rf.nextIndex[%d]:%d, rf.getFirstLogIndex():%d",
+				//	len(rf.log), i, rf.nextIndex[i], rf.getFirstLogIndex(),
+				//)
+
+				// TODO: getTermByIndex sometimes will out of range [3B]
 				preLogTerm = rf.getTermByIndex(rf.nextIndex[i] - 1 - rf.getFirstLogIndex())
 			}
 
@@ -683,6 +685,7 @@ func (rf *Raft) sendHeartBeat() {
 						rf.persist()
 						rf.mu.Unlock()
 						rf.notifyCh <- Reset
+
 						return
 					}
 					if reply.Success {
@@ -751,7 +754,9 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		return index, term, isLeader
 	}
 
-	rf.debug(DClient, "accepted Client's request in T%d\n", rf.currentTerm)
+	//op, _ := command.(kvraft.Op)
+
+	rf.debug(DClient, "accepted Client's request %v in T%d\n", command, rf.currentTerm)
 
 	logEntry := LogEntry{
 		Index:   rf.getLastLogIndex() + 1,
@@ -765,7 +770,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	// rf.sendLogEntries(command)
 	index = rf.getLastLogIndex()
 	term = rf.currentTerm
-	// rf.heartbeatCh <- HeartbeatReset
+	rf.heartbeatCh <- HeartbeatReset
 	rf.persist()
 	return index, term, isLeader
 }
@@ -794,7 +799,7 @@ func (rf *Raft) ticker() {
 	// Commit checker
 	go func() {
 		for !rf.killed() {
-			time.Sleep(50 * time.Millisecond)
+			time.Sleep(10 * time.Millisecond)
 			rf.mu.Lock()
 			if rf.currentState == Leader {
 				// try to find a new commitIndex
@@ -838,8 +843,10 @@ func (rf *Raft) ticker() {
 				switch event {
 				case HeartbeatReset:
 					rf.mu.Lock()
-					rf.debug(DLeader, "heartbeat reset")
-					rf.sendHeartBeat()
+					if rf.currentState == Leader {
+						rf.debug(DLeader, "heartbeat reset triggered manually\n")
+						rf.sendHeartBeat()
+					}
 					rf.mu.Unlock()
 				}
 			}
@@ -958,23 +965,37 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 			args.LastIncludedIndex, rf.getLastLogIndex(), rf.log,
 		)
 
-		if rf.commitIndex < args.LastIncludedIndex {
-			for i := rf.commitIndex + 1; i <= args.LastIncludedIndex; i++ {
-				rf.debug(
-					DCommit, "applies log as a Follower at %d %v in T%d\n",
-					i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm,
-				)
-				rf.inputApplyChan <- ApplyMsg{
-					CommandValid: true,
-					Command:      rf.log[i-rf.getFirstLogIndex()].Command,
-					CommandIndex: i,
-				}
-				rf.lastApplied = i
-			}
-		}
+		// if rf.commitIndex < args.LastIncludedIndex {
+		// 	for i := rf.commitIndex + 1; i <= args.LastIncludedIndex; i++ {
+		// 		// TODO: What happened here ?
+		// 		if i-rf.getFirstLogIndex() < 0 {
+		// 			continue
+		// 		}
+		// 		rf.debug(
+		// 			DCommit, "applies log as a Follower at %d %v in T%d\n",
+		// 			i, rf.log[i-rf.getFirstLogIndex()], rf.currentTerm,
+		// 		)
+		// 		rf.inputApplyChan <- ApplyMsg{
+		// 			CommandValid: true,
+		// 			Command:      rf.log[i-rf.getFirstLogIndex()].Command,
+		// 			CommandIndex: i,
+		// 		}
+		// 		rf.lastApplied = i
+		// 	}
+		// }
+		rf.lastApplied = args.LastIncludedIndex
+		rf.commitIndex = args.LastIncludedIndex
 
 		rf.log = rf.log[args.LastIncludedIndex-rf.getFirstLogIndex()+1:]
 		rf.snapshot = args.Snapshot
+
+		rf.inputApplyChan <- ApplyMsg{
+			SnapshotValid: true,
+			Snapshot:      rf.snapshot.Data,
+			SnapshotIndex: rf.snapshot.LastIncludedIndex,
+			SnapshotTerm:  rf.snapshot.LastIncludedTerm,
+		}
+
 		// TODO: correct?
 		//rf.commitIndex = args.LastIncludedIndex
 		//rf.lastApplied = args.LastIncludedIndex

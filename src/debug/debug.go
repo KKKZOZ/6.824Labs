@@ -27,7 +27,12 @@ const (
 	DTrace   LogTopic = "TRCE"
 	DVote    LogTopic = "VOTE"
 	DWarn    LogTopic = "WARN"
+
+	SRequest  LogTopic = "LEAD"
+	SResponse LogTopic = "VOTE"
 )
+
+var servers = []LogTopic{SRequest, SResponse}
 
 // Retrieve the verbosity level from an environment variable
 func getVerbosity() int {
@@ -54,11 +59,29 @@ func init() {
 }
 
 func Debug(topic LogTopic, format string, a ...interface{}) {
-	if debugVerbosity >= 1 {
+	if debugVerbosity == 1 {
 		time := time.Since(debugStart).Microseconds()
 		time /= 10
 		prefix := fmt.Sprintf("%07d %v ", time, string(topic))
 		format = prefix + format
 		log.Printf(format, a...)
 	}
+	if debugVerbosity == 2 {
+		if belongsToServer(topic) {
+			time := time.Since(debugStart).Microseconds()
+			time /= 10
+			prefix := fmt.Sprintf("%07d %v ", time, string(topic))
+			format = prefix + format
+			log.Printf(format, a...)
+		}
+	}
+}
+
+func belongsToServer(topic LogTopic) bool {
+	for _, t := range servers {
+		if t == topic {
+			return true
+		}
+	}
+	return false
 }
