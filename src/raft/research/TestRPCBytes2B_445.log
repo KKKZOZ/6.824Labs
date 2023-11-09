@@ -1,0 +1,481 @@
+0014977 INFO S0 starting...
+0014999 INFO S1 starting...
+0015004 INFO S2 starting...
+Test (2B): RPC byte count ...
+0048045 LEAD S2 timeout, starts a new election for T1
+0048082 VOTE S1 votes for S2 in T1
+0048083 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:1}, rf.getFirstLogIndex:0
+0048096 VOTE S2 received vote from S1 (for T1) in T1
+0048097 LEAD S2 achieved Majority for T1 (2), converting to leader
+0048098 LEAD S2 heartbeat reset triggered manually
+0048099 TIMR S2 Leader, checking heartbeats in T1
+0048100 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0048101 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:0 preLogT:0 len:0 lCommit:0}
+0048114 CMIT S1 accepted AE RPC in T1
+0048115 INFO S1 accepted AE RPC (from S2) in T1
+0048115 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:1}, rf.getFirstLogIndex:0
+0048128 LEAD S0 timeout, starts a new election for T1
+0048139 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:1}, rf.getFirstLogIndex:0
+0048153 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:1}, rf.getFirstLogIndex:0
+0048161 TIMR S1 Resetting ELT by granting others in T1
+0048163 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0048164 TIMR S2 Resetting ELT by winning an election in T1
+0048173 VOTE S0 stepping down from candidate in T1
+0048174 CMIT S0 accepted AE RPC in T1
+0048175 INFO S0 accepted AE RPC (from S2) in T1
+0048175 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:1}, rf.getFirstLogIndex:0
+0048196 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:1}, rf.getFirstLogIndex:0
+0048206 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0050229 CLNT S2 accepted Client's request 99 in T1
+0050232 LOG1 S2 appended log entry {1 99 1} at 1 in T1
+0050234 LOG2 S2  Logs: [{0 <nil> 0} {1 99 1}]
+0050239 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:2}, rf.getFirstLogIndex:0
+0050247 LEAD S2 heartbeat reset triggered manually
+0050248 TIMR S2 Leader, checking heartbeats in T1
+0050249 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:0 preLogT:0 len:1 lCommit:0}
+0050250 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:0 preLogT:0 len:1 lCommit:0}
+0050271 LOG2 S1  After appended, lastLogIndex:1, Logs: [{0 <nil> 0} {1 99 1}]
+0050276 CMIT S1 accepted AE RPC in T1
+0050277 INFO S1 accepted AE RPC (from S2) in T1
+0050277 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:2}, rf.getFirstLogIndex:0
+0050288 INFO S2 lastApplied:0, commitIndex:1
+0050290 CMIT S2 applying log as a Leader at 1 {1 99 1} in T1,[1 - 0]
+0050293 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:2}, rf.getFirstLogIndex:0
+0050306 LOG2 S0  After appended, lastLogIndex:1, Logs: [{0 <nil> 0} {1 99 1}]
+0050307 CMIT S0 accepted AE RPC in T1
+0050308 INFO S0 accepted AE RPC (from S2) in T1
+0050308 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:2}, rf.getFirstLogIndex:0
+0050316 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0050317 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0055299 TIMR S2 Leader, checking heartbeats in T1
+0055302 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0055305 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:1 preLogT:1 len:0 lCommit:1}
+0055340 CMIT S1 accepted AE RPC in T1
+0055341 CMIT S1 applies log as a Follower at 1 {1 99 1} in T1
+0055343 INFO S1 accepted AE RPC (from S2) in T1
+0055344 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:2}, rf.getFirstLogIndex:0
+0055369 CMIT S0 accepted AE RPC in T1
+0055370 CMIT S0 applies log as a Follower at 1 {1 99 1} in T1
+0055371 INFO S0 accepted AE RPC (from S2) in T1
+0055371 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:2}, rf.getFirstLogIndex:0
+0055383 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0055384 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0056430 CLNT S2 accepted Client's request R1zTV_UKdkEBcv1qfh3NGdDEe4rnEz7lKCFYudTQNsZafxu39byKduGd129bfhSgtrCYVKXTlq8OUZ4u-pDZibOecS7NRp0Tbf729ukz590zn70ESiTwdZOqAd_nTnwb6gZIbuUR5V1aJEGQiOJ8f4PS0phkjA-KA7zVVnA4R9wNjhX-rpLXBBO_-5umPzyr-zjwmxs-n3Z26Q9JDvrSNU63FXnHztITk63JZP-BdBdHKz-qeGY2HG7v1VqIvn37Vn41EBKYrI4eIh6LAmHt3cBTvV2NGJ0NjFQo3cRLLP0pGOZiKmJK__fxDDTmuf-3jjPaka4iQCqijG_70t4bHOjS362gAw68c7ok3v6cll254gVf-7_NRbxwxYWgscorrofZgGpvstBOlKTTe0AgRyB9Unp9VGinZN_Htnqv5don16ViM_gcCeuAGyHkW9jOCg_qr1WWM_DL6ZG31EFIzHz1Ea1mKnu_oIR1_lIfO_qPgAQsi9EEXavmfU-6zfIzg4csig2Kx0hjIMDhwg57b1IqEHVQkhqVxAhIOh9nBMCzXrRWPcY8VWpS1vkFRQQkFqra33TXHB7vYIx-1yPoyTLyXEfpxBhCaB3pT2wmRKQpc_xUkaAuiditMWgDmPaGkqob5HOL8whGaIo2eFXHcjzIEsbnKaaxRlXNgGQlVs9EGyAO7wgtJYzeryQ2yLlgRcqgkILkOWBmRY3Me0FrbPdY8m_pY9FBj0DAfay5eeWNaHrI-JDPV7aWJb4Uv2vg92YjtJ5vcStLik3_ZdtiB3dinOyUPOz0V7hY12Jxtiut11NJpBfm3hVDDK6QfmgGqmIP_---se951fZX4uKm5sh-92swIC6Shn5FDarcJYvN8D3dNxWQjKTAytpdSLXUoCYQ1d41JBH2RsFHxNh2J8noVs8_Kq0GVCoY6upwbVCUpY3bjfCGRI155Y6YonzVEaxJ01-s-ZJBDqiYEIedncm97kKIGvxAwpoegT_cfRcKjqEkC3nyAAqyh7ItKyxIEdxzceHdrajQEzB2lOZZwDBGpjpghpziHLQxV3VCNxNp8SCq_2GXA69rqI0-EOr9QzvBSbxOrQxHasIte_ZVF8HIM7VT7BREYRc-o_KNDbh-nkwodDh3XcTYZnAtkko08pW-IP3BtoGJ92DpeWZKqs0BaywqgwEXjC2IhB6imOZyMTMDsyTL74EjzD-RtYvOTu5bZ1TKuslIdkTQDXNsnwnWLcAyqS1yGWaL1JsMmjgspZsvA2a9PPHsMYHxuoa-uJMnt9vztrRYsxOtBLgkg8wmA6IZyhNToFdqICLWFEjdSekMjZnCas5Wun6jS3a1nTnBtWvWhReqW1mE_1ydYKVVQcRLvypwQsddMp-Ljs2trhzebKyH-5tKg4_FeaCEIpx7sNSL-7YLPKnK8bqA8DSfokx2jEsMWoUy7eT9AHbM10oUeQmhAfNaG4bFm2Pyy8k5oNQFKegE7ydWVzBiAhdhXTMx9nIL64EfGMXg4eRV6vsBBVwb-9iB81XctgERO4gkdU-OLmWNivIfnZnloBQ7TraqU6B5e2bQLUp4vtM5FtDfiyd0lL2WI3qOQpmt2fH3W3mWtxgHpp_PmBga2eG2JiOL-gFoTrcOF4zv38Svc5uE8vgzy9KFQRqV4xZI9wn_w8ttBMGu0FoOnGzEDXDUlA_-Gd138YDsOHaTwCnAZmFaidoY38-wnn-Xx-dl6ps99S_0YRGo7YDH9RgZZ-NIQKzssZROtYX81Gk0acE-T1ODYGYCOF-Nye4LClV2JQ_b6h7AkNjDtRflWE5obJBCPJJeXGSBNekLLDRYi3So_Lea9PUuN0cwVYhp75OVIfMOiaJPXeP-onLCeSNWwRmQNDuU2E8L_7fKgD4X6zez5uQ-ZO6DBtc_OLqbATz2BFngBszfUJdopkfasvINii5lMYRkoF1YzUTjC5vm7lxuqERvNyN5CPwoQBfL3rgd-LbCVrOsRHvPgnn7VlocF3bmxq1QEqYUkP47qZ_4ITqXQbCGEB2U0OqwEgJ7DDmHTijJTKcu4t7fXOeeQDX7DzNx2TBc3xJvxAhgw0JIFKFJUEjNeo_gIbDVWs_ABvKBL-oIm36JXveRd4C9dnr0bPeu0oZZpSjvQu6E6JOwGvxsS-NWtT9wuok6gjClkSi6vmwrxuFWQ00loYYsUbwZnNE7QoqXmV3Q65vGrkKOFK_XyKCZEuDKGiy_qrFW6LQ4_w-xJZA6LvCOKcrTnqDLXOhbs3ynwgfiQzc27ecs8SMSLy0i0keUxXKGGz7aL_Vi3Lq_Huv388JX_4wj3enEuwE2P654q8mc4spypja1jZivfc6bZ6tFGE1tGWofJhtO0iZgTe4fwkUH5Rbx0cORaAUT62rL-FSBXcpWkTf4a7jc2vZ50BQd6RNeLtLCVVB2hX0SfWb1Lw3X1-8RmBo1TDFfG4_T3qmSiJW4ISsfUbGpGpAYwt2gP1QE_SAHZ-3KzaZ0mcK-EESrgHWS-t3Wb8Q9fOdqknIeQinpuQHY9jQYRnpsHMXzO78WktFFo_7-J6tqlQpS41hXZFK1sXJ6be561RnqVO-YCkrHZ-nWwWNEaz-czvLssYCice9JeUlDbrWf-FsFU0I64z-8oOGHiNBssUwFPaErl7xeXyt390A2Xrt9U8cLOzZE-2OwDj_a5qcBol8JPFwQy0LkYZOU8Sev__4SQKM6b83ELZDXN7h9lN_TGHrSctGWJyau9TkGa5pOTMQz4evd2rTRrcfZs2XM9AQabkzVyFbQSCjDLn1kXCfwe226ce-7kHIKGS-QyYBYTsts0pycY9TYfz9_atmdq6rHd54CZDx9E9ACxJsMMzGRyJ0S9WB1Qv7WDZhXog2FzAbItJn02QLxZRWflZUS_EUd1ygeRhKsa77C47_dZBX-1K2CJLExsTxe4HHijw10ULb6h8jXMIrNtodvsQl_581hx6yYDp36PodAUEv-g02FYcG1hRxKMmZX6FR1h6syBHlpQgT50qq3cJTY2jwD759g70LCwHbfU52-OX5GnnQG2UttA9rxEHgrbjlGqGGY16FxstmbEVUWuwThFGv1pEDkufgWD3l8o2fZeW2WDjaDBC1Y_wg-vqLEsWQlt7D5tbJt3j7bPOLBQ04BCm1sV44EKRZO5mO77wlJhBvAEXdar1neaFf7xRfgsGiChm5-5WBeUhgPgHfKmW93xmlMhLBtEf80aQC6zrkf0ZFWum5U2aQjUeMmi7OoqffxaLKrmgR3mVVBXIKbloOpP7e3g7zNsQU19mUWmPEEIfhoz73ycUYKZx3NO8GiiVyX76xckMAPp14oK8HCIikUEgb26yUCaUovtR_ViCVx94V4wzgtEBPDfkZlzGn5rFUrDqlcmeN3WiCLSQ08upGa5tNKcvGhDfL3mQKJzYaSvY25ZRQm65OAcvtrbv68J-3Lx-fWZbMmqPAFVjTXxEpBf7mUsgUilL6D_ahyeHrOnz3U40Dwa7LwQfjUXoF8_F-O46HYw2AeGaNrPp3BMr14d0Pqdg0zO5I74ZdvG3yd8aUM_h4olqBHnwVCA_XcdDqN3tKR9D22cbWrA9OWytRxtPbtJ3tXIqr60jGdBYCpQdGIudzKJ3wrwPNHkZrIRPMMAnbeQMRFaBt7mxnz2TY4U4BL2-L945F4oH5pxFvcD4_dZIKWZh2n1F2RZ_NsQOGERJiQaE1sm3OycojkChKGqkJHJHozSbhGoK-HQbY-9x-l3ZevFjq30FGOCL-MPBH5GascE1C_Jf7opDacTqZ7gQvjVXV6b3IV5iKyXkc8X3HztiCzp6Fd3nJxH6L5ivIBU3GoLqES3IU9BYC_e91GNG4QmUwHdRdadCZyyCTYQGgY3ohQYL46vGPo8Bw2n-KFZli-JFnX-sJr1fgN5CUW9cf96DJDnJ3dEwWFH_MiDWuifU8Ih3NoRsQ_BrFjDtjBp8aR8azs1wzwKZlwBdD0Pl8tICoOs3a0RCzw6g0gufAMFjYKZTfmhjrZxFpJPVCUQbjqBRnoA0cX7RaM660BKZRgWIhJyX3BfaBpwVR84BUc8AeZ1N4IiNCZrQQJGP6dSVAAhIxgUJknZ2xvwLwWynLPJZR2aVIIw-zHESOXgRZzJoJAgNsmMTJ-s2osNDSYlXMBh8X9g8MYpXUNqcoJo9gs-rUcG7u-3Zdm0-u3CaOvCutZavPJ9TxFUKH4AeO3ROQ92YUTaQ-6yyWDXYnrBAbomO_U5iH54IDJRjHOMgYgV2UshnHPm2kuUAmEnWkaCEtBO0U3FADgOuRNHZLb88B222rWRN-0UkDiMl2d9_e9iIlMQyWqZ1OJ3mZLTBeCvuXs9mJE9NNtF_F7EXxNtTs6x2RMx0-ibym302HZfYHfbrR7ar9_7oObFgyYVE8HnE4FHEjvru4M9N0j1vXohFUG9eJXpJPMeIFkdl4CmucwApYlPzHkgD2i0X8PQP5w0FcT-2O6qITqXyVQFC5e3fYTGI_19pXTHzx6QqEdtyOUJeuZFBJKQBzwJE6kv6Sen30xQqUcsvJW9oBuA4sppHDs38wjKTYynVYWIp5MrZDTxEq-N1WblsvCd484E40BfrId8JCm-EP5IVRexoXySDfX6bK9YSkFH24VHVsG0rjAWvC-sUsGe8F6qKYmPypM74bErPkR5lG2cPWzX0wzX0ls9X5cleZqmHH1Z1kVOODvarOtxzopCOlUVVeBU9JiesGEixRG_f7iYKUhSmVOhLDT2uPNrzj6h61WGkLsjI28M5FP71mTpuKgmToKvmDWjHdTRFcTMytZSJOkZ7_IuK6i5w44fv5sIW3VEptHdULIlFc3smOVTxLDxVz_gTownk5tH6JQbZkEKM13VkTUiQKuEM2JjlIjOvibRszph7B4NSwv9_wCn_9SZ9z6Nw9xrxij6kQp9RRuPeRgnVo6YdtU8QBdHAP0tkN_pY9DeZwc4dx4dJwgfdqOOgi1fqKAvehSbxVj in T1
+0056437 LOG1 S2 appended log entry {1 R1z 2} at 2 in T1
+0056439 LOG2 S2  Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2}]
+0056441 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:3}, rf.getFirstLogIndex:0
+0056452 LEAD S2 heartbeat reset triggered manually
+0056453 TIMR S2 Leader, checking heartbeats in T1
+0056454 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:1 lCommit:1}
+0056455 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:1 preLogT:1 len:1 lCommit:1}
+0056482 LOG2 S1  After appended, lastLogIndex:2, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2}]
+0056483 CMIT S1 accepted AE RPC in T1
+0056484 INFO S1 accepted AE RPC (from S2) in T1
+0056485 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:3}, rf.getFirstLogIndex:0
+0056498 INFO S2 lastApplied:1, commitIndex:2
+0056499 CMIT S2 applying log as a Leader at 2 {1 R1z 2} in T1,[2 - 0]
+0056500 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:3}, rf.getFirstLogIndex:0
+0056524 LOG2 S0  After appended, lastLogIndex:2, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2}]
+0056525 CMIT S0 accepted AE RPC in T1
+0056526 INFO S0 accepted AE RPC (from S2) in T1
+0056526 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:3}, rf.getFirstLogIndex:0
+0056536 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0056538 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0061536 TIMR S2 Leader, checking heartbeats in T1
+0061538 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:2 preLogT:1 len:0 lCommit:2}
+0061540 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:2 preLogT:1 len:0 lCommit:2}
+0061567 CMIT S1 accepted AE RPC in T1
+0061568 CMIT S1 applies log as a Follower at 2 {1 R1z 2} in T1
+0061569 INFO S1 accepted AE RPC (from S2) in T1
+0061570 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:3}, rf.getFirstLogIndex:0
+0061593 CMIT S0 accepted AE RPC in T1
+0061594 CMIT S0 applies log as a Follower at 2 {1 R1z 2} in T1
+0061595 INFO S0 accepted AE RPC (from S2) in T1
+0061595 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:3}, rf.getFirstLogIndex:0
+0061607 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0061608 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0062703 CLNT S2 accepted Client's request OhQJ0raa3sJwqkRpaKItsaMsd7lrwXQTyce2KdA2kKw9wlK-k0tAu7fEi_g8vaRsIOhHYqU_yyK0nTj_z1Oxls8N1mVAyDpGhJMCfEeeDwFJLacM-qsF7ghcC7--FuunoYa8ZQYP4-4ONIG9e8Ea6ELtvNP2pAczYDD51EpVTdTKe3D8sp72zWBU5b2EOPXrQo4LVEUFt5Cqu9JPo5u4d0YUcje34cko2z83Iy5ta6CUah6RF2HkST4x9f-MXMij8O5sMe5bb9vzqtvUxeWotxoeTBQwhFiC_bFiAvB9yJSBuW5VGtbhWz7R-CNH0tOXBIMWr1Kl86GZ5qaw8gMRSZEDJDhPFREWWIq2aRy2HVoPxOEA2TOGRoPYzXrJmONdBS5OHku0Y02JgmUH04vjhwPjDRi5Wn54N4Jj7SxVQQKOfMOIXD9jramBKZpFRQgrYm7floJ11FTbEeeqNRLlwUzoiy8JmLnI5ir2lPQnd7zdoxAJVRCmsw109bdXrBuRrDzEFqRvvE68DfeWr2HjcLNLrxBvTN20EY1nB0-JmLI30Tz4B8PIM7F_EfN2VaBFSUCbaxdx386yML7I8KxwzsTGRIwGymyZmluW7wu_UKgiEKfNr3_kU40JcfUpkp3g6lYpXGTCfbYTk-bYzQ8HoT3hO_MmEYzC_lmdDQ45rngdAy4nathNhl1y6ZFsCde-O9ZulPCOcJrfZnySYkUPpz7UNNBQY_Ba43mtARtEuJ83l_pdw-XGWbnja8Zh-zYZvX2fhgp0mQXapuqE_hoF6JeSTShtoW7DlQoeBqrKdJHZ3ENj-BHwVYN7pL59XotHaPIR07vEOk5-_ufV5U940H1QGbXfqT3hSvJhewbsGhw9Q1VVIPHtX-9Nbc9x6E1rLSiktIW9KTLrDKkWd-gPcYa0f_0KCPIaYRGmkdA8c62CcUmzOISdd7xg4UbF-JFO5l1jrP0JaydJQBfuHQ6_VrFbUTvzohccekAJB7IVwK5yMBIEpx1FEEi-Niu5FeZFZ71vKJtn-j-7s2Jcj372R2Hkxp3d4khVY55IdLwmkPAaxyoJ5yshN_z7D2lYL4nqt25Izgmh9o6ml-1IOTmjYGLMjvctak38YmTnLtUEkRx6dJBHi2YU6v_z2snqKLPaCMLTBkTlHMhG9cJP2SX8hQI0Vrek7lONJDCdmxnbjIrwtNYoxG0e8FxfZ5LU0KHYDzpEDl_m86JSV8ynEItaUYmBqw5R1gTbaiHT56U_9I-3RskAbZST6XmwZ2VwHeTLE_a9VOw0EmkTZDmoWAwptDKTSrfi5OKgqPCtXun8zRInge10Usw_Yel2ubQgFnikmFrr_XA4z-YhMeup20pAps56fZdZYhjNKDiV14R1Y4VF6OGIidZIyQLCBYm5Dhyuke54Y99LAzCylQ1Bs35wfUgDNdmG1Krqj2R_ZLQksA0FLAMMMMc__wtQuCANoFOk3g8wthp6JMX70mTRp3XUJ7uLbooIsSIA9Lb6CeNlw2NgSFuhQnhxBCadd9rOrqmE1zCEmRLBqyD1nggbzrjrCLryMxUgl1TlD7TtLAqPWs7pPPc0mUiHvDHUORauX_7hHf54ZLzC7MKzIHQ3nymcm9P2Xb95iE1F8OctiviRlA7sPUKmP0Vt5jAtBZ-0zTQVxU180fdW1jmD5RiMP1R01DsbHIhY2DMKP8YElXa4kx37CJOfZS5aVdmPDrGr4GL5NOhxQY-9zv4Ww0HR9OUDAgTjvz_L7JBzK7ZAhLOlgpjf2cs-kSndmxgZz9XxgGd99KlQ7DuVJCpgJ0_3Y5neoOqOuuclrzHUn2_FI1NfmYPHyQtnR7DrBUhqFSFpJElJ0ESlgU36u36azqcUEgAU262f56StXAGyY2fMw9jnhs-Ho24e_GstFS-Oeb__bptzCZLNrzihYTos_5Soy2r5ppAM9oYDDs4SjyzAOgYCDiaWmXBBdBLVUpkmhEc_0I5r6uTKmH1EGlYT6iHgmy1PmH6wnXb5dkRFb8HCf31KRjW7nFjPt-rxWmlQpG-1EJ66zjNr1Fl0u_7VUEwYI5V5Q4QvzXkT8MkyvScB7jkPQBGRJ9KOWn1S6GIVFtShOUx5fY3crqUYSh2dDz9Zgx5QSyf4mlXHmTho7VYZz2L57xh6S9asjjlveDrTTfacRXXh1ooNaRUYMzgpkJQZvVyIb3gFlxx4E6MrtGQtYyscy1QkIHo5bd5lONwOFpDxHobLkleAzqgGKAReELda9dns6RlSezgHBEgQSGMwJVItgheIMhL__3oXsHuT9SQnfxjzoAW7tsNrFMnh8pCGlW6e4cwkpEMqvgz4t6Te14n8fxAykM14dAnNeEH1_y5uURi07B1zdRkPimsq15cciY7E1ef7g609dH8PnVMsPnvpCvEKWq2TMu_Ad3dqp3hmCOf9Y2Ng_OV2p5O0mm6Yfqdgvb8EOwuIS5UlAEPxTKfk6A_nibH8R3bbR9c2vMGgc2Ym-7myILLR4yT2UH37xE8V-rz_ReOzr0EMgcejqE6YD_0c_KIX_Tz_ei39lMlG_LhIeL513TNJN5c9Tx2Cf7kvB3GGWjY9Zy4oLsrRxdRc1CTQ3WSkynAr1Di1qUsBv7rOypRvl7AIYJWSfWgpKAVv6JSTQYnyDkeblLltvRtJ_9yjVzJFGy4u5N4q391Kz6WdMnsuGBva8UxnPpnRGPAzhiwCeucFh1bRL0uwNeyPlZXpQZNp1I9kGl_G2UOFULjTVFAYAVCoMu3BlvrjiWIOq0uZqGeONFnEl-k8MYRlEl5MnkZmF5Ec8rboF5x_Ji4nJW7BYfu6l9hPrdBUjL8hKDlqS8Nd-y67_25h6PnkM4ZsNp_xO7Od_Ng0AqP36Njoh_vjTuwfSN14uQ_TSL5hQ4LsZFdNf-nav5RY6YEgXPjjtHf0MDostdpAjRfUj_Ltr-z2s54WsB3p9CG1Wu3HEHk2Xe-CuwMqvN7i2Z_D8NGZhcgKJ92ub-fkZqQusTUBcIr6oIpX0FcC-r3JGAx4JwkJUlMAePVhuNdbO5k4g-aZhq_j41uUrZ5W1C15w81YGx8gq0qEofqhH0Pvrryd9X_Uc99hTDzxmL82EeHISFr8a-q9seGX1GAbp24P9DG6gaDBmNY4bdYYqnHgM_MkUApjM7THwYyaK28R_GGFeLNskw4acR4Y6wP2MD1_J_PMfvMGy4J0SWbablXmEUT0jPfADTWlxm7TPNxyJqtt30gvhzZN0R0xkhWVkcW11A1be4LOADNPhC5TcuxVCR9giMUzemXy1GyGNzLNVcNfyIb-iYsnygti9bYW1xx7c1f_RkSjgtSH4unAqpDpvLLDzfTGdkxBGt6grlAf42Edbm4nTTocKiWH4H6SnadWDrHc3YP7Obm5zps6QsUr9qIqqUruBH0wFPKDmQ3krbB-N5B7WecGdO9_G2l9PqRvPkIW_tF0lmg0rQLRlj44HbJmarHjftUzRapPGzQ5vUgD8Tlp3dcXOxHsflncqEF3l91VBq5hlsUkkV3L86xQcwX2emkN8ZeXs58MYh7s0IuK0sVRWZyCkBMCMvGiTpffI89rDBey1Iwc2NgKreVvCyHzLiDoCECfL9A0kkfk1zLNoxwJHINmXMkO8WfjuwtIC7eR0rFdSw4eXVQxrAoiZEwbMVwbptGN2HxlpKzi2dOou0Dwe1E_54FtZAPjLs4TdtNSw81d-icrah_12pYxxWWSjyGH3FMJugPg-k6IF1zjUHkgiGjAMJ5HI6cqc_kBWIYCAKvTF2YUMEtNuVOH8nJ_tJeNJkQNGmOZX7qiuywuPreiP7Z--njzBL7I4QhHm5etNNOF7kBLKkrCfblyzK6SyF3ZZOVvQIj6vq3q67p9Il--vxoh5sjH2ML3CsvCviMfppiSvWRD63ITwAKdluj6b4lqgMf8q_622TYAjuvE21VJ1L5C9HXxXgUsnvXGTowKyk5XomKvyWutvgXPosBMZVE0uigREEofTyfFv_RC9D3AdPqmfJFstUyo3i3OeG31wHXenTcKRZSZFsy1oXxD7u2BM5sPdFv6v3b8teDtqEkr8Nm-I2W9VDEXkbUk2AZ4Ead4oMRT3xPChreoM0VLZnSYG57vB3zXwU37JAmuY-4KNBSurzQqt9110BvasdYQh_gS60BE7Zc71U2XHmuMpvhFCYNaKIiGYmqx_DRxJq6Rq_XECoDfV-VhR3kgBzxRHG6IuN4b7xZRX4CXLidFI6K0MlH6zNSbgBYOw1FGhCprbOg-LMAjRtfKFAfb2PMDhd-obbVJWo6z8hjlQzKMpkguVJfqL2GBbpqIMutXQ2zrcF4-hJYsVHcD63Q-PV_A-kak2SREuCaz9Q9CQka9OhLDAFUOk0cr-liIJm3pTwQ1SGu1Ovh3vAjZA_nD2RgZn6Eb7pNDj8h0-Yz3r_hK2jLtpLv9nywiN7SLuM5wYTIqIgp0DyE0q35kLIJCSM-t4U5TrMXhMC3FCd5iYcDWiYrh-kOyHiAJnr0ajg8iptfHYBSmaX4NHvLeKjboU1-lCkKdlsUsSQjPO5XDhJyKIeVZWoxTVPSdtsMdiSpSv_uyEVhs1X1sUyV3greeFeSpOxii0LobF_3Par0kZZU8cR-R5NB-aJTjl4zOJMsE1mc_dR16LWwOzmtUKE1_73nFLjgRGHafWHxJjellmpmedPDaRW5OA7gQdYeiYRXcxpH4AWuJQiqTNh8-iBpLwG44BoylPt9UujwL4aiYTlHINgLVRRecq-KL3Xov8489N9kCSQ14RBuQTpMSpC8_e_4LBDn93jKQ6CIIOMMKB_fCEc4DU1vzJ8dCH2G8WYDNUHUw-A2b00QVUfNi0I6JrmnLd_IHjkMwCyie1R3Rk7s_VDpzkPj7cKDT8WSFPUOZea35RjS6GrzYhIZAVK296fMivBmEnw2nzSmbnVlAfej3XXwmJN2HKxLpahVjztHi9VxRj1Ef2zjBTyZqnJ-M4ubN7ncGS-mi in T1
+0062715 LOG1 S2 appended log entry {1 OhQ 3} at 3 in T1
+0062717 LOG2 S2  Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3}]
+0062718 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:4}, rf.getFirstLogIndex:0
+0062729 LEAD S2 heartbeat reset triggered manually
+0062730 TIMR S2 Leader, checking heartbeats in T1
+0062730 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:2 preLogT:1 len:1 lCommit:2}
+0062732 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:2 preLogT:1 len:1 lCommit:2}
+0062758 LOG2 S1  After appended, lastLogIndex:3, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3}]
+0062759 CMIT S1 accepted AE RPC in T1
+0062760 INFO S1 accepted AE RPC (from S2) in T1
+0062760 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:4}, rf.getFirstLogIndex:0
+0062774 INFO S2 lastApplied:2, commitIndex:3
+0062775 CMIT S2 applying log as a Leader at 3 {1 OhQ 3} in T1,[3 - 0]
+0062776 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:4}, rf.getFirstLogIndex:0
+0062797 LOG2 S0  After appended, lastLogIndex:3, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3}]
+0062798 CMIT S0 accepted AE RPC in T1
+0062799 INFO S0 accepted AE RPC (from S2) in T1
+0062799 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:4}, rf.getFirstLogIndex:0
+0062817 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0062818 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0067825 TIMR S2 Leader, checking heartbeats in T1
+0067828 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0067830 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:3 preLogT:1 len:0 lCommit:3}
+0067862 CMIT S1 accepted AE RPC in T1
+0067863 CMIT S1 applies log as a Follower at 3 {1 OhQ 3} in T1
+0067864 INFO S1 accepted AE RPC (from S2) in T1
+0067865 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:4}, rf.getFirstLogIndex:0
+0067896 CMIT S0 accepted AE RPC in T1
+0067897 CMIT S0 applies log as a Follower at 3 {1 OhQ 3} in T1
+0067898 INFO S0 accepted AE RPC (from S2) in T1
+0067898 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:4}, rf.getFirstLogIndex:0
+0067913 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0067915 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0069099 CLNT S2 accepted Client's request 6s8STFg8kgfqBVM_UF2NjGs9waC-Zmk4ZJ2-kqm5P67tTMN-4BMyTToUGxXm5_HrA6pQO7gLqB63Z20Jyete7n0L5h1DcZsK_GMHVdpVASMDr-Htm4ThPr1agQqGFttv4zc3WJUzWQstk0OGYq1ET5ZZKBnmo7wsmnvomCQXIOCuHeHp1E3ggnF0H18fX7OrFEovvR-fzOrEQP73pnQL6MD1ArB3L64bieJboFNJlig70Hwyvbyg8wI49NRjPdU9oS-9glODz70I_Kc7gMWqhmwuPzTfqLvjrh9trQVtmPKgjFNGwxTN6FwpbtnObFdVN9qwT6YTIa1iQbD8d3BznxKP965FWFQhKe0ErfTk06ZZ4XVYsdQAFHtVmsh1spCsvSd-xKtj4pRRxGruOu_-DizyZuQc15fJYX1j0sloZebpKcgb58PwpBZqdQi4u-eBQ4siOU-fnPbVGwixjBZSDN0IPsWAti1hYpQMiG6v5Jl4zgfl9qGd_NRHijeawb7BrMRNFVdei0H6SlCzWcvYIWm_52OyikJ9JRO94PZBAZd60z9X1dDxVDxpHZ0G5jUjeU5_qhFb7N6qMBdbkHZQc1Tjwmzq228Ksm92XP36mQeebXaBEqyVLCC2S_bAU0ASjBGyJHO4vey9NysGT2wutiLzmaGv6RFHLVczSBiTvH7IXRfo_T727qOwUX7Q1np4G811Q2gczvQoena5YKEuSaalFcVcLZ_pVgZjfJX6oWyIAXs0tyeYxW5szgP1rvjdcMsU3EELwYhlHnK1h42CWcPYiPFLdKFRcow_fyzM2fBXaKel6tWVvKTiktvi5CpUjcac_QoQwye-QVXnnIfO4ddedtTCC61gzCZjl2gDg7wp3c_ddlgg7ZaR5bOByhwjJCwbEP-JzKYMxJ-pyeOy7XUgB620hpadPxV8ZGFRoPYTr3r6wZHSBsSBJ1geWHZQMclCy7r-3OYejum4iXjoT8QHzcHXgkokD4yGdD7cicV_0P5GMLo_CBBh9BN1pAgzLy7ELUJGwTfGc2cBuZPqGJeZajx4ciRxoYNxpRKCci8RskHeTooaxoRxuMh63i7fcCFx1h8KzA02MGfVgkGZbxzqKdXlvtECm7vdXp5BlNlx6_iui5J74YofpmNKQ7lI-tJ-F9gn45SCxhL755aFf30174o35IXVWxD8uuiQ5H_WgZKnkscxwftVpIearuWKd-35K1M2YPpyyytMuLwF6NwM-grokhuOKNpLY4_c_fKETHzdMZ-Wp3egrWqsuZ3F5MECdw6KXme5kx11rF_CR0dzJDDjVw0_XAnDbMBoGR0ZGTcRUZe5A8rR2Daq4I6ENplgcCYJv9gKovr3UkwbRso5SmauL-FMUZJ0ZVlYjQNUnncX9k9lS7_J0-UNoUs4nhK-120MS_CC0aLs5o3FKzExCJJGP25CTS-6A8VjZ8zxHnj2TQUNSAriKCESXcG-itvEIymWUaBMu5srLaoE5xy28r9xM7IfJS9qspi31Jw7G2S5tfGgakA4cJtGvgDt9bfFMlgxJq9ekCU1qJnpzTj8gstWbP0fzadfuHtdvIVXyDS0xcrMvCBMB01428Z8TyCDLctmaGfA3TENSIdwF_rgUtGrBAuIiwZ_rruH73IsF3WSbMJMyuA_FzaCMRjui1GvRASdwHoR5GzG9jgyEaErSlvufA-0SBPPJVlkIcuvr5ca-xE-6G0tXwFdLtaOJp6ww9uBQqYMzA7t7GrxeBzWtWSaeZVhpQwLUVUBJ_0r-Oesr4Ckwv_EXcsq06ZUPKwWqLstwTqWuaJwKO-BfbjopfhvgkfSigDK5A4tusuQ1_dlDggg_tzGm1_dwWeOPmMAntXDMTaC4W7LUgr9yrBajOa6Qh4pi1QI_mfAEqNrEOAqZozILnT2SIPG7LIPPbhaBU-AP34C0culxnU5vg9GqFRmZfaLhksSUoBGtmmSDr8G5z4MO9fjVFfcRW5DDtbRInsI9jZ2NliGEhS7fwt1AqGnSOBPIWjlCRbQQozFINbJ7wsYdZEACBqic0IZCWELLwJzjOauEG0N_VhnbCDkeBmsPnKBNyX85j9NBw8LOLcjE2UZ9F2I9i84UiJ-vWTE773vqbzns-hw_BMqSQ2qKpxEcbQ0tfdtMdISDi4_C5vMozXZ4rclxM9vWkJG_KAh02tMdL8D2Fy6GO-X2uL6KoBlmpiGZy-k5rPReoMNL_o4pEmRqHQ_BMZbi6Hpwdb4lCYu3DXHcfPSWhNJP4DdZUsx_J2Sj_FmXPqKYQwghtU671ojEkhqa4zHsT5VjhHJ5AQSlYmIxHeavEnfAXSecijXICaYrAtYZF_H_80XETgq5Vn-fntxmZcjC6lLUirlMSqWOYH1QxlM4P7iyGVhN7ZIsYHAd43d-8pST37DtKmJNWHTm-r6I9Ppc-tuDfUlTT2hAJ_DImohP8hzqDLStNi53Mkoyj62GUukjb8FYyrM_6P6f23yHjt76TMgV6GGJDvcVkVj808TEUG0-o_O_UCt6w2MC0xJCquQsmAWsW4S6ATQBVMUyg8IrXrgSWJd-rh3N9bk7gjAT00QC67CkATtusJSREIBFvK1TebYta2c3wUjAMtj0oS8rOGszf_ATk8cc9XINbiYece0YoulQ-IAHd5w2GjoNoDd3Fr3581qVf3izMDrWRf2OaFp2ksnDCNyG_EeXzkTBf5QZZAXnzMHnf3h6g8AOgz_GEnAC0Q5vZjEO2OE4Yv31s791okNRth6lEvY34J8i61MJA0QtHNrAn8d73DVv_7gT4Qd0Fvb0pgd_PC-FuUnoQlxOtd_Tl4-bv2T2Ap3rqKtn6gZ9Iv87PQUeCMf65QgXSpYNmqhtG6Pcyj9j5kqV_nXD0owwR9Dw019nf0K67gX9TLZYjsXevYmkPhNIBYL_jZb99zNvhAoN_925oUwhlnBWG64xDZu19imtzDFNYqaI6NDwMWzSiuhV0_a7CYW6pBqPGgP0JozSEWxosac7jeEGH-YYn-C1KFK4KDbBOA1ne8T-rgE4xyUuWynX6RkBCHaCXMLwDSAzMEceU9P5SXiRljHg9AEcEHht_p0SACxU8v5AdJSNYT_0ExiT-HLFwdhA-yUs9dsll0DQlDtVORXEvUnhfTJb4x8kzFbPbMvF2UgOmw7qKsA7Jw1bON7ak92kMNB0Fo6i5ZfhZSyPBZSDDevvdAnPi_spK4agZynfswcwdpD0GRojrs02JdQdtWdbY6uWrU46DjfNC4ncIfBiFBsn57nOXzgi09mEXVc-5bd2j9PMohpJVHOGA8ngCbUdIns7vLes6gnEYyZNsA5VtpScBt07CHJVl5x4VGsKUjdWrcSJJ_qhTBJLdxvVrOuqRwYdx3an_Q0Eb4HPGj5bMyLr_L3t3Ox8ROUwBF0db-RIEo1t4cvZ2BLhZZnJuqXJ8yalp62L_CWHZ6sKbOl0RC3IHKGhg715DNtjUGXitzPcvBJ7xIpo0iGK5L2phQWFQKXcQIA7orJguCK-iZ8nRNIzsQrVIRoV8HxE-lO2KkjYrEtrIWqAV_RfOxFOMw-r8hOsfUFy80tQ2k_5ClMXhotNUEe-56-A6Q-O0CxpXBP4ySMgxUskBwKOu51PTFuFhNGc-2LSs92jOAmPK5QkUqjRHlnf_o5bcqVcY2dr7TPhwYVaDef78fakxCZy7BzHQrzyF95zuQN2Foph6ic5XfcAHOCXPhRHXwMiQb-z47iM00pFi3jMc4YxujW0MwXwmrdyCiAiB1ryT8wxqO_svYshgk20c3pgWuZ6a_UU-KMB55IHMofnRE-PrshRj49IpzAY7PdPQN3UF-MtvqLTajULQ2idoaJy13yGvZUbmpa7WoCITybpNYafFls-JefnDhEjBAlF1FoaEja6JMWIpclE-HNZTfNobcJHUAj1hsW-iZr1Yh6DoTQ9rpqUAvnTf7jq-_EQElsDcSoY4O4_umlUUwy8mj2_8qv1z6IMCo7PG_vV2OUiilOvvUqZCuW4gcwcdrITmpiKmpjZRMpgiPXtJqGyq6Mx0wmLKwdfwuKXrtK5PsIgTRZ9ZYq4cOT2UY8Zoh8PVIcE0RZPH5jDISQaVr_YehXkThvEwxO4qyeZFXuTUXXf6JkaO365X66ueUUap6aEtTGUiszyXuA7U-deOZx5cafvoDIbvGCmvpH1ykt7yE8QXaND46IHOnzGwQiyZhNMtr5oxbDVa4YJdEH1Dhz3M-WIe-_d7m3swMq_ZONz7WaixKUvLpt15R9JybJe0x8ED440aHYAfg-E0pQzdjUEh9csBrWSz2w5AMrqpED1ad6oJie_xcpgZm1c96Y6rD-S8Rkr5J6b-OZjf8bSMYTr4iHYEyB9HEALsXQQctKaZTMcUB9aeS2YSQgRdbSEWwTXiO9MVU2FF_CwSPAjMZTi1HTCKAGOLayffyhASHkOvxA3_x1xrwqHeOc9ReiVKPGSiGFtWI6yDRlEw1hr0-tFARIWNqqaqOBMoloYA2V9k5mfets71PpecsFCRwHPhe3FPyDMfAgB7OilaCvJmZ1fbRSj6wbuvHUmv5vhrA0UIgaBy1_7-r_LHoyVaAmclVLJqmJR5SrEC1UApDkPUYGHxVDUh2TLysjptQVpiX4vJ1Xw0Hyh-H-_WPvgTiaxCaLkMPyt8glpuSfiNUoDCNXDqbMEYJIkDhpvS00c7If4k1niduR5ADn7FuwIoeWdbpkUDDq2M4KmBREV12e9GOTEzqcDtVJHNnQQqPXvBtnwL5N59AVY1ujNNjMNi7nX-68vSLWQk-6kiWHyaG3qtBRbxkUxm0x0Ix1JGBeaPXPj0Kx8I_J3B1A1Lz61cQmcaZNrZWQHwf7-C8MIw-PWPDqpJsP4GA23IhmRSKthY-B1OccvwRMxeWH0j3FBQkmTdHXflTHH7z0sn-rJhB_RXMrHMAtAmo8fuoNhcM9npzc93Y0prvrFXFoes1sHiJ4hZoBOkyq1eTCujER1ny0ZVLq in T1
+0069103 LOG1 S2 appended log entry {1 6s8 4} at 4 in T1
+0069104 LOG2 S2  Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4}]
+0069106 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:5}, rf.getFirstLogIndex:0
+0069117 LEAD S2 heartbeat reset triggered manually
+0069118 TIMR S2 Leader, checking heartbeats in T1
+0069118 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:3 preLogT:1 len:1 lCommit:3}
+0069119 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:3 preLogT:1 len:1 lCommit:3}
+0069141 LOG2 S1  After appended, lastLogIndex:4, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4}]
+0069142 CMIT S1 accepted AE RPC in T1
+0069143 INFO S1 accepted AE RPC (from S2) in T1
+0069144 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:5}, rf.getFirstLogIndex:0
+0069160 INFO S2 lastApplied:3, commitIndex:4
+0069160 CMIT S2 applying log as a Leader at 4 {1 6s8 4} in T1,[4 - 0]
+0069161 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:5}, rf.getFirstLogIndex:0
+0069209 LOG2 S0  After appended, lastLogIndex:4, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4}]
+0069211 CMIT S0 accepted AE RPC in T1
+0069212 INFO S0 accepted AE RPC (from S2) in T1
+0069212 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:5}, rf.getFirstLogIndex:0
+0069224 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0069226 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0074284 TIMR S2 Leader, checking heartbeats in T1
+0074288 LOG1 S2 -> S0 Sending heartbeat in T1 {T:1 preLogIdx:4 preLogT:1 len:0 lCommit:4}
+0074289 LOG1 S2 -> S1 Sending heartbeat in T1 {T:1 preLogIdx:4 preLogT:1 len:0 lCommit:4}
+0074321 CMIT S1 accepted AE RPC in T1
+0074322 CMIT S1 applies log as a Follower at 4 {1 6s8 4} in T1
+0074324 INFO S1 accepted AE RPC (from S2) in T1
+0074325 PERS S1 persisting state in T1: {T:1 VF:2 LogLength:5}, rf.getFirstLogIndex:0
+0074368 CMIT S0 accepted AE RPC in T1
+0074369 CMIT S0 applies log as a Follower at 4 {1 6s8 4} in T1
+0074370 INFO S0 accepted AE RPC (from S2) in T1
+0074371 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:5}, rf.getFirstLogIndex:0
+0074383 TIMR S1 Resetting ELT by receiving an AppEnt in T1
+0074386 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0075687 CLNT S2 accepted Client's request OhoEaY1ASz365fFei_l7iNZ-dJ_EP130QcFKyZ5YXAFXFqdsu2s_yBs0MiAjz3H4TeD1iwlhbX8KNTNSsh-dN46LQ4oZMuejNfvONwO335ZpVlOzfJ_zUYxRjofTpN40PCZdVppmMI-ueQJXUsbLLNMUK76Psb63szrnu1X4WeRfHYa6QbSyC4tIsclZ5PUtPQuiIBiiRClS8c98tBkjMpMjkEV0pHm2SqvmC0Bh4wZ9rLUBZKJU7MQuhNrQ_167NCaEVQ3Ipq-Q3aaj_fJurOn2ZFAmDLayk3kTm1Kq4lPDaVAUcmxxmL9p_4KNHqzRbTHk7L3TYCfIatO7Fz4qMIn-8GNbrVMpwsJDiVQbuBpJ_oveBqYxBiRRvPhHT-zEkp9d8ewoCSga_FFQH_Whk0T-tUhn1Zz_lObHRj0dTgS9pwlrVwNPBeZRpBhv3FOJib3qpnM-vDpH8zwyEXI5Ns57SwwbMBmhNVTnzJqnnoePXzR1Xr2UrPeTxwxJj-tmuL5OJ7eejAX51sCSzehEq5iVqsK43Za2-kznpBUIv1DAoPr3lrnrVRy1HxsPSApGoFUYd4w2Epeicf5i6RYR8XBHJc3NOfYeshz5TrEPFy-hwL1xaQ5HiO-nFQcq0QcjiH4ry0u_Yl-soJH-MHY4Zl-Jqbe_O0x8c6JIn036_4xa53_r5ISapVqntgmAaBm7bTytaeFCmOquf_qCXvh4mSOR2an3CE-v2TGZPtLWiQ8uNXI5VUykmbSBWa_lA1y7K0gsPP7cQSAGVU3AI9Dge9bKAGv305ALaaWuEXCi9o2JjV0D2zx512MhGYhl67kKz23Pl34gWkckRA_Jk_m2VDMgoX50pWsRrX83imFBgRC7exLi11vqcHUFYxVF79LSRODTZNkHTkPa44eLkX1jReIgqC1ejXpKPYJzlgIXnr-1hxVAOTNgeXApndlm_q8DvRwmuUk2pMHE9sJG6QfDXOqGzdl1nBnMnoSrdWGbK6PlubTJiOW8EblqRiV7pmG3ejJTyR2zXrewrVD_pAYXQUb81yhla8V8rNGDdjMTk0TKASeBeqTqShjGmADhwExlgCZyFP6yFhZnYqEzVT2dP-KpklIb3_qPyK_GudZkTBQlZ4WlySfdvBGzekeJG5ILiRgGajA3_QvBpcw9-lnJKKyLkFgqGJzrFVE5JlzsRRUPmD9NTUH0mW_1j_zyeXnSMXybE2qsm8N46rrfhtL9DSWEJQRPtntkIJs_SfEG8sNowMrJad7ptb1H1LanAQ1r-if53Mblgm4LXA3JbRBB-LCwQDnubvzwrvO-3UWiJxY6TzRsokH1YEPytfMa3ME7v_eZaUwL-lndS1C6rhtSoRJhZL-TLld-IFQS9iPGfBa0Az5BqNV35WKxFxUZTpJZrKMIyTYfxXXEWKqeZbO8XKKkspsvAUvY2OMfqBGKEx4rvx-1t9wt5tTGP4M3rmjrof1PfOz1Pku6DeYHWpAFm4QcwFzq-esrlqPfW_yJDqgR8BghgZC52w1wDj0WNXlZoZz1uONEm_MuDCi5UHyKj9O6lYlWaE7t9w9fd9CLPg2j4c59LEgvmFNbXNFxkwsQhxF9S-3CpSfBS2PvRbQRBqTMYmhxWBfV8WFBbqYJhGWXMvRwY3a41uuFAlPIiAqexobKYet8ew2bt6pmTn9VGEcbDlR0WeygnF2fmAVGZwXPMu_U94QEfSNb-a4dfrSgaQe3Q_4Ueq2ulnKEipQuPMs6B6PhKuh4of93qYYdf5KKOC1dI32UTE3yn9naNpE2DqCyUH294HMEeZEKsxupciv-wqXbs1kHYsO2V6vfk-o8kx_An5j0kCsAR_4eTMEJtbmV7hPc2YDWapdz1gjuB5-FYeSTWC8gb_Vb8xxZwAWlSWy-AedIPpMxHhECtS90H4gohyxmDTo9R-Idn9Bog0TGgwMhOug4gMWO37ibaBAxljm_xZ0BkGMS6HgPeiy9-WaQko7e7iccG2jyEgwqUMOzN_uCJFbfJ4gjAztk869FXhjcfTIl9C0AyQv_vvuGKpcqfftFIqUMBbVgTsMCb8ctfXfrUcxVar5JypvAf2a6EdvBXoZztmzJbdH20iDJK5bSBcNXOJgj1wQDT3vOktxyJVlb82Z13HIRSRFV6TtDt0gbikpeBwlKQN87IXL8JQSkWbHV2iOm59jtCHv4Vm9aT5xE-YkhktPvQrYN_vr6-1MeGIPZAKxRe4UgIpAdvMtOAevk3tohhoRVVB85nKmtD8TRcjvskETTWHPJggCcgdyVlSXc7aa-MFVEvFf2DR-NsuVfLdLMx3lZtbocJOSLFHH4kIAu-0JW9Viu9oDT73Ct_c3s0nnHTc6zOU3WmFZUGVEhUk5o7wX58VrC_OEaiqgKjBTcPA8rgomS9fqme8duICzxz2bKmC0faPN6MSDm_DsnOSscIzCfAEyAbs6n6iYRhYSiu6SUU_0IwuUu_mP821X6UPhLuIs3yJfrUQCfBeaCyd-gOMpyZRWu9aMStf_FPQOKnw6FPRGyTmQ6scVKlI_nLg-mLgNh10-30dy-LhzUwFbLin2iEpgflY7NjjFzxD6mRbIx0Fldh5fj8eNirKA6F27mWWLV79cwvEnlVTSRo9v0gbhxfO7HuljoECWhq3idsx378it7rOQR02iRhKDWVWuvrJfZSOXrgT4YhKIP7UIk3Ty3nL5j6XbccBbpfcDx_mcN8XwzaL0CJx1eESPZyrjS7jJ7P40jJXWYNT-rLC4E3PoRSCThHKNllcWz7S5TEZbDO0lXLnmBeuyoIEGWsiEACYrky5R3O5XIZmK7gfCVFHVarpUQHpJhJeCtLj8V8mj44g6PLAC4KHklIelFFLcsZZ0X-3tumoNW9FhreqGL489_6Nhf_d1qB5nclkbHljvQBuAYUuxVQD9Y7pMPoHEOz4U2k5U11KpH9y3qnomUvmbtFQMLwtYKTvbFVa0BXERJGDjdo4Kk5w4uUgUde1Rw8c0_n3nQeZrRGFgOsqL8T7GhP7FpZGVkFO6y3KGuT6f0lZ3jE6igQpmoj1IDQpELCOq7OCy5-qk2T3S3RL1UjcuWPaRNAY5X4Q88McrBTY5HklUlo2fHDeoEsbgZzqCr6832Biu8k4qx8to8IB52GpAatGcAcFXMBCdHjwec8XipIlvdJRXnjF25Fd1dUxp-AC4PefbM5JBoxFxtIt6ErKvA3SC52OXM_57LK7U9e2MhOMUBXuXdsIPbNTiRBK4mPcpyguTRAGPoNNsEKrVbnIMGtAlK4uDnp9BYeaXpOdi0nbc2lEgv9vEvsvdaib2SDIaJfKO9zbnARmLwKFB5oleCQnwgGTZqnTm40EtVwRa3ijAoa6UBoOuN_J1pp7aZY8B0XkJF_8P-h3QAJ1mxib6OtVfdmspbGaAuOXCvXc7IaQEjJRxll4n6r1vQ3yPopIthArNu4YPxKk9ngKCAxSzP5bP0o1gbZplSJpU5Ev0D5fryXXI-OHxYWplcRK_FaFnnr3nICUwd-leIll1-T-7lgkeHTEiM-o7kep-E8xY7eOH1YydcsouDHAtRV8LJVNqXjTnXNeSUwgwdaDK4j57pVZNyg1OJpwOXTbqZqGPZOXhdyGmxD6UiyW5EIzrknoGXQ4zgR4XkViwfy-jvqqykc8VeA9CkdJENTilgCSSz0GlEEQJKjx1Jdi8AE-Glnpf3xyqTW748T5FN5NLrCvEOb3czyLWbAQjqNcnJyWyeBS0492LYHjH87wz1rvfDlrq8rbKgiCzgEAFGYkfL7pkSnNdGwsnfiYbsiZEqPCLn27puK_QKCohTcxBcjnZldjxpOfJVnp0MC8MC0a-xDLIA8ghS1SVFuD9p4g0sL-8MgJX7x7i-rkr2jDbfcQezMRco_Ea36a7H-TfO4_Z17YPXayNq08DRIA_SAchBdBRD4lx_0reOGpQBS3IOkJqSlkMyEMAhy6J8OqD8uqikyCXg_iZuj1u7A_eNtsuehfW0epfeWg3MFtY6KLMoPjuh7gg7prbGsVUXc-34Qt8O0jR2w1U5Rsw2ActCHy9wC7RRd8QQMvCPSxIPPnHUJoap2cUS3T2rjL4j4GboeAHRhFADPr_DNh_x7XxljN3hKx8aIaVkFaFYhCqzPhmDPDxCQLaQuY-m914C9GF2mAaqwyLUzbE3fPnPZNASU3fVLfeIZ6DM0My-2Vg6vX7dx42mLNIG9omfxFgCXNAqxrCUnlhQuF13bxq7CtuxVyoODkpoBBLPvQNNuLZyi2fIRNDF8PEklItwMcYoFwPTPySrRdvC2QTGXVCNq8MHOBBRG7IwsS3gewYl44o5Dn9fPXCLnTZHyAi4cY1dcqT81aCav-6qSUYmZgRiNlTZaIEhXcsrvo3EHJUsiqgdfR6s5-swONNiisJ7Pr0VINMqJuFWqYflILUL2lLYCl-1kcMULzHfpC_jODly_E1Ho5UpsLA1l64OGthY6oo3BrRhaFcRYJwV23iSRnnmNEWLwjiwp7HYH5u891ANkDXnsFy-3fW8zTIpjjzdbcd88OmNVHnMNWbhGT1PIXnUuXhiSPXQo-wETKAjGOrKvqLqeAYhFpJfZjXkoy5lTAc1aRnk46AVfAshCOYGVdh-RUzFsC8YGWdZQ2T9VIhwoA7fG_aYEaKhRLNfB8YJ_FT0mroipmhoB9gYoK24N5c2jwPZp95pQAqyIUFcmQhi0Z85vhus4SshlotvPfHSsnvx-y_xqdyrj3JmNYhoQz0mJ2qGSjBh8_EH6hAogxi1RnLuVeGnWJxx-4_mjZ5JqTOZZFCWshttUQMo8QDng4iHXoBjXq_Mb8zdeWRFIlp4DQRaNwTv3lLqnxH2JWRMqFMxFTC6XjfBUsWcF5H5ZkGPSwYadrjjK2Hh4vpfzbK4x5eUgzHoscXA__a9bz6DiTZQbcPgM57e-xsU86Uc0eySsl115dq0a4VyOaS1Gzfvn8dBf07u0_r3QlAAcJWu5waPB-wT in T1
+0075690 LOG1 S2 appended log entry {1 Oho 5} at 5 in T1
+0075691 LOG2 S2  Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4} {1 Oho 5}]
+0075694 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:6}, rf.getFirstLogIndex:0
+0075711 LEAD S2 heartbeat reset triggered manually
+0075712 TIMR S2 Leader, checking heartbeats in T1
+0075712 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:4 preLogT:1 len:1 lCommit:4}
+0075713 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:4 preLogT:1 len:1 lCommit:4}
+0121651 LOG2 S0  After appended, lastLogIndex:5, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4} {1 Oho 5}]
+0121657 CMIT S0 accepted AE RPC in T1
+0121659 INFO S0 accepted AE RPC (from S2) in T1
+0121659 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0121752 TIMR S2 Leader, checking heartbeats in T1
+0121754 LOG1 S2 -> S0 Sending (with heartbeat) in T1 {T:1 preLogIdx:4 preLogT:1 len:1 lCommit:4}
+0121755 LOG1 S2 -> S1 Sending (with heartbeat) in T1 {T:1 preLogIdx:4 preLogT:1 len:1 lCommit:4}
+0121820 INFO S2 lastApplied:4, commitIndex:5
+0121821 CMIT S2 applying log as a Leader at 5 {1 Oho 5} in T1,[5 - 0]
+0121826 PERS S2 persisting state in T1: {T:1 VF:2 LogLength:6}, rf.getFirstLogIndex:0
+0121835 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0121837 LOG2 S0  After appended, lastLogIndex:5, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4} {1 Oho 5}]
+0121839 CMIT S0 accepted AE RPC in T1
+0121840 INFO S0 accepted AE RPC (from S2) in T1
+0121841 PERS S0 persisting state in T1: {T:1 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0121863 LEAD S1 timeout, starts a new election for T2
+0121865 PERS S1 persisting state in T2: {T:2 VF:1 LogLength:5}, rf.getFirstLogIndex:0
+0121894 VOTE S2 stepping down from leader in T2
+0121895 PERS S2 persisting state in T2: {T:2 VF:-1 LogLength:6}, rf.getFirstLogIndex:0
+0121908 TIMR S2 Resetting ELT by receiving an AppEnt in T2
+0121909 TIMR S0 Resetting ELT by receiving an AppEnt in T1
+0121929 VOTE S0 rejects voting S1 in T2
+0121930 PERS S0 persisting state in T2: {T:2 VF:-1 LogLength:6}, rf.getFirstLogIndex:0
+0121961 VOTE S2 rejects voting S1 in T2
+0121963 PERS S2 persisting state in T2: {T:2 VF:-1 LogLength:6}, rf.getFirstLogIndex:0
+0121977 PERS S1 persisting state in T2: {T:2 VF:1 LogLength:5}, rf.getFirstLogIndex:0
+0156043 LEAD S0 timeout, starts a new election for T3
+0156085 VOTE S2 votes for S0 in T3
+0156087 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0156108 VOTE S0 received vote from S2 (for T3) in T3
+0156109 LEAD S0 achieved Majority for T3 (2), converting to leader
+0156111 LEAD S0 heartbeat reset triggered manually
+0156113 TIMR S0 Leader, checking heartbeats in T3
+0156115 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0156116 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0156135 CMIT S2 accepted AE RPC in T3
+0156136 INFO S2 accepted AE RPC (from S0) in T3
+0156136 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0156175 VOTE S1 stepping down from candidate in T3
+0156176 VOTE S1 votes for S0 in T3
+0156177 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:5}, rf.getFirstLogIndex:0
+0156193 VOTE S0 received vote from S1 (for T3) in T3
+0156195 TIMR S2 Resetting ELT by granting others in T3
+0156196 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0156197 TIMR S0 Resetting ELT by winning an election in T3
+0156216 LOG2 S1 Rejected AE RPC in T3 (from S0), because args.PrevLogIndex:5 > rf.lastLogIndex:4
+0156217 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:5}, rf.getFirstLogIndex:0
+0156237 TIMR S1 Resetting ELT by granting others in T3
+0156238 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0161968 TIMR S0 Leader, checking heartbeats in T3
+0161971 LOG1 S0 -> S1 Sending (with heartbeat) in T3 {T:3 preLogIdx:3 preLogT:1 len:2 lCommit:4}
+0161973 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0161995 CMIT S2 accepted AE RPC in T3
+0161997 INFO S2 accepted AE RPC (from S0) in T3
+0161997 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0162024 LOG2 S1  After appended, lastLogIndex:5, Logs: [{0 <nil> 0} {1 99 1} {1 R1z 2} {1 OhQ 3} {1 6s8 4} {1 Oho 5}]
+0162026 CMIT S1 accepted AE RPC in T3
+0162027 INFO S1 accepted AE RPC (from S0) in T3
+0162027 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0162042 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0162043 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0167028 TIMR S0 Leader, checking heartbeats in T3
+0167030 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0167033 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0167065 CMIT S2 accepted AE RPC in T3
+0167066 INFO S2 accepted AE RPC (from S0) in T3
+0167067 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0167108 CMIT S1 accepted AE RPC in T3
+0167109 INFO S1 accepted AE RPC (from S0) in T3
+0167109 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0167184 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0167186 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0172066 TIMR S0 Leader, checking heartbeats in T3
+0172069 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0172071 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0172101 CMIT S2 accepted AE RPC in T3
+0172102 INFO S2 accepted AE RPC (from S0) in T3
+0172103 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0172132 CMIT S1 accepted AE RPC in T3
+0172133 INFO S1 accepted AE RPC (from S0) in T3
+0172134 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0172148 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0172149 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0177137 TIMR S0 Leader, checking heartbeats in T3
+0177141 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0177142 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0177166 CMIT S2 accepted AE RPC in T3
+0177167 INFO S2 accepted AE RPC (from S0) in T3
+0177168 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0177200 CMIT S1 accepted AE RPC in T3
+0177201 INFO S1 accepted AE RPC (from S0) in T3
+0177201 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0177215 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0177216 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0182236 TIMR S0 Leader, checking heartbeats in T3
+0182239 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0182240 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0182269 CMIT S2 accepted AE RPC in T3
+0182270 INFO S2 accepted AE RPC (from S0) in T3
+0182271 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0182302 CMIT S1 accepted AE RPC in T3
+0182303 INFO S1 accepted AE RPC (from S0) in T3
+0182304 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0182316 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0182318 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0187321 TIMR S0 Leader, checking heartbeats in T3
+0187326 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0187328 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0187355 CMIT S2 accepted AE RPC in T3
+0187356 INFO S2 accepted AE RPC (from S0) in T3
+0187357 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0187393 CMIT S1 accepted AE RPC in T3
+0187394 INFO S1 accepted AE RPC (from S0) in T3
+0187395 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0187411 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0187412 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0192760 TIMR S0 Leader, checking heartbeats in T3
+0192764 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0192766 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0192802 CMIT S2 accepted AE RPC in T3
+0192804 INFO S2 accepted AE RPC (from S0) in T3
+0192804 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0192833 CMIT S1 accepted AE RPC in T3
+0192836 INFO S1 accepted AE RPC (from S0) in T3
+0192836 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0192853 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0192855 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0197860 TIMR S0 Leader, checking heartbeats in T3
+0197863 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0197865 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0197892 CMIT S2 accepted AE RPC in T3
+0197893 INFO S2 accepted AE RPC (from S0) in T3
+0197893 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0197924 CMIT S1 accepted AE RPC in T3
+0197925 INFO S1 accepted AE RPC (from S0) in T3
+0197926 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0197941 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0197943 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0202953 TIMR S0 Leader, checking heartbeats in T3
+0202956 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0202960 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0202988 CMIT S2 accepted AE RPC in T3
+0202988 INFO S2 accepted AE RPC (from S0) in T3
+0202989 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0203018 CMIT S1 accepted AE RPC in T3
+0203019 INFO S1 accepted AE RPC (from S0) in T3
+0203020 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0203031 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0203032 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0208020 TIMR S0 Leader, checking heartbeats in T3
+0208024 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0208025 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0208067 CMIT S2 accepted AE RPC in T3
+0208068 INFO S2 accepted AE RPC (from S0) in T3
+0208070 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0208053 CMIT S1 accepted AE RPC in T3
+0208087 INFO S1 accepted AE RPC (from S0) in T3
+0208088 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0208101 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0208103 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0213189 TIMR S0 Leader, checking heartbeats in T3
+0213192 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0213193 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0213216 CMIT S2 accepted AE RPC in T3
+0213217 INFO S2 accepted AE RPC (from S0) in T3
+0213218 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0213319 CMIT S1 accepted AE RPC in T3
+0213320 INFO S1 accepted AE RPC (from S0) in T3
+0213321 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0213818 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0213828 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0218258 TIMR S0 Leader, checking heartbeats in T3
+0218261 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0218263 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0218288 CMIT S2 accepted AE RPC in T3
+0218290 INFO S2 accepted AE RPC (from S0) in T3
+0218290 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0218316 CMIT S1 accepted AE RPC in T3
+0218317 INFO S1 accepted AE RPC (from S0) in T3
+0218318 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0218337 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0218338 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0223318 TIMR S0 Leader, checking heartbeats in T3
+0223322 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0223323 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0223350 CMIT S2 accepted AE RPC in T3
+0223351 INFO S2 accepted AE RPC (from S0) in T3
+0223352 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0223377 CMIT S1 accepted AE RPC in T3
+0223379 INFO S1 accepted AE RPC (from S0) in T3
+0223379 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0223393 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0223395 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0228819 TIMR S0 Leader, checking heartbeats in T3
+0228822 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0228824 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0228848 CMIT S2 accepted AE RPC in T3
+0228850 INFO S2 accepted AE RPC (from S0) in T3
+0228850 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0228884 CMIT S1 accepted AE RPC in T3
+0228886 INFO S1 accepted AE RPC (from S0) in T3
+0228886 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0228899 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0228900 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0233860 TIMR S0 Leader, checking heartbeats in T3
+0233864 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0233867 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0233897 CMIT S2 accepted AE RPC in T3
+0233898 INFO S2 accepted AE RPC (from S0) in T3
+0233899 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0233929 CMIT S1 accepted AE RPC in T3
+0233930 INFO S1 accepted AE RPC (from S0) in T3
+0233930 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0233947 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0233949 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0238972 TIMR S0 Leader, checking heartbeats in T3
+0238975 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0238977 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0239001 CMIT S2 accepted AE RPC in T3
+0239003 INFO S2 accepted AE RPC (from S0) in T3
+0239004 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0239031 CMIT S1 accepted AE RPC in T3
+0239032 INFO S1 accepted AE RPC (from S0) in T3
+0239033 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0239044 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0239045 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0243984 TIMR S0 Leader, checking heartbeats in T3
+0243988 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0243989 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0244019 CMIT S2 accepted AE RPC in T3
+0244020 INFO S2 accepted AE RPC (from S0) in T3
+0244020 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0244051 CMIT S1 accepted AE RPC in T3
+0244051 INFO S1 accepted AE RPC (from S0) in T3
+0244052 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0244065 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0244066 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0249085 TIMR S0 Leader, checking heartbeats in T3
+0249088 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0249090 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0249119 CMIT S2 accepted AE RPC in T3
+0249120 INFO S2 accepted AE RPC (from S0) in T3
+0249121 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0249151 CMIT S1 accepted AE RPC in T3
+0249152 INFO S1 accepted AE RPC (from S0) in T3
+0249152 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0249165 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0249166 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0254191 TIMR S0 Leader, checking heartbeats in T3
+0254194 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0254195 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0254218 CMIT S2 accepted AE RPC in T3
+0254220 INFO S2 accepted AE RPC (from S0) in T3
+0254220 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0254300 CMIT S1 accepted AE RPC in T3
+0254302 INFO S1 accepted AE RPC (from S0) in T3
+0254302 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0254327 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0254328 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0259251 TIMR S0 Leader, checking heartbeats in T3
+0259262 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0259265 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0259296 CMIT S2 accepted AE RPC in T3
+0259297 INFO S2 accepted AE RPC (from S0) in T3
+0259298 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0259324 CMIT S1 accepted AE RPC in T3
+0259325 INFO S1 accepted AE RPC (from S0) in T3
+0259325 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0259332 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0259334 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0264425 TIMR S0 Leader, checking heartbeats in T3
+0264428 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0264430 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0264453 CMIT S2 accepted AE RPC in T3
+0264454 INFO S2 accepted AE RPC (from S0) in T3
+0264455 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0264486 CMIT S1 accepted AE RPC in T3
+0264487 INFO S1 accepted AE RPC (from S0) in T3
+0264488 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0264499 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0264500 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0269478 TIMR S0 Leader, checking heartbeats in T3
+0269482 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0269483 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0269517 CMIT S2 accepted AE RPC in T3
+0269518 INFO S2 accepted AE RPC (from S0) in T3
+0269519 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0269550 CMIT S1 accepted AE RPC in T3
+0269551 INFO S1 accepted AE RPC (from S0) in T3
+0269552 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0269574 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+0269614 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0274584 TIMR S0 Leader, checking heartbeats in T3
+0274587 LOG1 S0 -> S1 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0274588 LOG1 S0 -> S2 Sending heartbeat in T3 {T:3 preLogIdx:5 preLogT:1 len:0 lCommit:4}
+0274615 CMIT S2 accepted AE RPC in T3
+0274616 INFO S2 accepted AE RPC (from S0) in T3
+0274617 PERS S2 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0274637 CMIT S1 accepted AE RPC in T3
+0274638 INFO S1 accepted AE RPC (from S0) in T3
+0274639 PERS S1 persisting state in T3: {T:3 VF:0 LogLength:6}, rf.getFirstLogIndex:0
+0274651 TIMR S2 Resetting ELT by receiving an AppEnt in T3
+0274659 TIMR S1 Resetting ELT by receiving an AppEnt in T3
+--- FAIL: TestRPCBytes2B (2.76s)
+    test_test.go:160: trace file: trace-ujgEb
+    config.go:613: one(OhoEaY1ASz365fFei_l7iNZ-dJ_EP130QcFKyZ5YXAFXFqdsu2s_yBs0MiAjz3H4TeD1iwlhbX8KNTNSsh-dN46LQ4oZMuejNfvONwO335ZpVlOzfJ_zUYxRjofTpN40PCZdVppmMI-ueQJXUsbLLNMUK76Psb63szrnu1X4WeRfHYa6QbSyC4tIsclZ5PUtPQuiIBiiRClS8c98tBkjMpMjkEV0pHm2SqvmC0Bh4wZ9rLUBZKJU7MQuhNrQ_167NCaEVQ3Ipq-Q3aaj_fJurOn2ZFAmDLayk3kTm1Kq4lPDaVAUcmxxmL9p_4KNHqzRbTHk7L3TYCfIatO7Fz4qMIn-8GNbrVMpwsJDiVQbuBpJ_oveBqYxBiRRvPhHT-zEkp9d8ewoCSga_FFQH_Whk0T-tUhn1Zz_lObHRj0dTgS9pwlrVwNPBeZRpBhv3FOJib3qpnM-vDpH8zwyEXI5Ns57SwwbMBmhNVTnzJqnnoePXzR1Xr2UrPeTxwxJj-tmuL5OJ7eejAX51sCSzehEq5iVqsK43Za2-kznpBUIv1DAoPr3lrnrVRy1HxsPSApGoFUYd4w2Epeicf5i6RYR8XBHJc3NOfYeshz5TrEPFy-hwL1xaQ5HiO-nFQcq0QcjiH4ry0u_Yl-soJH-MHY4Zl-Jqbe_O0x8c6JIn036_4xa53_r5ISapVqntgmAaBm7bTytaeFCmOquf_qCXvh4mSOR2an3CE-v2TGZPtLWiQ8uNXI5VUykmbSBWa_lA1y7K0gsPP7cQSAGVU3AI9Dge9bKAGv305ALaaWuEXCi9o2JjV0D2zx512MhGYhl67kKz23Pl34gWkckRA_Jk_m2VDMgoX50pWsRrX83imFBgRC7exLi11vqcHUFYxVF79LSRODTZNkHTkPa44eLkX1jReIgqC1ejXpKPYJzlgIXnr-1hxVAOTNgeXApndlm_q8DvRwmuUk2pMHE9sJG6QfDXOqGzdl1nBnMnoSrdWGbK6PlubTJiOW8EblqRiV7pmG3ejJTyR2zXrewrVD_pAYXQUb81yhla8V8rNGDdjMTk0TKASeBeqTqShjGmADhwExlgCZyFP6yFhZnYqEzVT2dP-KpklIb3_qPyK_GudZkTBQlZ4WlySfdvBGzekeJG5ILiRgGajA3_QvBpcw9-lnJKKyLkFgqGJzrFVE5JlzsRRUPmD9NTUH0mW_1j_zyeXnSMXybE2qsm8N46rrfhtL9DSWEJQRPtntkIJs_SfEG8sNowMrJad7ptb1H1LanAQ1r-if53Mblgm4LXA3JbRBB-LCwQDnubvzwrvO-3UWiJxY6TzRsokH1YEPytfMa3ME7v_eZaUwL-lndS1C6rhtSoRJhZL-TLld-IFQS9iPGfBa0Az5BqNV35WKxFxUZTpJZrKMIyTYfxXXEWKqeZbO8XKKkspsvAUvY2OMfqBGKEx4rvx-1t9wt5tTGP4M3rmjrof1PfOz1Pku6DeYHWpAFm4QcwFzq-esrlqPfW_yJDqgR8BghgZC52w1wDj0WNXlZoZz1uONEm_MuDCi5UHyKj9O6lYlWaE7t9w9fd9CLPg2j4c59LEgvmFNbXNFxkwsQhxF9S-3CpSfBS2PvRbQRBqTMYmhxWBfV8WFBbqYJhGWXMvRwY3a41uuFAlPIiAqexobKYet8ew2bt6pmTn9VGEcbDlR0WeygnF2fmAVGZwXPMu_U94QEfSNb-a4dfrSgaQe3Q_4Ueq2ulnKEipQuPMs6B6PhKuh4of93qYYdf5KKOC1dI32UTE3yn9naNpE2DqCyUH294HMEeZEKsxupciv-wqXbs1kHYsO2V6vfk-o8kx_An5j0kCsAR_4eTMEJtbmV7hPc2YDWapdz1gjuB5-FYeSTWC8gb_Vb8xxZwAWlSWy-AedIPpMxHhECtS90H4gohyxmDTo9R-Idn9Bog0TGgwMhOug4gMWO37ibaBAxljm_xZ0BkGMS6HgPeiy9-WaQko7e7iccG2jyEgwqUMOzN_uCJFbfJ4gjAztk869FXhjcfTIl9C0AyQv_vvuGKpcqfftFIqUMBbVgTsMCb8ctfXfrUcxVar5JypvAf2a6EdvBXoZztmzJbdH20iDJK5bSBcNXOJgj1wQDT3vOktxyJVlb82Z13HIRSRFV6TtDt0gbikpeBwlKQN87IXL8JQSkWbHV2iOm59jtCHv4Vm9aT5xE-YkhktPvQrYN_vr6-1MeGIPZAKxRe4UgIpAdvMtOAevk3tohhoRVVB85nKmtD8TRcjvskETTWHPJggCcgdyVlSXc7aa-MFVEvFf2DR-NsuVfLdLMx3lZtbocJOSLFHH4kIAu-0JW9Viu9oDT73Ct_c3s0nnHTc6zOU3WmFZUGVEhUk5o7wX58VrC_OEaiqgKjBTcPA8rgomS9fqme8duICzxz2bKmC0faPN6MSDm_DsnOSscIzCfAEyAbs6n6iYRhYSiu6SUU_0IwuUu_mP821X6UPhLuIs3yJfrUQCfBeaCyd-gOMpyZRWu9aMStf_FPQOKnw6FPRGyTmQ6scVKlI_nLg-mLgNh10-30dy-LhzUwFbLin2iEpgflY7NjjFzxD6mRbIx0Fldh5fj8eNirKA6F27mWWLV79cwvEnlVTSRo9v0gbhxfO7HuljoECWhq3idsx378it7rOQR02iRhKDWVWuvrJfZSOXrgT4YhKIP7UIk3Ty3nL5j6XbccBbpfcDx_mcN8XwzaL0CJx1eESPZyrjS7jJ7P40jJXWYNT-rLC4E3PoRSCThHKNllcWz7S5TEZbDO0lXLnmBeuyoIEGWsiEACYrky5R3O5XIZmK7gfCVFHVarpUQHpJhJeCtLj8V8mj44g6PLAC4KHklIelFFLcsZZ0X-3tumoNW9FhreqGL489_6Nhf_d1qB5nclkbHljvQBuAYUuxVQD9Y7pMPoHEOz4U2k5U11KpH9y3qnomUvmbtFQMLwtYKTvbFVa0BXERJGDjdo4Kk5w4uUgUde1Rw8c0_n3nQeZrRGFgOsqL8T7GhP7FpZGVkFO6y3KGuT6f0lZ3jE6igQpmoj1IDQpELCOq7OCy5-qk2T3S3RL1UjcuWPaRNAY5X4Q88McrBTY5HklUlo2fHDeoEsbgZzqCr6832Biu8k4qx8to8IB52GpAatGcAcFXMBCdHjwec8XipIlvdJRXnjF25Fd1dUxp-AC4PefbM5JBoxFxtIt6ErKvA3SC52OXM_57LK7U9e2MhOMUBXuXdsIPbNTiRBK4mPcpyguTRAGPoNNsEKrVbnIMGtAlK4uDnp9BYeaXpOdi0nbc2lEgv9vEvsvdaib2SDIaJfKO9zbnARmLwKFB5oleCQnwgGTZqnTm40EtVwRa3ijAoa6UBoOuN_J1pp7aZY8B0XkJF_8P-h3QAJ1mxib6OtVfdmspbGaAuOXCvXc7IaQEjJRxll4n6r1vQ3yPopIthArNu4YPxKk9ngKCAxSzP5bP0o1gbZplSJpU5Ev0D5fryXXI-OHxYWplcRK_FaFnnr3nICUwd-leIll1-T-7lgkeHTEiM-o7kep-E8xY7eOH1YydcsouDHAtRV8LJVNqXjTnXNeSUwgwdaDK4j57pVZNyg1OJpwOXTbqZqGPZOXhdyGmxD6UiyW5EIzrknoGXQ4zgR4XkViwfy-jvqqykc8VeA9CkdJENTilgCSSz0GlEEQJKjx1Jdi8AE-Glnpf3xyqTW748T5FN5NLrCvEOb3czyLWbAQjqNcnJyWyeBS0492LYHjH87wz1rvfDlrq8rbKgiCzgEAFGYkfL7pkSnNdGwsnfiYbsiZEqPCLn27puK_QKCohTcxBcjnZldjxpOfJVnp0MC8MC0a-xDLIA8ghS1SVFuD9p4g0sL-8MgJX7x7i-rkr2jDbfcQezMRco_Ea36a7H-TfO4_Z17YPXayNq08DRIA_SAchBdBRD4lx_0reOGpQBS3IOkJqSlkMyEMAhy6J8OqD8uqikyCXg_iZuj1u7A_eNtsuehfW0epfeWg3MFtY6KLMoPjuh7gg7prbGsVUXc-34Qt8O0jR2w1U5Rsw2ActCHy9wC7RRd8QQMvCPSxIPPnHUJoap2cUS3T2rjL4j4GboeAHRhFADPr_DNh_x7XxljN3hKx8aIaVkFaFYhCqzPhmDPDxCQLaQuY-m914C9GF2mAaqwyLUzbE3fPnPZNASU3fVLfeIZ6DM0My-2Vg6vX7dx42mLNIG9omfxFgCXNAqxrCUnlhQuF13bxq7CtuxVyoODkpoBBLPvQNNuLZyi2fIRNDF8PEklItwMcYoFwPTPySrRdvC2QTGXVCNq8MHOBBRG7IwsS3gewYl44o5Dn9fPXCLnTZHyAi4cY1dcqT81aCav-6qSUYmZgRiNlTZaIEhXcsrvo3EHJUsiqgdfR6s5-swONNiisJ7Pr0VINMqJuFWqYflILUL2lLYCl-1kcMULzHfpC_jODly_E1Ho5UpsLA1l64OGthY6oo3BrRhaFcRYJwV23iSRnnmNEWLwjiwp7HYH5u891ANkDXnsFy-3fW8zTIpjjzdbcd88OmNVHnMNWbhGT1PIXnUuXhiSPXQo-wETKAjGOrKvqLqeAYhFpJfZjXkoy5lTAc1aRnk46AVfAshCOYGVdh-RUzFsC8YGWdZQ2T9VIhwoA7fG_aYEaKhRLNfB8YJ_FT0mroipmhoB9gYoK24N5c2jwPZp95pQAqyIUFcmQhi0Z85vhus4SshlotvPfHSsnvx-y_xqdyrj3JmNYhoQz0mJ2qGSjBh8_EH6hAogxi1RnLuVeGnWJxx-4_mjZ5JqTOZZFCWshttUQMo8QDng4iHXoBjXq_Mb8zdeWRFIlp4DQRaNwTv3lLqnxH2JWRMqFMxFTC6XjfBUsWcF5H5ZkGPSwYadrjjK2Hh4vpfzbK4x5eUgzHoscXA__a9bz6DiTZQbcPgM57e-xsU86Uc0eySsl115dq0a4VyOaS1Gzfvn8dBf07u0_r3QlAAcJWu5waPB-wT) failed to reach agreement
+FAIL
+exit status 1
+FAIL	6.5840/raft	2.898s
