@@ -46,6 +46,7 @@ import (
 type ApplyMsg struct {
 	CommandValid bool
 	Command      interface{}
+	CommandTerm  int
 	CommandIndex int
 
 	// For 2D:
@@ -211,7 +212,7 @@ func (rf *Raft) readPersist(raftState []byte, spBytes []byte) {
 		rf.mu.Unlock()
 	}
 
-	if spBytes != nil && len(spBytes) > 0 {
+	if len(spBytes) > 0 {
 		rf.mu.Lock()
 		rf.snapshot.Data = spBytes
 		rf.inputApplyChan <- ApplyMsg{
@@ -438,6 +439,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 				CommandValid: true,
 				Command:      rf.log[i-rf.getFirstLogIndex()].Command,
 				CommandIndex: i,
+				CommandTerm:  rf.log[i-rf.getFirstLogIndex()].Term,
 			}
 			rf.lastApplied = i
 		}
@@ -930,6 +932,7 @@ func (rf *Raft) commitApplier() {
 						CommandValid: true,
 						Command:      rf.log[i-rf.getFirstLogIndex()].Command,
 						CommandIndex: i,
+						CommandTerm:  rf.log[i-rf.getFirstLogIndex()].Term,
 					}
 					rf.lastApplied = i
 				}

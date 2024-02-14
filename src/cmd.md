@@ -169,7 +169,10 @@ TestSnapshotInit2D
 
 
 
-dstest  -p 50 -n 100 -o run_logsD TestSnapshotBasic2D TestSnapshotInstall2D TestSnapshotInstallUnreliable2D TestSnapshotInstallCrash2D TestSnapshotInstallUnCrash2D TestSnapshotAllCrash2D TestSnapshotInit2D
+dstest  -p 50 -n 100 -o run_logs2D TestSnapshotBasic2D TestSnapshotInstall2D TestSnapshotInstallUnreliable2D TestSnapshotInstallCrash2D TestSnapshotInstallUnCrash2D TestSnapshotAllCrash2D TestSnapshotInit2D
+
+dstest  -p 36 -n 100 -o run_logs2CD TestPersist12C  TestPersist22C  TestPersist32C  TestFigure82C TestUnreliableAgree2C TestFigure8Unreliable2C  TestReliableChurn2C TestUnreliableChurn2C TestSnapshotBasic2D TestSnapshotInstall2D TestSnapshotInstallUnreliable2D TestSnapshotInstallCrash2D TestSnapshotInstallUnCrash2D TestSnapshotAllCrash2D TestSnapshotInit2D
+
 
 
 #### All
@@ -229,7 +232,14 @@ TestPersistPartition3A
 TestPersistPartitionUnreliable3A
 TestPersistPartitionUnreliableLinearizable3A
 
-dstest -p 32 -n 20 -o run_logsA TestBasic3A TestSpeed3A TestConcurrent3A TestUnreliable3A TestUnreliableOneKey3A TestOnePartition3A TestManyPartitionsOneClient3A TestManyPartitionsManyClients3A TestPersistOneClient3A TestPersistConcurrent3A TestPersistConcurrentUnreliable3A TestPersistPartition3A TestPersistPartitionUnreliable3A TestPersistPartitionUnreliableLinearizable3A
+dstest -p 32 -n 20 -o run_logs3A TestBasic3A TestSpeed3A TestConcurrent3A TestUnreliable3A TestUnreliableOneKey3A TestOnePartition3A TestManyPartitionsOneClient3A TestManyPartitionsManyClients3A TestPersistOneClient3A TestPersistConcurrent3A TestPersistConcurrentUnreliable3A TestPersistPartition3A TestPersistPartitionUnreliable3A TestPersistPartitionUnreliableLinearizable3A
+
+dstest -p 32 -n 20 -o run_logs3A TestBasic3A TestConcurrent3A TestUnreliable3A TestUnreliableOneKey3A TestOnePartition3A TestManyPartitionsOneClient3A TestManyPartitionsManyClients3A TestPersistOneClient3A TestPersistConcurrent3A TestPersistConcurrentUnreliable3A TestPersistPartition3A TestPersistPartitionUnreliable3A TestPersistPartitionUnreliableLinearizable3A
+
+dstest -p 32 -n 200 -o run_logs3A TestBasic3A TestConcurrent3A TestUnreliable3A TestUnreliableOneKey3A TestOnePartition3A TestManyPartitionsOneClient3A TestManyPartitionsManyClients3A 
+
+
+dstest -p 64 -n 200 -o run_logs3A TestPersistConcurrent3A TestPersistPartition3A
 
 ## 3B
 TestSnapshotRPC3B
@@ -260,6 +270,6 @@ dstest -p 32 -n 32 -o run_logsB  TestSnapshotSize3B
 ### All
 dstest -p 32 -n 32 -o run_logsAll TestSnapshotRPC3B TestSnapshotSize3B TestSnapshotRecover3B TestSnapshotRecoverManyClients3B TestSnapshotUnreliable3B TestSnapshotUnreliableRecover3B TestSnapshotUnreliableRecoverConcurrentPartition3B TestSnapshotUnreliableRecoverConcurrentPartitionLinearizable3B
 
-// exclude TestSpeed3A,TestSnapshotSize3B since it needs speed
+***exclude TestSpeed3A,TestSnapshotSize3B since it needs speed***
 
 dstest -p 32 -n 100 -o run_logsAll TestBasic3A  TestConcurrent3A TestUnreliable3A TestUnreliableOneKey3A TestOnePartition3A TestManyPartitionsOneClient3A TestManyPartitionsManyClients3A TestPersistOneClient3A TestPersistConcurrent3A TestPersistConcurrentUnreliable3A TestPersistPartition3A TestPersistPartitionUnreliable3A TestPersistPartitionUnreliableLinearizable3A TestSnapshotRPC3B TestSnapshotRecover3B TestSnapshotRecoverManyClients3B TestSnapshotUnreliable3B TestSnapshotUnreliableRecover3B TestSnapshotUnreliableRecoverConcurrentPartition3B TestSnapshotUnreliableRecoverConcurrentPartitionLinearizable3B

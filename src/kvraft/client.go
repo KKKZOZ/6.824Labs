@@ -29,7 +29,6 @@ func nrand() int64 {
 func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
-	// You'll have to add code here.
 	ck.clientId = nrand()
 	ck.lastLeaderId = -1
 	return ck
@@ -60,7 +59,9 @@ func (ck *Clerk) sendRequest(method string, argsT any) Reply {
 			replyT = reply
 		}
 
-		if !ok || replyT.Error() == ErrWrongLeader {
+		if !ok ||
+			replyT.Error() == ErrWrongLeader ||
+			replyT.Error() == ErrTimeout {
 			ck.debug(SRequest, "failed (method: %v, args: %v),resending...\n", method, argsT)
 			lastLeaderId = (lastLeaderId + 1) % len(ck.servers)
 		} else {

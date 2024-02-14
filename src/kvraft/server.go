@@ -13,15 +13,6 @@ import (
 	"6.5840/raft"
 )
 
-//const Debug = false
-
-//func DPrintf(format string, a ...interface{}) (n int, err error) {
-//	if Debug {
-//		log.Printf(format, a...)
-//	}
-//	return
-//}
-
 type OpType string
 
 const (
@@ -33,9 +24,6 @@ const (
 const TIMEOUT = 3000
 
 type Op struct {
-	// Your definitions here.
-	// Field names must start with capital letters,
-	// otherwise RPC will break.
 	OpType   OpType
 	Key      string
 	Value    string
@@ -45,12 +33,17 @@ type Op struct {
 
 type Snapshot struct {
 	KVMap    map[string]string
-	DupTable map[int64]TableEntry
+	DupTable map[int64]OperationContext
 }
 
-type TableEntry struct {
+type OperationContext struct {
 	SeqNum int
 	Value  string
+}
+
+type ResultMsg struct {
+	Index  int
+	Result string
 }
 
 type KVServer struct {
@@ -63,19 +56,17 @@ type KVServer struct {
 	maxraftstate int // snapshot if log grows this big
 
 	// Your definitions here.
-	persister *raft.Persister
-	kvMap     map[string]string
-	broker    *Broker[raft.ApplyMsg]
-	dupTable  map[int64]TableEntry
+	persister      *raft.Persister
+	kvMap          map[string]string
+	broker         *Broker[raft.ApplyMsg]
+	lastOperations map[int64]OperationContext
 }
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
-	// Your code here.
 	kv.mu.Lock()
 
 	if kv.isDuplicate(args.ClientId, args.SeqNum) {
-		reply.Err = OK
-		reply.Value = kv.dupTable[args.ClientId].Value
+		reply.Err, reply.Value = OK, kv.lastOperations[args.ClientId].Value
 		kv.mu.Unlock()
 		kv.debug(
 			SResponse, "[Duplicate] Get response (ClientInfo: %v): [K: %v V: %v]\n", args.ClientInfo, args.Key,
@@ -86,7 +77,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	kv.mu.Unlock()
 
 	command := Op{OpType: GET, Key: args.Key, ClientId: args.ClientId, SeqNum: args.SeqNum}
-	index, _, isLeader := kv.rf.Start(command)
+	index, curTerm, isLeader := kv.rf.Start(command)
 
 	kv.debug(SRequest, "starts Get request (ClientInfo: %v): [K: %v]\n", args.ClientInfo, args.Key)
 	if !isLeader {
@@ -100,26 +91,26 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	for {
 		select {
 		case <-time.After(TIMEOUT * time.Millisecond):
-			reply.Err = ErrWrongLeader
+			reply.Err = ErrTimeout
 			return
 		case applyMsg := <-msgChan:
 			if !applyMsg.CommandValid || applyMsg.CommandIndex != index {
 				continue
 			}
-			if applyMsg.Command == command {
-				kv.mu.Lock()
-				op := applyMsg.Command.(Op)
-				reply.Err = OK
-				reply.Value = kv.kvMap[op.Key]
-				kv.debug(
-					SResponse, "Get response (ClientInfo: %v): [K: %v V: %v]\n", args.ClientInfo, args.Key, reply.Value,
-				)
-				kv.mu.Unlock()
-				return
-			} else {
+			if applyMsg.CommandTerm != curTerm {
 				reply.Err = ErrWrongLeader
 				return
 			}
+
+			kv.mu.Lock()
+			op := applyMsg.Command.(Op)
+			reply.Err = OK
+			reply.Value = kv.kvMap[op.Key]
+			kv.debug(
+				SResponse, "Get response (ClientInfo: %v): [K: %v V: %v]\n", args.ClientInfo, args.Key, reply.Value,
+			)
+			kv.mu.Unlock()
+			return
 
 		}
 	}
@@ -145,7 +136,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		ClientId: args.ClientId, SeqNum: args.SeqNum,
 	}
 
-	index, _, isLeader := kv.rf.Start(command)
+	index, curTerm, isLeader := kv.rf.Start(command)
 	if !isLeader {
 		reply.Err = ErrWrongLeader
 		return
@@ -158,20 +149,20 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	for {
 		select {
 		case <-time.After(TIMEOUT * time.Millisecond):
-			reply.Err = ErrWrongLeader
+			reply.Err = ErrTimeout
 			return
 		case applyMsg := <-msgChan:
 			if !applyMsg.CommandValid || applyMsg.CommandIndex != index {
 				continue
 			}
-			if applyMsg.Command == command {
-				reply.Err = OK
-				kv.debug(SResponse, "PutAppend response (ClientInfo: %v): %v\n", args.ClientInfo, args.Key)
-				return
-			} else {
+			if applyMsg.CommandTerm != curTerm {
 				reply.Err = ErrWrongLeader
 				return
 			}
+
+			reply.Err = OK
+			kv.debug(SResponse, "PutAppend response (ClientInfo: %v): %v\n", args.ClientInfo, args.Key)
+			return
 		}
 	}
 }
@@ -187,7 +178,6 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 func (kv *KVServer) Kill() {
 	atomic.StoreInt32(&kv.dead, 1)
 	kv.rf.Kill()
-	// Your code here, if desired.
 }
 
 func (kv *KVServer) killed() bool {
@@ -200,53 +190,71 @@ func (kv *KVServer) applyPub() {
 		applyMsg := <-kv.applyCh
 
 		if applyMsg.SnapshotValid {
-			data := applyMsg.Snapshot
-			r := bytes.NewBuffer(data)
-			d := labgob.NewDecoder(r)
-			var snapshot Snapshot
-			if err := d.Decode(&snapshot); err != nil {
-				panic(err)
-			} else {
-				kv.mu.Lock()
-				kv.kvMap = snapshot.KVMap
-				kv.dupTable = snapshot.DupTable
-				kv.mu.Unlock()
-			}
+			kv.restoreSnapshot(applyMsg.Snapshot)
 			continue
 		}
 
 		kv.mu.Lock()
+		// var response string
 		op := applyMsg.Command.(Op)
+		// if it is a duplicate message
+		// return as it has been processed in the first time
 		if !applyMsg.CommandValid || kv.isDuplicate(op.ClientId, op.SeqNum) {
 			kv.mu.Unlock()
+			// response = kv.lastOperations[op.ClientId].Value
 			kv.broker.Publish(applyMsg)
 			continue
+		} else {
+			_ = kv.processCommand(op)
 		}
 
-		switch op.OpType {
-		case GET:
-		case PUT:
-			kv.kvMap[op.Key] = op.Value
-		case APPEND:
-			kv.kvMap[op.Key] += op.Value
+		if curTerm, isLeader := kv.rf.GetState(); isLeader &&
+			applyMsg.CommandTerm == curTerm {
+			kv.broker.Publish(applyMsg)
 		}
-		kv.dupTable[op.ClientId] = TableEntry{SeqNum: op.SeqNum, Value: kv.kvMap[op.Key]}
-		kv.broker.Publish(applyMsg)
-
-		if kv.maxraftstate != -1 && kv.persister.RaftStateSize() >= kv.maxraftstate {
-			snapshot := &Snapshot{kv.kvMap, kv.dupTable}
-
-			w := new(bytes.Buffer)
-			e := labgob.NewEncoder(w)
-			err := e.Encode(snapshot)
-			if err != nil {
-				panic(err)
-			}
-			data := w.Bytes()
-			kv.rf.Snapshot(applyMsg.CommandIndex, data)
-		}
-
+		kv.checkRaftStateSize(applyMsg.CommandIndex)
 		kv.mu.Unlock()
+	}
+}
+
+func (kv *KVServer) processCommand(op Op) string {
+	switch op.OpType {
+	case GET:
+	case PUT:
+		kv.kvMap[op.Key] = op.Value
+	case APPEND:
+		kv.kvMap[op.Key] += op.Value
+	}
+	kv.lastOperations[op.ClientId] = OperationContext{SeqNum: op.SeqNum, Value: kv.kvMap[op.Key]}
+	return kv.kvMap[op.Key]
+}
+
+func (kv *KVServer) restoreSnapshot(data []byte) {
+	r := bytes.NewBuffer(data)
+	d := labgob.NewDecoder(r)
+	var snapshot Snapshot
+	if err := d.Decode(&snapshot); err != nil {
+		panic(err)
+	} else {
+		kv.mu.Lock()
+		kv.kvMap = snapshot.KVMap
+		kv.lastOperations = snapshot.DupTable
+		kv.mu.Unlock()
+	}
+}
+
+func (kv *KVServer) checkRaftStateSize(index int) {
+	if kv.maxraftstate != -1 && kv.persister.RaftStateSize() >= kv.maxraftstate {
+		snapshot := &Snapshot{kv.kvMap, kv.lastOperations}
+
+		w := new(bytes.Buffer)
+		e := labgob.NewEncoder(w)
+		err := e.Encode(snapshot)
+		if err != nil {
+			panic(err)
+		}
+		data := w.Bytes()
+		kv.rf.Snapshot(index, data)
 	}
 }
 
@@ -275,7 +283,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 
 	kv.kvMap = make(map[string]string)
 	kv.broker = NewBroker[raft.ApplyMsg]()
-	kv.dupTable = make(map[int64]TableEntry)
+	kv.lastOperations = make(map[int64]OperationContext)
 
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
@@ -284,7 +292,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	// You may need initialization code here.
 
 	spBytes := persister.ReadSnapshot()
-	if spBytes != nil && len(spBytes) > 0 {
+	if len(spBytes) > 0 {
 		r := bytes.NewBuffer(spBytes)
 		d := labgob.NewDecoder(r)
 		var snapshot Snapshot
@@ -292,7 +300,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 			panic(err)
 		} else {
 			kv.kvMap = snapshot.KVMap
-			kv.dupTable = snapshot.DupTable
+			kv.lastOperations = snapshot.DupTable
 		}
 	}
 
@@ -303,7 +311,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 }
 
 func (kv *KVServer) isDuplicate(clientId int64, seqNum int) bool {
-	entry, ok := kv.dupTable[clientId]
+	entry, ok := kv.lastOperations[clientId]
 	if ok && entry.SeqNum >= seqNum {
 		return true
 	}

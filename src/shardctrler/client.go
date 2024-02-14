@@ -4,14 +4,21 @@ package shardctrler
 // Shardctrler clerk.
 //
 
-import "6.5840/labrpc"
-import "time"
-import "crypto/rand"
-import "math/big"
+import (
+	"crypto/rand"
+	"math/big"
+	"sync"
+	"time"
+
+	"6.5840/labrpc"
+)
 
 type Clerk struct {
 	servers []*labrpc.ClientEnd
 	// Your data here.
+	mu       sync.Mutex
+	clientId int64
+	seqNum   int
 }
 
 func nrand() int64 {
@@ -25,11 +32,13 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.servers = servers
 	// Your code here.
+	ck.clientId = nrand()
+	ck.seqNum = 0
 	return ck
 }
 
 func (ck *Clerk) Query(num int) Config {
-	args := &QueryArgs{}
+	args := &QueryArgs{CommonArgs: ck.generateCommonArgs()}
 	// Your code here.
 	args.Num = num
 	for {
@@ -46,7 +55,7 @@ func (ck *Clerk) Query(num int) Config {
 }
 
 func (ck *Clerk) Join(servers map[int][]string) {
-	args := &JoinArgs{}
+	args := &JoinArgs{CommonArgs: ck.generateCommonArgs()}
 	// Your code here.
 	args.Servers = servers
 
@@ -64,7 +73,7 @@ func (ck *Clerk) Join(servers map[int][]string) {
 }
 
 func (ck *Clerk) Leave(gids []int) {
-	args := &LeaveArgs{}
+	args := &LeaveArgs{CommonArgs: ck.generateCommonArgs()}
 	// Your code here.
 	args.GIDs = gids
 
@@ -82,7 +91,7 @@ func (ck *Clerk) Leave(gids []int) {
 }
 
 func (ck *Clerk) Move(shard int, gid int) {
-	args := &MoveArgs{}
+	args := &MoveArgs{CommonArgs: ck.generateCommonArgs()}
 	// Your code here.
 	args.Shard = shard
 	args.GID = gid
@@ -98,4 +107,11 @@ func (ck *Clerk) Move(shard int, gid int) {
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
+}
+
+func (ck *Clerk) generateCommonArgs() CommonArgs {
+	ck.mu.Lock()
+	defer ck.mu.Unlock()
+	ck.seqNum++
+	return CommonArgs{ClientId: ck.clientId, SeqNum: ck.seqNum}
 }

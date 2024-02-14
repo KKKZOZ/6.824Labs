@@ -11,3 +11,5 @@ mrtmp.*
 /main/mrsequential
 /main/mrworker
 output.log
+
+run_logs*

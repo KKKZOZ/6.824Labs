@@ -30,6 +30,7 @@ const (
 
 	SRequest  LogTopic = "LEAD"
 	SResponse LogTopic = "VOTE"
+	SConfig   LogTopic = "CONF"
 )
 
 var servers = []LogTopic{SRequest, SResponse}
