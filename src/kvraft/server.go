@@ -58,7 +58,7 @@ type KVServer struct {
 	// Your definitions here.
 	persister      *raft.Persister
 	kvMap          map[string]string
-	broker         *Broker[raft.ApplyMsg]
+	broker         *Broker[ResultMsg]
 	lastOperations map[int64]OperationContext
 }
 
@@ -77,7 +77,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	kv.mu.Unlock()
 
 	command := Op{OpType: GET, Key: args.Key, ClientId: args.ClientId, SeqNum: args.SeqNum}
-	index, curTerm, isLeader := kv.rf.Start(command)
+	index, _, isLeader := kv.rf.Start(command)
 
 	kv.debug(SRequest, "starts Get request (ClientInfo: %v): [K: %v]\n", args.ClientInfo, args.Key)
 	if !isLeader {
@@ -93,25 +93,15 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		case <-time.After(TIMEOUT * time.Millisecond):
 			reply.Err = ErrTimeout
 			return
-		case applyMsg := <-msgChan:
-			if !applyMsg.CommandValid || applyMsg.CommandIndex != index {
+		case resMsg := <-msgChan:
+			if resMsg.Index != index {
 				continue
 			}
-			if applyMsg.CommandTerm != curTerm {
-				reply.Err = ErrWrongLeader
-				return
-			}
-
-			kv.mu.Lock()
-			op := applyMsg.Command.(Op)
-			reply.Err = OK
-			reply.Value = kv.kvMap[op.Key]
+			reply.Err, reply.Value = OK, resMsg.Result
 			kv.debug(
 				SResponse, "Get response (ClientInfo: %v): [K: %v V: %v]\n", args.ClientInfo, args.Key, reply.Value,
 			)
-			kv.mu.Unlock()
 			return
-
 		}
 	}
 
@@ -136,7 +126,7 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		ClientId: args.ClientId, SeqNum: args.SeqNum,
 	}
 
-	index, curTerm, isLeader := kv.rf.Start(command)
+	index, _, isLeader := kv.rf.Start(command)
 	if !isLeader {
 		reply.Err = ErrWrongLeader
 		return
@@ -151,15 +141,10 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		case <-time.After(TIMEOUT * time.Millisecond):
 			reply.Err = ErrTimeout
 			return
-		case applyMsg := <-msgChan:
-			if !applyMsg.CommandValid || applyMsg.CommandIndex != index {
+		case resMsg := <-msgChan:
+			if resMsg.Index != index {
 				continue
 			}
-			if applyMsg.CommandTerm != curTerm {
-				reply.Err = ErrWrongLeader
-				return
-			}
-
 			reply.Err = OK
 			kv.debug(SResponse, "PutAppend response (ClientInfo: %v): %v\n", args.ClientInfo, args.Key)
 			return
@@ -195,22 +180,24 @@ func (kv *KVServer) applyPub() {
 		}
 
 		kv.mu.Lock()
-		// var response string
+		var response string
 		op := applyMsg.Command.(Op)
 		// if it is a duplicate message
 		// return as it has been processed in the first time
 		if !applyMsg.CommandValid || kv.isDuplicate(op.ClientId, op.SeqNum) {
-			kv.mu.Unlock()
-			// response = kv.lastOperations[op.ClientId].Value
-			kv.broker.Publish(applyMsg)
-			continue
+			response = kv.lastOperations[op.ClientId].Value
+			// kv.broker.Publish(applyMsg)
+			// continue
 		} else {
-			_ = kv.processCommand(op)
+			response = kv.processCommand(op)
 		}
 
 		if curTerm, isLeader := kv.rf.GetState(); isLeader &&
 			applyMsg.CommandTerm == curTerm {
-			kv.broker.Publish(applyMsg)
+			kv.broker.Publish(ResultMsg{
+				Index:  applyMsg.CommandIndex,
+				Result: response,
+			})
 		}
 		kv.checkRaftStateSize(applyMsg.CommandIndex)
 		kv.mu.Unlock()
@@ -282,7 +269,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	// You may need initialization code here.
 
 	kv.kvMap = make(map[string]string)
-	kv.broker = NewBroker[raft.ApplyMsg]()
+	kv.broker = NewBroker[ResultMsg]()
 	kv.lastOperations = make(map[int64]OperationContext)
 
 	kv.applyCh = make(chan raft.ApplyMsg)
