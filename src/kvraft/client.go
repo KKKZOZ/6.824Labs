@@ -62,7 +62,7 @@ func (ck *Clerk) sendRequest(method string, argsT any) Reply {
 		if !ok ||
 			replyT.Error() == ErrWrongLeader ||
 			replyT.Error() == ErrTimeout {
-			ck.debug(SRequest, "failed (method: %v, args: %v),resending...\n", method, argsT)
+			ck.debug(SRequest, "failed (method: %v, args: %v) because of %v, resending\n", replyT.Error(), method, argsT)
 			lastLeaderId = (lastLeaderId + 1) % len(ck.servers)
 		} else {
 			//ck.mu.Lock()

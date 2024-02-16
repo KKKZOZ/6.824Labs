@@ -426,7 +426,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	// reply
 	reply.Term = rf.currentTerm
 	reply.Success = true
-	rf.debug(DCommit, "accepted AE RPC in T%d\n", rf.currentTerm)
+	// rf.debug(DCommit, "accepted AE RPC in T%d\n", rf.currentTerm)
 
 	if args.LeaderCommit > rf.commitIndex {
 		rf.commitIndex = min(args.LeaderCommit, rf.getLastLogIndex())
